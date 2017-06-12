@@ -19,8 +19,6 @@ class CreateCategoriesTable extends Migration
             $table->string('alias')->nullable();
             $table->integer('parent_id');
             $table->text('description')->nullable();
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
             $table->timestamps();
         });
     }
