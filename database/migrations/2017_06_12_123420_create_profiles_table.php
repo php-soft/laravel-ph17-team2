@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->integer('phone');
             $table->string('address', 255);
             $table->string('image', 255);
-            $table->string('gender', 255);
+            $table->integer('gender');
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
