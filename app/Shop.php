@@ -19,5 +19,3 @@ class Shop extends Model
         return $this->belongsTo('App\user');
     }
 }
-
-
