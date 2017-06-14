@@ -20,3 +20,4 @@ class Shop extends Model
     }
 }
 
+
