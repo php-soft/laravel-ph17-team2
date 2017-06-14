@@ -18,6 +18,7 @@ class CreateShopProductsMigration extends Migration
             $table->increments('id');
             $table->integer('quantity');
             $table->integer('price');
+            $table->integer('buys');
             $table->integer('discount');
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('product_id')->unsigned()->nullable();
