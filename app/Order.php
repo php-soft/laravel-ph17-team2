@@ -8,7 +8,9 @@ class Order extends Model
 {
     protected $table = 'orders';
 
+
     public $timestamp = true;
+
 
     protected $fillable = [
         'id',
@@ -23,9 +25,9 @@ class Order extends Model
         'voucher_code'
     ];
 
+
     public function order_products()
     {
         return $this->hasMany('App\OrderProduct');
     }
-
 }

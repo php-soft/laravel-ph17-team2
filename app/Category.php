@@ -8,6 +8,7 @@ class Category extends Model
 {
     public $timestamp = false;
 
+
     protected $fillable = [
         'name',
         'alias',
@@ -15,10 +16,12 @@ class Category extends Model
         'description'
     ];
 
+
     public function products()
     {
         return $this->hasMany('App\Product');
     }
+
 
     public function categoryAttributeValues()
     {

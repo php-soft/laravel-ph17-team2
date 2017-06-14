@@ -8,7 +8,9 @@ class ShopProduct extends Model
 {
     protected $table = 'shop_products';
 
+
     public $timestamp = true;
+
 
     protected $fillable = [
         'id',
@@ -20,6 +22,4 @@ class ShopProduct extends Model
         'product_id',
         'shop_id',
     ];
-
-
 }

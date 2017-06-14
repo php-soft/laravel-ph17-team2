@@ -8,7 +8,9 @@ class OrderProduct extends Model
 {
     protected $table = 'order_products';
 
+
     public $timestamp = true;
+
 
     protected $fillable = [
         'id',
@@ -17,6 +19,7 @@ class OrderProduct extends Model
         'order_id',
         'shop_product_id',
     ];
+
 
     public function orders()
     {
