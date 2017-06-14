@@ -18,8 +18,8 @@ class CreateVouchersTable extends Migration
             $table->integer('discount');
             $table->string('code');
             $table->integer('quantily');
-            $table->datetime('start_time');
-            $table->datetime('end_time');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->integer('shop_id')->unsigned()->nullable();
             $table->foreign('shop_id')->references('id')->on('shops'); 
             $table->timestamps();
