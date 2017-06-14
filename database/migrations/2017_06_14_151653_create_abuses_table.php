@@ -18,8 +18,8 @@ class CreateAbusesTable extends Migration
             $table->string('content');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('shop_user_id')->unsigned()->nullable();
-            $table->foreign('shop_user_id')->references('id')->on('shop_products')->onDelete('cascade');
+            $table->integer('shop_product_id')->unsigned()->nullable();
+            $table->foreign('shop_product_id')->references('id')->on('shop_products')->onDelete('cascade');
             $table->timestamps();
         });
     }
