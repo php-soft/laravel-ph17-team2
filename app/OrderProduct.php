@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderProduct extends Model
 {
+    protected $table = 'order_products';
     public $timestamp = true;
-
     protected $fillable = [
         'id',
         'quantity',
@@ -15,7 +15,6 @@ class OrderProduct extends Model
         'order_id',
         'shop_product_id',
     ];
-
     public function orders()
     {
         return $this->belongsTo('App\OrderProduct');

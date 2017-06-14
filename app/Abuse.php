@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Abuses extends Model
+class Abuse extends Model
 {
+    protected $table = 'abuses';
     public $timestamp = true;
-
     protected $fillable = [
         'id',
         'content',
