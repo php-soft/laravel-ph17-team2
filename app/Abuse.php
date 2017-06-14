@@ -18,6 +18,4 @@ class Abuse extends Model
         'user_id',
         'shop_user_id'
     ];
-
-
 }
