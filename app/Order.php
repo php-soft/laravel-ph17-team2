@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'orders';
+
     public $timestamp = true;
+
     protected $fillable = [
         'id',
         'status',
@@ -20,6 +22,7 @@ class Order extends Model
         'name',
         'voucher_code'
     ];
+
     public function order_products()
     {
         return $this->hasMany('App\OrderProduct');

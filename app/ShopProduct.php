@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class ShopProduct extends Model
 {
     protected $table = 'shop_products';
+
     public $timestamp = true;
+
     protected $fillable = [
         'id',
         'quantity',
