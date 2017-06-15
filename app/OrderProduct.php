@@ -22,4 +22,9 @@ class OrderProduct extends Model
     {
         return $this->belongsTo('App\OrderProduct');
     }
+
+    public function shopProduct()
+    {
+        return $this->belongsTo('App\ShopProduct');
+    }
 }
