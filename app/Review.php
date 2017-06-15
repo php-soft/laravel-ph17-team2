@@ -10,9 +10,9 @@ class Review extends Model
         'user_id',
         'shop_product_id',
         'status',
-        'content'       
+        'content'
     ];
-    
+
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -20,6 +20,6 @@ class Review extends Model
 
     public function shopProduct()
     {
-    	return $this->belongsTo('App\shopProduct');
+        return $this->belongsTo('App\shopProduct');
     }
 }
