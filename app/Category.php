@@ -19,7 +19,7 @@ class Category extends Model
     {
         return $this->hasMany('App\Product');
     }
-    
+
     public function categoryAttributeValues()
     {
         return $this->hasMany('App\CategoryAttributeValues');
