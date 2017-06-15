@@ -13,7 +13,8 @@ class UpdateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table)
+        {
             $table->integer('user_id');
         });
     }
