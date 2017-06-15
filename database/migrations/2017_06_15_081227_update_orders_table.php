@@ -25,5 +25,6 @@ class UpdateOrdersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('orders');
     }
 }
