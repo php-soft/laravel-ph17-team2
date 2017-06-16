@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('register', function () {
+    return view('register.register');
+});
+
+Route::get('login', function () {
+    return view('login.login');
+});
+Route::post('register_action','RegisterController@store');
+
