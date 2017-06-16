@@ -17,7 +17,7 @@ class CreateVouchersTable extends Migration
             $table->increments('id');
             $table->integer('discount');
             $table->string('code');
-            $table->integer('quantily');
+            $table->integer('quantity');
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('shop_id')->unsigned()->nullable();
