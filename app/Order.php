@@ -23,7 +23,7 @@ class Order extends Model
         'voucher_code'
     ];
 
-    public function orderProduct()
+    public function orderProducts()
     {
         return $this->hasMany('App\OrderProduct');
     }

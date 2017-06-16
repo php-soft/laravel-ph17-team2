@@ -11,8 +11,8 @@ class NewsCategory extends Model
         'alias'
     ];
     
-    public function news()
+    public function newItem()
     {
-        return $this->hasMany('App\New');
+        return $this->hasMany('App\NewItem');
     }
 }
