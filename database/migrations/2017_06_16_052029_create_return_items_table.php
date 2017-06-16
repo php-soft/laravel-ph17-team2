@@ -15,10 +15,11 @@ class CreateReturnItemsTable extends Migration
     {
         Schema::create('return_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('thumb');
-            $table->integer('product_id')->unsigned()->nullable();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->text('content');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('shop_product_id')->unsigned()->nullable();
+            $table->foreign('shop_product_id')->references('id')->on('shop_products')->onDelete('cascade');
             $table->timestamps();
         });
     }
