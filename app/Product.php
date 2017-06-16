@@ -26,7 +26,7 @@ class Product extends Model
         return $this->hasMany('App\ProductAttributeValue');
     }
 
-    public function shopProduct()
+    public function shopProducts()
     {
         return $this->hasMany('App\ShopProduct');
     }
