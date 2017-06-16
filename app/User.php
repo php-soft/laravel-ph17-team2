@@ -27,9 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function news()
+    public function newItems()
     {
-        return $this->hasMany('App\New');
+        return $this->hasMany('App\NewItem');
     }
 
     public function usersRoles()
