@@ -37,9 +37,9 @@ class User extends Authenticatable
         return $this->hasMany('App\UsersRole');
     }
 
-    public function profiles()
+    public function profile()
     {
-        return $this->hasMany('App\Profile');
+        return  $this->hasOne('App\Profile');
     }
 
     public function wishlistItems()
