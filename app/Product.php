@@ -25,4 +25,19 @@ class Product extends Model
     {
         return $this->hasMany('App\ProductAttributeValue');
     }
+
+    public function shopProducts()
+    {
+        return $this->hasMany('App\ShopProduct');
+    }
+
+    public function productImages()
+    {
+        return $this->hasMany('App\ProductImage');
+    }
+
+    public function wishlistItems()
+    {
+        return $this->hasMany('App\WishlistItem');
+    }
 }
