@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NewsImage extends Model
+class NewImage extends Model
 {
     protected $table = 'new_images';
 
@@ -15,8 +15,8 @@ class NewsImage extends Model
         'new_id'
     ];
 
-    public function news()
+    public function newItem()
     {
-        return $this->belongsTo('App\New');
+        return $this->belongsTo('App\NewItem');
     }
 }

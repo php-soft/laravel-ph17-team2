@@ -36,22 +36,22 @@ class ShopProduct extends Model
         return $this->belongsTo('App\Shop');
     }
 
-    public function orderProduct()
+    public function orderProducts()
     {
         return $this->hasMany('App\OrderProduct');
     }
 
-    public function returnItem()
+    public function returnItems()
     {
         return $this->hasMany('App\ReturnItem');
     }
 
-    public function review()
+    public function reviews()
     {
         return $this->hasMany('App\Review');
     }
 
-    public function abuse()
+    public function abuses()
     {
         return $this->hasMany('App\Abuse');
     }
