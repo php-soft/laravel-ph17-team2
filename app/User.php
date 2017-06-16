@@ -31,38 +31,48 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\New');
     }
-    public function usersRole()
+
+    public function usersRoles()
     {
         return $this->hasMany('App\UsersRole');
     }
-    public function profile()
+
+    public function profiles()
     {
         return $this->hasMany('App\Profile');
     }
-    public function wishlistItem()
+
+    public function wishlistItems()
     {
         return $this->hasMany('App\WishlistItem');
-    }public function review()
-{
+    }
+
+    public function reviews()
+    {
     return $this->hasMany('App\Review');
-}
-    public function abuse()
+    }
+
+    public function abuses()
     {
         return $this->hasMany('App\Abuse');
     }
-    public function order()
+
+    public function orders()
     {
         return $this->hasMany('App\Order');
     }
-    public function shopProduct()
+
+    public function shopProducts()
     {
         return $this->hasMany('App\ShopProduct');
     }
-    public function returnItem()
+
+    public function returnItems()
     {
         return $this->hasMany('App\ReturnItem');
     }
-    public function shop()
+
+    public function shops()
     {
         return $this->hasMany('App\Shop');
     }
