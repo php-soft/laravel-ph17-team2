@@ -23,8 +23,8 @@ class OrderProduct extends Model
         return $this->belongsTo('App\Order');
     }
 
-    public function shopProduct()
+    public function product()
     {
-        return $this->belongsTo('App\ShopProduct');
+        return $this->belongsTo('App\Product');
     }
 }

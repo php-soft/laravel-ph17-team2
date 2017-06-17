@@ -16,14 +16,14 @@ class CreateTableOrders extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('status');
-            $table->decimal('total_price');
+            $table->integer('total_price');
             $table->string('phone');
             $table->string('address');
-            $table->string('shipping_name');
-            $table->string('shipping_address');
-            $table->string('shipping_phone');
+            $table->string('shipping_name')->nullable();
+            $table->string('shipping_address')->nullable();
+            $table->string('shipping_phone')->nullable();
             $table->string('name');
-            $table->string('voucher_code');
+            $table->string('voucher_code')->nullable();
             $table->timestamps();
         });
     }
