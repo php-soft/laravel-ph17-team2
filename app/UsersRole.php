@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsersRole extends Model
 {
-    protected $table = 'return_items';
+    protected $table = 'user_roles';
 
     public $timestamp = true;
 
     protected $fillable = [
         'id',
         'user_id',
-        'shop_product_id',
+        'product_id',
         'content'
     ];
 
