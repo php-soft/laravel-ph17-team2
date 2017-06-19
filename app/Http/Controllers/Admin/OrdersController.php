@@ -23,10 +23,8 @@ class OrdersController extends Controller
             $amount = $product->price*$product->quantity;
             $total_amount = $amount + $total_amount;
         }
-        $users = DB::table('orders')->join('users', 'users.id', '=','orders.user_id')
-        ->join('profiles', 'users.id', '=','profiles.user_id')->where('users.id', '=', $id)->get();
-        return view('admin.orders.show')->with('orders', $orders)->with('users',$users)
-        ->with('status', $status)->with('total_amount',$total_amount);
+        $users = DB::table('orders')->join('users', 'users.id', '=', 'orders.user_id')->join('profiles', 'users.id', '=', 'profiles.user_id')->where('users.id', '=', $id)->get();
+        return view('admin.orders.show')->with('orders', $orders)->with('users', $users)->with('status', $status)->with('total_amount', $total_amount);
     }
 
     public function edit(Request $request, $id)
@@ -36,4 +34,3 @@ class OrdersController extends Controller
         return redirect()->route('adminOrders', ['id' => $id]);
     }
 }
-
