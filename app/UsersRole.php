@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsersRole extends Model
 {
-    protected $table = 'return_items';
+    protected $table = 'user_roles';
 
     public $timestamp = true;
 
