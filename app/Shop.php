@@ -18,4 +18,9 @@ class Shop extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function shopProducts()
+    {
+        return $this->hasMany('App\ShopProduct');
+    }
 }
