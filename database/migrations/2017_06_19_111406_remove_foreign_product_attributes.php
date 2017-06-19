@@ -17,6 +17,10 @@ class RemoveForeignProductAttributes extends Migration
         {
             $table->dropForeign(['attribute_value_id']);
             $table->dropColumn('attribute_value_id');
+        });
+
+        Schema::table('category_attribute_values', function (Blueprint $table) 
+        {
             $table->string('name')->nullable();
         });
     }
@@ -30,9 +34,13 @@ class RemoveForeignProductAttributes extends Migration
     {
         Schema::table('category_attribute_values', function (Blueprint $table) 
         {
-            $table->dropColumn('name');
             $table->unsignedInteger('attribute_value_id')->nullable();
             $table->foreign('attribute_value_id')->references('id')->on('attribute_values');
+        });
+
+        Schema::table('category_attribute_values', function (Blueprint $table) 
+        {
+            $table->dropColumn('name');
         });
     }
 }
