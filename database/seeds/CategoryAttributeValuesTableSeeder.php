@@ -12,9 +12,11 @@ class CategoryAttributeValuesTableSeeder extends Seeder
     public function run()
     {
         DB::table('category_attribute_values')->insert([
-            ['category_id' => 1, 'attribute_value_id' => 1],
-            ['category_id' => 22, 'attribute_value_id' => 2],
-            ['category_id' => 38, 'attribute_value_id' => 3]
+            ['id' => 1, 'category_id' => 1, 'name' => 'Màu'],
+            ['id' => 2, 'category_id' => 22, 'name' => 'Size Áo'],
+            ['id' => 3, 'category_id' => 22, 'name' => 'Màu'],
+            ['id' => 4, 'category_id' => 38, 'name' => 'Màu'],
+            ['id' => 5, 'category_id' => 38, 'name' => 'Size Quần']
         ]);
     }
 }

@@ -16,8 +16,8 @@ class CategoryAttributeValue extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function attributeValue()
+    public function productAttributeValues()
     {
-        return $this->belongsTo('App\AttributeValue');
+        return $this->hasMany('App\CategoryAttributeValue');
     }
 }

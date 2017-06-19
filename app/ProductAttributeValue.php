@@ -18,6 +18,6 @@ class ProductAttributeValue extends Model
 
     public function attributeValue()
     {
-        return $this->belongsTo('App\AttributeValue');
+        return $this->belongsTo('App\CategoryAttributeValue');
     }
 }

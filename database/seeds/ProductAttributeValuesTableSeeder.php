@@ -12,9 +12,9 @@ class ProductAttributeValuesTableSeeder extends Seeder
     public function run()
     {
         DB::table('product_attribute_values')->insert([
-            ['product_id' => 1, 'attribute_value_id' => 2],
-            ['product_id' => 2, 'attribute_value_id' => 3],
-            ['product_id' => 3, 'attribute_value_id' => 1]
+            ['product_id' => 3, 'category_attribute_value_id' => 1, 'value' => 'Đỏ'],
+            ['product_id' => 1, 'category_attribute_value_id' => 2, 'value' => 'L'],
+            ['product_id' => 1, 'category_attribute_value_id' => 3, 'value' => 'Trắng']
         ]);
     }
 }
