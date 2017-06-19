@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Bootstrap Example</title>
+	<title>Manager User</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,8 +19,8 @@
 				<th width="200px">{{$user->name}}</th>
 				<th width="500px">{{$user->email}}</th>
 				<th>
-					<a href="" title=""><span class="glyphicon glyphicon-trash"></span>Xóa User</a>
-					<a href="" title=""><span class="glyphicon glyphicon-edit"></span>Chỉnh sửa User</a>
+					<a href="{{ url('manager-user/'.$user->id.'/delete')}}" title=""><span class="glyphicon glyphicon-trash"></span>Xóa User</a>
+					<a href="{{url('manager-user/'.$user->id.'/edit')}}" title=""><span class="glyphicon glyphicon-edit"></span>Chỉnh sửa User</a>
 				</th>
 			</tr>
 		</table>

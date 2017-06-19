@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('manager-user','UserController@index');
+Route::get('manager-user/{user}/delete','UserController@destroy');
+Route::get('manager-user/{user}/edit','UserController@edit');
+Route::get('manager-user/{user}','UserController@update');
