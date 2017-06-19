@@ -25,3 +25,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::put('/orders/{id}/edit', 'OrdersController@edit')->name('adminOrderEdit');
 });
 
+
