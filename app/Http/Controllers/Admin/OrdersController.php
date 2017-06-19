@@ -14,5 +14,4 @@ class OrdersController extends Controller
         $orders = \App\Order::all();
         return view('admin.orders.index')->with('orders', $orders);
     }
-    
 }
