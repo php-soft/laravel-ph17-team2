@@ -36,3 +36,4 @@ class OrdersController extends Controller
         return redirect()->route('adminOrders', ['id' => $id]);
     }
 }
+
