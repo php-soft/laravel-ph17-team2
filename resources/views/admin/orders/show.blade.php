@@ -34,7 +34,8 @@
                 <div class="panel-body">
                     <h2>Product Informations</h2>
                     <div class="col-md-12">
-                        <div class="col-md-1"> {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
+                        <div class="col-md-1">
+                            {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
                             {{ Form::hidden('status', 0) }}
                             {{ Form::submit('NEW',['class'=>'btn btn-primary']) }}
                             {{ Form::close() }}
