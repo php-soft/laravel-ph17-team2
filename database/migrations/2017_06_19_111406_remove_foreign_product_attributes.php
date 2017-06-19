@@ -17,7 +17,7 @@ class RemoveForeignProductAttributes extends Migration
         {
             $table->dropForeign(['attribute_value_id']);
             $table->dropColumn('attribute_value_id');
-            $table->string('name');
+            $table->string('name')->nullable();
         });
     }
 

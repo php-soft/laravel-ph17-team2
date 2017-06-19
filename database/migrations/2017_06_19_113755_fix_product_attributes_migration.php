@@ -19,7 +19,7 @@ class FixProductAttributesMigration extends Migration
             $table->dropColumn('attribute_value_id');
             $table->integer('category_attribute_value_id')->unsigned()->nullable();
             $table->foreign('category_attribute_value_id')->references('id')->on('category_attribute_values');
-            $table->string('value');
+            $table->string('value')->nullable();
         });
     }
 
