@@ -17,6 +17,10 @@ class FixProductAttributesMigration extends Migration
         {
             $table->dropForeign(['attribute_value_id']);
             $table->dropColumn('attribute_value_id');
+        });
+
+        Schema::table('product_attribute_values', function (Blueprint $table) 
+        {
             $table->integer('category_attribute_value_id')->unsigned()->nullable();
             $table->foreign('category_attribute_value_id')->references('id')->on('category_attribute_values');
             $table->string('value')->nullable();
@@ -32,10 +36,14 @@ class FixProductAttributesMigration extends Migration
     {
         Schema::table('product_attribute_values', function (Blueprint $table) 
         {
-            $table->dropForeign(['category_attribute_value_id']);
-            $table->dropColumn('category_attribute_value_id');
             $table->unsignedInteger('attribute_value_id')->nullable();
             $table->foreign('attribute_value_id')->references('id')->on('attribute_values');
+        });
+
+        Schema::table('product_attribute_values', function (Blueprint $table) 
+        {
+            $table->dropForeign(['category_attribute_value_id']);
+            $table->dropColumn('category_attribute_value_id');
             $table->dropColumn('value');
         });
     }
