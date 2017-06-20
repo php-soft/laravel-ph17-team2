@@ -30,5 +30,4 @@ class UserController extends Controller
         $user->update(Input::all());
         return redirect('user');
     }
-    
 }
