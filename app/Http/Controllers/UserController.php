@@ -28,7 +28,7 @@ class UserController extends Controller
     public function update(User $user)
     {
         $user->update(Input::all());
-        
         return redirect('user');
     }
+    
 }
