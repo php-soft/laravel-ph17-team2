@@ -32,6 +32,7 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                             <li><a href="{{ route('ordersAdmin') }}">Orders</a></li>
+                            <li><a href="{{ route('managerUser') }}">Manager User</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
