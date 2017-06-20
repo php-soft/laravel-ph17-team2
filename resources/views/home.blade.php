@@ -56,11 +56,7 @@
                     <div class="col-sm-12">
                         <div class="beta-products-list">
                             <h4>New Products</h4>
-                            <div class="beta-products-details">
-                                <p class="pull-left">438 styles found</p>
-                                <div class="clearfix"></div>
-                            </div>
-
+                            <div class="space30">&nbsp;</div>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="single-item">
@@ -144,10 +140,7 @@
 
                         <div class="beta-products-list">
                             <h4>Top Products</h4>
-                            <div class="beta-products-details">
-                                <p class="pull-left">438 styles found</p>
-                                <div class="clearfix"></div>
-                            </div>
+                            <div class="space30">&nbsp;</div>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="single-item">
