@@ -13,15 +13,18 @@ class UserController extends Controller
     	$users = User::all();
     	return view('user.index')->with('users',$users);
     }
+
     public function destroy(User $user)
     {
     	$user->delete();
     	return redirect('user');
     }
+
     public function edit(User $user)
     {
     	return view('user.edit')->with('user',$user);
     }
+    
     public function update(User $user)
     {
         $user->update(Input::all());

@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::put('/orders/{id}/edit', 'OrdersController@edit')->name('adminOrderEdit');
 });
 
-Route::get('user','UserController@index'); 
-Route::get('user/{user}/delete','UserController@destroy'); 
-Route::get('user/{user}/edit','UserController@edit'); 
-Route::get('user/{user}','UserController@update'); 
+Route::get('user', 'UserController@index');
+Route::get('user/{user}/delete', 'UserController@destroy');
+Route::get('user/{user}/edit', 'UserController@edit');
+Route::get('user/{user}', 'UserController@update');
