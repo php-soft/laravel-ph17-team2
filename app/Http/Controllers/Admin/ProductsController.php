@@ -28,6 +28,9 @@ class ProductsController extends Controller
             ->where('products.id', '=', $id)
             ->select('product_attribute_values.value')
             ->get();
-        return view('admin.products.show')->with('shops', $shops)->with('product', $product)->with('attributes', $attributes);
+        return view('admin.products.show')
+            ->with('shops', $shops)
+            ->with('product', $product)
+            ->with('attributes', $attributes);
     }
 }
