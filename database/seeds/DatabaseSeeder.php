@@ -26,8 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(WishlistItemsTableSeeder::class);
         $this->call(ReviewsTableSeeder::class);
         $this->call(VouchersTableSeeder::class);
-        $this->call(AttributesTableSeeder::class);
-        $this->call(AttributeValuesTableSeeder::class);
         $this->call(CategoryAttributeValuesTableSeeder::class);
         $this->call(ProductAttributeValuesTableSeeder::class);
         $this->call(ProductImagesTableSeeder::class);
