@@ -31,7 +31,7 @@ class OrdersController extends Controller
 
     public function edit($id, $status)
     {
-        if(Request::ajax())
+        if (Request::ajax() )
         {
             $orders = \App\Order::find($id);
             $orders->status = $status;
