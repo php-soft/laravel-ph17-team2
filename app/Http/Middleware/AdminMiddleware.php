@@ -18,6 +18,7 @@ class AdminMiddleware
     {
         if (!Auth::guest() && Auth::user()->email == "admin@gmail.com") {
             return $next($request);
+            return view('admin.index');
         }
         return redirect('/home');
     }

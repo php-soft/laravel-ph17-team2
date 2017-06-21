@@ -33,9 +33,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
 });
 
 
-// Route::get('admin', function(){
-// 	return view('admin.index');
-// });
-// Route::get('access', function(){
-// 	return "trang admin";
-// })->middleware('isAdmin');
+
+Route::get('access', function(){
+	return "trang admin";
+})->middleware('isAdmin');
