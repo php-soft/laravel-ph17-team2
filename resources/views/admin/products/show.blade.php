@@ -22,13 +22,20 @@
     <br>
     <label for="price">Giá</label>
     <p id="price">{{ $product->price }} VNĐ</p>
-    <label for="">Thuộc tính</label>
-    <br>
+    <div>
+    <label for="">Size  màu</label>
     @foreach($attributes as $attribute)
         {!! $attribute->value !!}
         <br>
     @endforeach
-    <label for="quantity">Số lượng:</label> <input type="number" min="1" max="9999" autofocus="autofocus" required value="1">
+    <p>
+        <label for="quantity">Số lượng:</label> <input type="number" min="1" max="9999" autofocus="autofocus" required value="1">&nbsp;&nbsp;(Còn lại 
+        @foreach($shop_products as $shop_product)
+            {!! $shop_product->quantity !!}
+        @endforeach
+         sản phẩm)
+     </p>
+</div>
     <div>Sản phẩm liên quan</div>
     <br>
     <br>

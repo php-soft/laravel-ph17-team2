@@ -1,67 +1,55 @@
-<!DOCTYPE html>
-
-<html lang="{{ app()->getLocale() }}">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name', 'Laravel') }} </title>
+    <base href="{{ asset('') }}">
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="source/assets/dest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="source/assets/dest/vendors/colorbox/example3/colorbox.css">
+    <link rel="stylesheet" href="source/assets/dest/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="source/assets/dest/rs-plugin/css/responsive.css">
+    <link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
+    <link rel="stylesheet" href="source/assets/dest/css/animate.css">
+    <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+    @include('header')
+    <div class="rev-slider">
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    @include('footer')
+       
+    
+    <!-- include js files -->
+    <script src="source/assets/dest/js/jquery.js"></script>
+    <script src="source/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="source/assets/dest/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="source/assets/dest/vendors/colorbox/jquery.colorbox-min.js"></script>
+    <script src="source/assets/dest/vendors/animo/Animo.js"></script>
+    <script src="source/assets/dest/vendors/dug/dug.js"></script>
+    <script src="source/assets/dest/js/scripts.min.js"></script>
+    <script src="source/assets/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="source/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="source/assets/dest/js/waypoints.min.js"></script>
+    <script src="source/assets/dest/js/wow.min.js"></script>
+    <!--customjs-->
+    <script src="source/assets/dest/js/custom2.js"></script>
+    <script>
+    $(document).ready(function($) {
+        $(window).scroll(function(){
+            if($(this).scrollTop()>150){
+            $(".header-bottom").addClass('fixNav')
+            }else{
+                $(".header-bottom").removeClass('fixNav')
+            }}
+        )
+    })
+    </script>
 </body>
 </html>
