@@ -30,3 +30,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}/edit', 'UserController@edit');
     Route::get('/user/{user}', 'UserController@update');
 });
+
+Route::get('user/profile', 'User\UserController@index');
+Route::get('user/information', 'User\UserController@information');
