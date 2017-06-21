@@ -18,9 +18,9 @@ class HomeController extends Controller
         $product = \App\Product::find($productId);
         $shopProduct = \App\ShopProduct::find($shopProductId);
         $attributes = DB::table('products')
-                        ->leftJoin('product_attribute_values', 
-                                   'product_attribute_values.product_id', 
-                                   '=', 
+                        ->leftJoin('product_attribute_values',
+                                   'product_attribute_values.product_id',
+                                   '=',
                                    'products.id')
                         ->where('products.id', $productId)
                         ->select('product_attribute_values.value')
