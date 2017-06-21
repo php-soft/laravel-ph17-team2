@@ -1,21 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                    <br>
-                </div>
-            </div>
-        </div>
-=======
-
     <div class="fullwidthbanner-container">
                     <div class="fullwidthbanner">
                         <div class="bannercontainer" >
@@ -57,8 +42,6 @@
 
                         <div class="tp-bannertimer"></div>
                     </div>
-                
->>>>>>> f4b069d8f4a9bf68cefcc158ebc10e45ebd2e4ee
     </div>
                 <!--slider-->
     </div>
@@ -74,16 +57,16 @@
                             
 
                             <div class="row">
-                                @foreach($products as $product)
+                                @foreach($shop_products as $shop_product)
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('home/' . $product->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $product->image !!}"></a>
+                                                <a href="{{ url('home/' . $shop_product->product->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shop_product->product->image !!}"></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{!! $product->name !!}</p>
+                                                <p class="single-item-title">{!! $shop_product->product->name !!}</p>
                                                 <p class="single-item-price">
-                                                    <span>{!! $product->price !!} VNĐ</span>
+                                                    <span>{!! $shop_product->product->price !!} VNĐ</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
