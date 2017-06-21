@@ -6,6 +6,7 @@
                 <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <a href="{{ url('/admin/orders') }}">Back to overview</a>
                                 <h2>Customer  Informations</h2>
                                 <div class="col-md-6">
                                     @if (!empty($orders->user_id))
@@ -34,63 +35,58 @@
                         <div class="panel-body">
                             <h2>Product Informations</h2>
 
-                            <div class="col-md-12">
-                                <div class="col-md-1"> {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
-                                    {{ Form::hidden('status', 0) }}
+                            <div class="col-md-12 order-status-actions">
+                                <div class="col-md-1">
+                                    {{Form::open(['route'=>['adminOrderEditStatus', $orders->id, 0], 'method'=>'put', 'class'=>'form-status'])}}
                                     @if(($orders->status)==0)
-                                    {{ Form::submit('NEW',['class'=>'btn btn-danger']) }}
+                                    {{ Form::submit('NEW',['class'=>'btn btn-danger','id'=>$orders->id]) }}
                                     @else
-                                    {{ Form::submit('NEW',['class'=>'btn btn-primary']) }}
+                                    {{ Form::submit('NEW',['class'=>'btn btn-primary','id'=>$orders->id]) }}
                                     @endif
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-1">
-                                    {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
-                                    {{ Form::hidden('status', 1) }}
+                                    {{Form::open(['route'=>['adminOrderEditStatus', $orders->id, 1], 'method'=>'put', 'class'=>'form-status'])}}
                                     @if(($orders->status)== 1)
-                                        {{ Form::submit('Confirm',['class'=>'btn btn-danger']) }}
+                                        {{ Form::submit('Confirm',['class'=>'btn btn-danger','id'=>$orders->id]) }}
                                     @else
-                                        {{ Form::submit('Confirm',['class'=>'btn btn-primary']) }}
+                                        {{ Form::submit('Confirm',['class'=>'btn btn-primary','id'=>$orders->id]) }}
                                     @endif
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-1">
-                                    {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
-                                    {{ Form::hidden('status', 2) }}
+                                    {{Form::open(['route'=>['adminOrderEditStatus', $orders->id, 2], 'method'=>'put', 'class'=>'form-status'])}}
                                     @if(($orders->status)== 2)
-                                        {{ Form::submit('Payment',['class'=>'btn btn-danger']) }}
+                                        {{ Form::submit('Payment',['class'=>'btn btn-danger','id'=>$orders->id]) }}
                                     @else
-                                        {{ Form::submit('Payment',['class'=>'btn btn-primary']) }}
+                                        {{ Form::submit('Payment',['class'=>'btn btn-primary','id'=>$orders->id]) }}
                                     @endif
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-1">
-                                    {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
-                                    {{ Form::hidden('status', 3) }}
+                                    {{Form::open(['route'=>['adminOrderEditStatus', $orders->id, 3], 'method'=>'put', 'class'=>'form-status'])}}
                                     @if(($orders->status)== 3)
-                                        {{ Form::submit('Shipping',['class'=>'btn btn-danger']) }}
+                                        {{ Form::submit('Shipping',['class'=>'btn btn-danger','id'=>$orders->id]) }}
                                     @else
-                                        {{ Form::submit('Shipping',['class'=>'btn btn-primary']) }}
+                                        {{ Form::submit('Shipping',['class'=>'btn btn-primary','id'=>$orders->id]) }}
                                     @endif
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-1">
-                                    {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
-                                    {{ Form::hidden('status', 4) }}
+                                    {{Form::open(['route'=>['adminOrderEditStatus', $orders->id, 4], 'method'=>'put', 'class'=>'form-status'])}}
                                     @if(($orders->status)== 4)
-                                        {{ Form::submit('Return',['class'=>'btn btn-danger']) }}
+                                        {{ Form::submit('Return',['class'=>'btn btn-danger','id'=>$orders->id]) }}
                                     @else
-                                        {{ Form::submit('Return',['class'=>'btn btn-primary']) }}
+                                        {{ Form::submit('Return',['class'=>'btn btn-primary','id'=>$orders->id]) }}
                                     @endif
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-1">
-                                    {{Form::open(['route'=>['adminOrderEdit', $orders->id], 'method' => 'put'])}}
-                                    {{ Form::hidden('status', 5) }}
+                                    {{Form::open(['route'=>['adminOrderEditStatus', $orders->id, 5], 'method'=>'put', 'class'=>'form-status'])}}
                                     @if(($orders->status)== 5)
-                                        {{ Form::submit('Done',['class'=>'btn btn-danger']) }}
+                                        {{ Form::submit('Done',['class'=>'btn btn-danger','id'=>$orders->id]) }}
                                     @else
-                                        {{ Form::submit('Done',['class'=>'btn btn-primary']) }}
+                                        {{ Form::submit('Done',['class'=>'btn btn-primary','id'=>$orders->id]) }}
                                     @endif
                                     {{ Form::close() }}
                                 </div>

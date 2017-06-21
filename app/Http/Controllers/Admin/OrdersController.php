@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -29,10 +29,13 @@ class OrdersController extends Controller
         ->with('status', $status)->with('total_amount', $total_amount);
     }
 
-    public function edit(Request $request, $id)
+    public function edit($id, $status)
     {
-        $orders = \App\Order::findOrFail($id);
-        $orders->update($request->all());
-        return redirect()->route('adminOrders', ['id' => $id]);
+      if(Request::ajax()){
+          $orders = \App\Order::find($id);
+          $orders->status = $status;
+          $orders->save();
+          return response()->json(['status' => $orders->status]);
+      }
     }
 }
