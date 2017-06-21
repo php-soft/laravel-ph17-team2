@@ -1,10 +1,12 @@
 <?php
-namespace App\Http\Controllers;
 
-use Input;
+namespace App\Http\Controllers\Admin;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\User;
+use Input;
 
 class UserController extends Controller
 {
@@ -17,7 +19,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('user');
+        return redirect('admin/user');
     }
 
     public function edit(User $user)
@@ -28,6 +30,6 @@ class UserController extends Controller
     public function update(User $user)
     {
         $user->update(Input::all());
-        return redirect('user');
+        return redirect('admin/user');
     }
 }

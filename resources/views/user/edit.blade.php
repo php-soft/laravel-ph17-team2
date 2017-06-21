@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-<form action="{{ url('user/'.$user->id) }}">
+<form action="{{ url('admin/user/'.$user->id) }}">
 		<div class="form-group">
 			<label for="text">Thay đổi Tên :</label>
 			<input type="text" class="form-control" id="name" placeholder="Edit tên" name="name">

@@ -23,11 +23,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
     Route::get('/orders/{id}', 'OrdersController@show')->name('adminOrders');
     Route::put('/orders/{id}/edit', 'OrdersController@edit')->name('adminOrderEdit');
-});
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('user', 'UserController@index')->name('managerUser');
-    Route::get('user/{user}/delete', 'UserController@destroy');
-    Route::get('user/{user}/edit', 'UserController@edit');
-    Route::get('user/{user}', 'UserController@update');
+    Route::get('/user', 'UserController@index')->name('managerUser');
+    Route::get('/user/{user}/delete', 'UserController@destroy');
+    Route::get('/user/{user}/edit', 'UserController@edit');
+    Route::get('/user/{user}', 'UserController@update');
 });

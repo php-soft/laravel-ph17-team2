@@ -9,8 +9,8 @@
 			<th width="200px">{{$user->name}}</th>
 			<th width="500px">{{$user->email}}</th>
 			<th>
-				<a href="{{ url('user/'.$user->id.'/delete')}}" title=""><span class="glyphicon glyphicon-trash"></span>Xóa User</a>
-				<a href="{{url('user/'.$user->id.'/edit')}}" title=""><span class="glyphicon glyphicon-edit"></span>Chỉnh sửa User</a>
+				<a href="{{ url('admin/user/'.$user->id.'/delete') }}" title=""><span class="glyphicon glyphicon-trash"></span>Xóa User</a>
+				<a href="{{ url('admin/user/'.$user->id.'/edit') }}" title=""><span class="glyphicon glyphicon-edit"></span>Chỉnh sửa User</a>
 			</th>
 		</tr>
 	</table>
