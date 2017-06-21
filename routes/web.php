@@ -23,6 +23,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
     Route::get('/orders/{id}', 'OrdersController@show')->name('adminOrders');
     Route::put('/orders/{id}/edit', 'OrdersController@edit')->name('adminOrderEdit');
-    Route::get('/products', 'ProductsController@index');
+    Route::get('/products', 'ProductsController@index')->name('products');
     Route::get('/products/{id}', 'ProductsController@show')->name('showProduct');
 });

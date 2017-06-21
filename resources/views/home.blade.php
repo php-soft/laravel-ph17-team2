@@ -9,6 +9,8 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <br>
+                    <a href="{{ route('products') }}">Show Products</a>
                 </div>
             </div>
         </div>
