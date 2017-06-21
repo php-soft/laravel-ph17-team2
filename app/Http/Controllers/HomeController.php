@@ -13,29 +13,18 @@ class HomeController extends Controller
         return view('home')->with('shopProducts', $shopProducts);
     }
 
-    public function showProduct($id)
+    public function showProduct($productId, $shopProductId)
     {
-        $product = \App\Product::find($id);
-        $shops = DB::table('products')
-            ->leftJoin('shop_products', 'products.id', '=', 'shop_products.product_id')
-            ->join('shops', 'shop_products.shop_id', '=', 'shops.id')
-            ->where('products.id', '=', $id)
-            ->select('shops.*')
-            ->get();
-        $shop_products = DB::table('products')
-            ->leftJoin('shop_products', 'products.id', '=', 'shop_products.product_id')
-            ->where('products.id', '=', $id)
-            ->select('shop_products.quantity')
-            ->get();
+        $product = \App\Product::find($productId);
+        $shopProduct = \App\ShopProduct::find($shopProductId);
         $attributes = DB::table('products')
-            ->leftJoin('product_attribute_values', 'products.id', '=', 'product_attribute_values.product_id')
-            ->where('products.id', '=', $id)
-            ->select('product_attribute_values.value')
-            ->get();
+                        ->leftJoin('product_attribute_values', 'product_attribute_values.product_id', '=', 'products.id')
+                        ->where('products.id', $productId)
+                        ->select('product_attribute_values.value')
+                        ->get();
         return view('product')
-            ->with('shops', $shops)
             ->with('product', $product)
-            ->with('attributes', $attributes)
-            ->with('shop_products', $shop_products);
+            ->with('shopProduct', $shopProduct)
+            ->with('attributes', $attributes);
     }
 }

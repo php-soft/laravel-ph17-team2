@@ -3,9 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <label for="shop">Sản phẩm bán từ shop: </label>
-    @foreach($shops as $shop)
-        {!! $shop->name !!}
-    @endforeach
+    {!! $shopProduct->shop->name !!}
     <br>
     <span title="Đã có {!! $product->buys !!} lượt mua">
         <span class="glyphicon glyphicon-tag" style="font-size:24px"></span>{!! $product->buys !!}
@@ -23,15 +21,14 @@
     <p id="price">{{ $product->price }} VNĐ</p>
     <div>
     <label for="">Size  màu</label>
-    @foreach($attributes as $attribute)
-        {!! $attribute->value !!}
-        <br>
-    @endforeach
+    @if (!empty($attributes))
+        @foreach($attributes as $attribute)
+            {!! $attribute->value !!}
+        @endforeach
+    @endif
     <p>
         <label for="quantity">Số lượng:</label> <input type="number" min="1" max="9999" autofocus="autofocus" required value="1">&nbsp;&nbsp;(Còn lại 
-        @foreach($shop_products as $shop_product)
-            {!! $shop_product->quantity !!}
-        @endforeach
+        {!! $shopProduct->quantity !!}
          sản phẩm)
      </p>
 </div>
