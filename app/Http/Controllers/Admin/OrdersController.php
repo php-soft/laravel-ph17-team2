@@ -31,11 +31,12 @@ class OrdersController extends Controller
 
     public function edit($id, $status)
     {
-      if(Request::ajax()){
-          $orders = \App\Order::find($id);
-          $orders->status = $status;
-          $orders->save();
-          return response()->json(['status' => $orders->status]);
-      }
+        if(Request::ajax())
+        {
+            $orders = \App\Order::find($id);
+            $orders->status = $status;
+            $orders->save();
+            return response()->json(['status' => $orders->status]);
+        }
     }
 }

@@ -23,5 +23,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
     Route::get('/orders/{id}', 'OrdersController@show')->name('adminOrders');
     Route::put('/orders/{id}/{status}', 'OrdersController@edit')->name('adminOrderEditStatus');
-
 });
+
