@@ -25,13 +25,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::put('/orders/{id}/edit', 'OrdersController@edit')->name('adminOrderEdit');
 });
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['isAdmin']], function () {
     Route::get('user', 'UserController@index')->name('managerUser');
     Route::get('user/{user}/delete', 'UserController@destroy');
     Route::get('user/{user}/edit', 'UserController@edit');
     Route::get('user/{user}', 'UserController@update');
 });
 
-Route::get('access', function(){
-	return "truy cập admin";
-})->middleware('isAdmin');
+
+// Route::get('admin', function(){
+// 	return view('admin.index');
+// });
+// Route::get('access', function(){
+// 	return "trang admin";
+// })->middleware('isAdmin');

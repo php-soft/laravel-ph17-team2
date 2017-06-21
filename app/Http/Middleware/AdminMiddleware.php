@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guest() && Auth::usersRoles()->id == 1) {
+        if (!Auth::guest() && Auth::user()->email == "admin@gmail.com") {
             return $next($request);
         }
         return redirect('/home');
