@@ -34,4 +34,4 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('access', function(){
 	return "truy cập admin";
-});
+})->middleware('isAdmin');
