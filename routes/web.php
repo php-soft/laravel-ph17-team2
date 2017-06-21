@@ -31,3 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('user/{user}/edit', 'UserController@edit');
     Route::get('user/{user}', 'UserController@update');
 });
+
+Route::get('access', function(){
+	return "truy cập admin";
+});
