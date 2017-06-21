@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $shop_products = \App\ShopProduct::all();
-        return view('home')->with('shop_products', $shop_products);
+        $shopProducts = \App\ShopProduct::all();
+        return view('home')->with('shopProducts', $shopProducts);
     }
 
     public function showProduct($id)

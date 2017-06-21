@@ -57,16 +57,16 @@
                             
 
                             <div class="row">
-                                @foreach($shop_products as $shop_product)
+                                @foreach($shopProducts as $shopProduct)
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('home/' . $shop_product->product->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shop_product->product->image !!}"></a>
+                                                <a href="{{ url('home/' . $shopProduct->product->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{!! $shop_product->product->name !!}</p>
+                                                <p class="single-item-title">{!! $shopProduct->product->name !!}</p>
                                                 <p class="single-item-price">
-                                                    <span>{!! $shop_product->product->price !!} VNĐ</span>
+                                                    <span>{!! $shopProduct->product->price !!} VNĐ</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
