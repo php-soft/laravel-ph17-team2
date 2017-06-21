@@ -32,7 +32,7 @@
                                     </td>
                                     <td class="center">{{ $order->orderProducts->sum('quantity') }}</td>
                                     <td class="center">{!! $order->total_price !!}</td>
-                                    <td class="text-center">{{ $order->statusText() }}</td>
+                                    <td class="text-center" id="stutustext">{{ $order->statusText() }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('admin/orders/'.$order->id) }}">
                                             show
