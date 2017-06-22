@@ -18,13 +18,4 @@ class HomeController extends Controller
         $shops = \App\Shop::all();
         return view('shop')->with('shops', $shops);
     }
-
-    public function productDetail($shopProductId)
-    {
-        $shopProduct = \App\ShopProduct::find($shopProductId);
-        $attributes = $shopProduct->product->productAttributeValues;
-        return view('product')
-            ->with('shopProduct', $shopProduct)
-            ->with('attributes', $attributes);
-    }
 }
