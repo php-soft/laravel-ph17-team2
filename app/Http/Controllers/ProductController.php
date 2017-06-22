@@ -16,8 +16,9 @@ class ProductController extends Controller
             ->with('attributes', $attributes);
     }
 
-    public function muaHang($id){
-        if (Request::ajax()){
+    public function muaHang($id)
+    {
+        if (Request::ajax() ) {
             $product_buy=\App\ShopProduct::where('id', $id)->first();
             $attributes = $product_buy->product->productAttributeValues;
             Cart::add(['id' =>$product_buy->product->id, 'name' =>$product_buy->product->name, 'qty' => 1, 'price' =>
@@ -39,9 +40,9 @@ class ProductController extends Controller
         return redirect('gio-hang')->withSuccess('Cat has been updated.');
     }
 
-    public function editGioHang(){
-        if (Request::ajax())
-        {
+    public function editGioHang()
+    {
+        if (Request::ajax()) {
             $id=Request::get('id') ;
             $qty=Request::get('qty') ;
             Cart::update($id, $qty);
