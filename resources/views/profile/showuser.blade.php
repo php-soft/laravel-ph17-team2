@@ -9,7 +9,7 @@
     </div>
     <div class="col-sm-6">
     	<div>
-    		<p>Tên tài khoản: </p>
+    		<p>Tên tài khoản: {{$user->name}}</p>
     		<p>Email: </p>
     		<p>Giới tính: </p>
     		<p>Địa chỉ: </p>

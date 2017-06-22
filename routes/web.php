@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}', 'UserController@update');
 });
 
-Route::get('user/index', 'User\UserController@index')->middleware('auth');
-Route::get('user/information', 'User\UserController@information');
-Route::get('user/edit', 'User\UserController@information');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('user/profile/{user}/index', 'User\UserController@index');
+    Route::get('user/profile/{user}/showuser', 'User\UserController@showuser');
+    Route::get('user/profile/information', 'User\UserController@information');
+    Route::get('user/profile/edit', 'User\UserController@information');
+});
