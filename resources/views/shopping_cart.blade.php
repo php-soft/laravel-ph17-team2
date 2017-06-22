@@ -21,6 +21,7 @@
 		<div class="cart-info">
 			<table class="table table-striped table-bordered shopping-qty">
 				<tr>
+					<th class="image">STT</th>
 					<th class="image">Hình ảnh</th>
 					<th class="name">Tên sản phẩm</th>
 					<th class="quantity">Số lượng</th>
@@ -28,9 +29,11 @@
 					<th class="price">Đơn giá</th>
 					<th class="total">Tổng tiền</th>
 				</tr>
+				<?php $STT=0;?>
 				@foreach($content as $contents)
 				{{Form::open(['route'=>['shoppingEditQty', $contents->id,$contents->qty], 'method'=>'put', 'class'=>'form-status'])}}
 						<tr>
+							<td class="image">{!! $STT=$STT+1 !!}</td>
 							<td class="image"><a href="#"><img title="product" alt="" src="" height="50" width="50"></a></td>
 							<td  class="name"><a href="#">{!! $contents->name !!}</a></td>
 							<td class="quantity"><input class="qty" type="text" size="1" value='{!! $contents->qty !!}' name="quantity[40]" />

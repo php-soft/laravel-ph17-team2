@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function(){
-    $(".fa-shopping-cart").click(function(e){
+    $(".single-item-caption .fa-shopping-cart").click(function(e){
         e.preventDefault();
         var id = $(this).attr('id');
         $.ajax(
