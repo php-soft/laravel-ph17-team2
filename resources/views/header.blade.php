@@ -30,44 +30,23 @@
 						<div class="cart">
 							<div class="beta-select">
 							
-								<i class="fa fa-shopping-cart btn btn-danger"> Giỏ hàng 0 </i>  
+								<i class="fa fa-shopping-cart btn btn-danger"> Giỏ hàng </i>
 							</div>
 							<div class="beta-dropdown cart-body">
+								@foreach($content=Cart::content() as $contents)
 								<div class="cart-item">
 									 <div class="media">
 										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/1.png" alt=""></a>
 										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
+											<span class="cart-item-title">{!! $contents->name !!}</span>
 											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
+											<span class="cart-item-amount">{!!$contents->qty  !!}*<span>{!! $contents->price !!}</span></span>
 										</div>
-									</div> 
+									</div>
 								</div>
-
-							    <div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/2.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div> 
-
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/3.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div> 
-
+								@endforeach
 								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
+									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{!! Cart::total() !!}</span></div>
 									<div class="clearfix"></div>
 
 									<div class="center">
