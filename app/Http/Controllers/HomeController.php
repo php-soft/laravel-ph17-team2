@@ -13,7 +13,22 @@ class HomeController extends Controller
         return view('home')->with('shopProducts', $shopProducts);
     }
 
-    public function showProduct($productId, $shopProductId)
+    public function shop()
+    {
+        $shops = \App\Shop::all();
+        return view('shop')->with('shops', $shops);
+    }
+
+    public function shopProduct($name)
+    {
+        $shop = \App\Shop::where('name', '=', $name)->get()->first();
+        $shopProducts = $shop->shopProducts;
+        return view('shopProduct')
+            ->with('shopProducts', $shopProducts)
+            ->with('shop', $shop);
+    }
+
+    public function productDetail($productId, $shopProductId)
     {
         $product = \App\Product::find($productId);
         $shopProduct = \App\ShopProduct::find($shopProductId);

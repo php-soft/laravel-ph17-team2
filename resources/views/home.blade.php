@@ -61,7 +61,7 @@
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('home/show' . $shopProduct->product->id . '&' . $shopProduct->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>
+                                                <a href="{{ url('home/san-pham/' . $shopProduct->product->id . '&' . $shopProduct->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{!! $shopProduct->product->name !!}</p>
@@ -73,7 +73,8 @@
                                                 <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
                                                 <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
-                                            </div>s
+                                            </div>
+                                            <div class="single-item-footer">{!! $shopProduct->shop->name !!} <a href="{{ url('home/shop/' . $shopProduct->shop->name) }}" style="color: blue">Xem shop</a></div>
                                         </div>
                                     </div>
                                 @endforeach
