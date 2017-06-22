@@ -28,21 +28,10 @@ class HomeController extends Controller
             ->with('shop', $shop);
     }
 
-    public function productDetail($productId, $shopProductId)
+    public function productDetail($shopProductId)
     {
-        $product = \App\Product::find($productId);
         $shopProduct = \App\ShopProduct::find($shopProductId);
-        $attributes = DB::table('products')
-                        ->leftJoin('product_attribute_values',
-                                   'product_attribute_values.product_id',
-                                   '=',
-                                   'products.id')
-                        ->where('products.id', $productId)
-                        ->select('product_attribute_values.value')
-                        ->get();
         return view('product')
-            ->with('product', $product)
-            ->with('shopProduct', $shopProduct)
-            ->with('attributes', $attributes);
+            ->with('shopProduct', $shopProduct);
     }
 }

@@ -61,7 +61,7 @@
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('home/san-pham/' . $shopProduct->product->id . '&' . $shopProduct->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>
+                                                <a href="{{ url('home/san-pham/' .  $shopProduct->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{!! $shopProduct->product->name !!}</p>

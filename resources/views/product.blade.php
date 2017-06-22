@@ -5,27 +5,21 @@
     <label for="shop">Sản phẩm bán từ shop: </label>
     {!! $shopProduct->shop->name !!}
     <br>
-    <span title="Đã có {!! $product->buys !!} lượt mua">
-        <span class="glyphicon glyphicon-tag" style="font-size:24px"></span>{!! $product->buys !!}
+    <span title="Đã có {!! $shopProduct->product->buys !!} lượt mua">
+        <span class="glyphicon glyphicon-tag" style="font-size:24px"></span>{!! $shopProduct->product->buys !!}
     </span>
-    <span title="Đã có {!! $product->view !!} lượt views">
-        <span class="glyphicon glyphicon-eye-open" style="font-size:24px"></span>{!! $product->view !!}
+    <span title="Đã có {!! $shopProduct->product->view !!} lượt views">
+        <span class="glyphicon glyphicon-eye-open" style="font-size:24px"></span>{!! $shopProduct->product->view !!}
     </span>
     <br>
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="{{ $product->image }}" id="image">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="{{ $shopProduct->product->image }}" id="image">
     <br>
     <label for="name">Tên</label>
-    <p id="name">{{ $product->name }}</p>
+    <p id="name">{{ $shopProduct->product->name }}</p>
     <br>
     <label for="price">Giá</label>
-    <p id="price">{{ $product->price }} VNĐ</p>
+    <p id="price">{{ $shopProduct->product->price }} VNĐ</p>
     <div>
-    <label for="">Size  màu</label>
-    @if (!empty($attributes))
-        @foreach($attributes as $attribute)
-            {!! $attribute->value !!}
-        @endforeach
-    @endif
     <p>
         <label for="quantity">Số lượng:</label> <input type="number" min="1" max="9999" autofocus="autofocus" required value="1">&nbsp;&nbsp;(Còn lại 
         {!! $shopProduct->quantity !!}
