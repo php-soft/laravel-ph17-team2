@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/shop', 'HomeController@shop')->name('shop');
-Route::get('/home/shop/{name}', 'HomeController@shopProduct');
 Route::get('/home/san-pham/{shopProductId}', 'HomeController@productDetail');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
