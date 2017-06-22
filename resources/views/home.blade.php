@@ -74,7 +74,7 @@
                                                 <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <div class="single-item-footer">{!! $shopProduct->shop->name !!} <a href="{{ url('home/shop/' . $shopProduct->shop->name) }}" style="color: blue">Xem shop</a></div>
+                                            <div class="single-item-footer">{!! $shopProduct->shop->name !!}</div>
                                         </div>
                                     </div>
                                 @endforeach
