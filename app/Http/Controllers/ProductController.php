@@ -10,7 +10,7 @@ class ProductController extends Controller
     {
         $shopProduct = \App\ShopProduct::find($shopProductId);
         $attributes = $shopProduct->product->productAttributeValues;
-        return view('product')
+        return view('productDetail')
             ->with('shopProduct', $shopProduct)
             ->with('attributes', $attributes);
     }
