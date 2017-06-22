@@ -20,6 +20,12 @@
     <label for="price">Giá</label>
     <p id="price">{{ $shopProduct->product->price }} VNĐ</p>
     <div>
+    <label for="">Size  màu</label>
+    @if (!empty($attributes))
+        @foreach($attributes as $attribute)
+            {!! $attribute->value !!}
+        @endforeach
+    @endif
     <p>
         <label for="quantity">Số lượng:</label> <input type="number" min="1" max="9999" autofocus="autofocus" required value="1">&nbsp;&nbsp;(Còn lại 
         {!! $shopProduct->quantity !!}

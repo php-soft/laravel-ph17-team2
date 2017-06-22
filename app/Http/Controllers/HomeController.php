@@ -31,7 +31,9 @@ class HomeController extends Controller
     public function productDetail($shopProductId)
     {
         $shopProduct = \App\ShopProduct::find($shopProductId);
+        $attributes = $shopProduct->product->productAttributeValues;
         return view('product')
-            ->with('shopProduct', $shopProduct);
+            ->with('shopProduct', $shopProduct)
+            ->with('attributes', $attributes);
     }
 }
