@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('user/profile/{user}/index', 'User\UserController@index');
+    Route::get('user/profile/{id}/index', 'User\UserController@index');
     Route::get('user/profile/{user}/showuser', 'User\UserController@showuser');
     Route::get('user/profile/information', 'User\UserController@information');
     Route::get('user/profile/edit', 'User\UserController@information');

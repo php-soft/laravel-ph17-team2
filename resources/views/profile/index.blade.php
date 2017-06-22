@@ -1,5 +1,13 @@
 @extends('layouts.app')
 @section('content')
+<style type="text/css" media="screen">
+	span{
+		color: red;
+	}
+	span a{
+		color: red;
+	}
+</style>
 <div class="container-fluid">
 	<div class="row content">
 		<div class="col-sm-3 sidenav">
@@ -13,9 +21,15 @@
 		</div>
 
 		<div class="col-sm-9">
-		
-		{{$user->name}}
-		
+			<div class="col-sm-3">
+				<h6>Hình ảnh</h6>
+			</div>
+			<div class="col-sm-6">
+				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
+				<p>Email: <span>{{$user->email}}</span></p>
+				<p>Password: <span><a href="">Thay đổi password</a></span></p>	
+			</div>
+			
 		</div>
 	</div>
 </div>

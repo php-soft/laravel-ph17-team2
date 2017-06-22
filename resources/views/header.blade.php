@@ -86,7 +86,7 @@
                     @else
                     <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->email }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -96,7 +96,7 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-                                        <a href="">Quản lý tài khoản
+                                        <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}">Quản lý tài khoản
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
