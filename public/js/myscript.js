@@ -36,7 +36,7 @@ $(document).ready(function(){
                 type:'GET',
                 success:function(data){
                     if(data=="oke"){
-                        alert("Đã thêm thành công");
+                        alert("thêm thành công");
                     }
                 }
             });
