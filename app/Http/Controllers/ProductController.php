@@ -56,4 +56,3 @@ class ProductController extends Controller
         return view('checkout')->with('content', $content)->with('total', $total);
     }
 }
-
