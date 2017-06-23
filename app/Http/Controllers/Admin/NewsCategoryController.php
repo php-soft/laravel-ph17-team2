@@ -73,7 +73,7 @@ class NewsCategoryController extends Controller
 
     public function post()
     {
-        $newscategory = \App\NewsCategory::create(Input::all());
+        \App\NewsCategory::create(Input::all());
         return redirect('/admin/newscategory')->withSuccess('Cat has been created.');
     }
 
