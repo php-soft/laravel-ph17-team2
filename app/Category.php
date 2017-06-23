@@ -22,6 +22,6 @@ class Category extends Model
 
     public function categoryAttributeValues()
     {
-        return $this->hasMany('App\CategoryAttributeValues');
+        return $this->hasMany('App\CategoryAttributeValue');
     }
 }
