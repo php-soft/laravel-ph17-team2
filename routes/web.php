@@ -19,12 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail');
-route::get('/home/mua-hang/{id}/', 'CartController@muaHang');
-route::get('gio-hang', 'CartController@gioHang');
-route::get('xoa-san-pham/{id}', 'CartController@xoaGioHang');
-Route::get('gio-hang/{id}/{qty}', 'CartController@editGioHang')->name('shoppingEditQty');
-Route::get('dat-hang', 'OrderController@datHang')->name('userDatHang');
-Route::post('xu-ly-dat-hang', 'OrderController@xuLyDatHang')->name('userXuLyDatHang');
+route::get('/home/mua-hang/{id}/', 'CartController@store');
+route::get('/cart/show', 'CartController@show');
+route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
+Route::get('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
+Route::get('order', 'OrderController@show')->name('orderShow');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');

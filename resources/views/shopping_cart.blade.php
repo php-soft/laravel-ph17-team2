@@ -40,7 +40,7 @@
 							</td>
 							<td class="total">
 								<a href="#"  class="updateCart" id="{!! $contents->rowId  !!}" ><img class="tooltip-test" data-original-title="Cập nhật" src="{!! asset('/user/img/update.png') !!}" alt=""></a>
-								<a href="{!! url('xoa-san-pham',['id'=>$contents->rowId]) !!}"><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
+								<a href="{{ route('cartDelete',['rowId' => $contents->rowId]) }}"><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
 							</td>
 							<td class="price">{!! number_format($contents->price,0,",",".") !!} Đ </td>
 							<td class="total">{!! number_format($contents->price*$contents->qty,0,",",".") !!} Đ </td>

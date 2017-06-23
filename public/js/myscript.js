@@ -17,7 +17,7 @@ $(document).ready(function() {
         var qty=$(this).parent().parent().find(".qty").val();
         var token=$("input[name='_token']").val();
         $.ajax({
-            url:'gio-hang/'+rowId+'/'+qty,
+            url:'cart/'+rowId+'/'+qty,
             type:"GET",
             data:{"_token":token,"id":rowId,"qty":qty},
             success:function (data) {

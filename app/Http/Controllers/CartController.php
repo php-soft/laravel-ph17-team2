@@ -7,7 +7,7 @@ use Cart;
 
 class CartController extends Controller
 {
-    public function muaHang($id)
+    public function store($id)
     {
         if (Request::ajax()) {
             $productBuy=\App\ShopProduct::where('id', $id)->first();
@@ -17,20 +17,20 @@ class CartController extends Controller
         };
     }
 
-    public function gioHang()
+    public function show()
     {
         $content=Cart::content();
         $total=Cart::total();
         return view('shopping_cart')->with('content', $content)->with('total', $total);
     }
 
-    public function xoaGioHang($rowId)
+    public function delete($rowId)
     {
         Cart::remove($rowId);
-        return redirect('gio-hang')->withSuccess('Cat has been updated.');
+        return redirect('cart/show')->withSuccess('Cat has been updated.');
     }
 
-    public function editGioHang()
+    public function update()
     {
         if (Request::ajax()) {
             $id=Request::get('id') ;

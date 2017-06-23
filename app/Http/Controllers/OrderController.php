@@ -7,7 +7,7 @@ use Cart;
 
 class OrderController extends Controller
 {
-    public function datHang()
+    public function show()
     {
         $content =Cart::content();
         $total=cart::total();
