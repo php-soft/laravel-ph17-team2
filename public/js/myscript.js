@@ -10,3 +10,33 @@ $(document).ready(function() {
         });
     })
 });
+$(document).ready(function() {
+    $(".updateCart").click(function (e) {
+        e.preventDefault();
+        var rowId=$(this).attr('id');
+        var qty=$(this).parent().parent().find(".qty").val();
+        var token=$("input[name='_token']").val();
+        $.ajax({
+            url:'cart/'+rowId+'/'+qty,
+            type:"put",
+            data:{"_token":token,"id":rowId,"qty":qty},
+            success:function (data) {
+                $('#cart-count').html(data.count);
+            }
+        });
+    });
+});
+$(document).ready(function(){
+    $(".single-item-caption .fa-shopping-cart").click(function(e){
+        e.preventDefault();
+        var id = $(this).attr('id');
+        $.ajax(
+            {
+                url:'home/mua-hang/'+id,
+                type:'GET',
+                success:function(data) {
+                    $('#cart-count').html(data.count);
+                }
+            });
+    });
+});
