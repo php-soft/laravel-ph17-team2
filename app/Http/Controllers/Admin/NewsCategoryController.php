@@ -29,21 +29,7 @@ class NewsCategoryController extends Controller
         $newscategory_cr = \App\NewsCategory::pluck('name', 'id');
         return view('admin/newscategory/create')->with('newscategory_cr', $newscategory_cr);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-   
+  
     /**
      * Show the form for editing the specified resource.
      *
