@@ -26,7 +26,7 @@ class NewsCategoryController extends Controller
      */
     public function create()
     {
-        $newscategory_cr = \App\NewsCategory::pluck('name','id');
+        $newscategory_cr = \App\NewsCategory::pluck('name', 'id');
         return view('admin/newscategory/create')->with('newscategory_cr', $newscategory_cr);
     }
 

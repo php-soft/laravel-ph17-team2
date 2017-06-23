@@ -30,7 +30,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}/delete', 'UserController@destroy');
     Route::get('/user/{user}/edit', 'UserController@edit');
     Route::get('/user/{user}', 'UserController@update');
-
     # NewsCategory
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
@@ -38,7 +37,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/newscategory/edit/{id}', 'NewsCategoryController@edit')->name('newscategory.edit');
     Route::patch('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
     Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
-
     #News
     Route::get('/news', 'NewsController@index')->name('news');
     Route::get('/news/create', 'NewsController@create')->name('news.create');
@@ -46,5 +44,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
     Route::patch('/news/edit/{id}', 'NewsController@update')->name('news.update');
     Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
-
 });
