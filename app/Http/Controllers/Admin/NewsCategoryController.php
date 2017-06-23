@@ -26,7 +26,7 @@ class NewsCategoryController extends Controller
      */
     public function create()
     {
-        $newscategory_cr = \App\NewsCategory::pluck('name','alias');
+        $newscategory_cr = \App\NewsCategory::pluck('name','id');
         return view('admin/newscategory/create')->with('newscategory_cr', $newscategory_cr);
     }
 
@@ -79,9 +79,10 @@ class NewsCategoryController extends Controller
         ->withSuccess('Cat has been updated.');
     }
 
-    public function post(){
+    public function post()
+    {
         $newscategory = \App\NewsCategory::create(Input::all());
-    return redirect('/admin/newscategory')->withSuccess('Cat has been created.');
+        return redirect('/admin/newscategory')->withSuccess('Cat has been created.');
     }
 
     /**
