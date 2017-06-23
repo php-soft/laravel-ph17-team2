@@ -27,7 +27,7 @@
 			<div class="col-sm-6">
 				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
 				<p>Email: <span>{{$user->email}}</span></p>
-				<p>Password: <span><a href="">Thay đổi password</a></span></p>	
+				<p>Password: <span><a href="">Thay đổi password</a></span></p>
 			</div>
 			
 		</div>

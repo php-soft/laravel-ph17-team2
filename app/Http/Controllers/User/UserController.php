@@ -14,9 +14,6 @@ class UserController extends Controller
     public function index($id)
     {
         $user = User::find($id);
-        $profiles = DB::table('profiles')->join('users', 'profiles.user_id', '=', 'users.id')->where('users.id', '=', $id)->get();\
-        printf($profiles->user_id) ;
-        // $profile = Profile::find($id);
         return view('profile.index')->with('user', $user);
     }
 
