@@ -20,10 +20,10 @@ class ProductController extends Controller
     {
         if (Request::ajax()) {
             $product_buy=\App\ShopProduct::where('id', $id)->first();
-            $attributes = $product_buy->product->productAttributeValues;
             Cart::add(['id' =>$product_buy->product->id, 'name' =>$product_buy->product->name, 'qty' => 1, 'price' =>
             $product_buy->product->price]);
             $content=Cart::content();
+            $content->save();
         };
     }
 
