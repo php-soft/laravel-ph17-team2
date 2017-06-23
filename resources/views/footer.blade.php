@@ -11,9 +11,6 @@
 								<li><a href=""><i class="fa fa-chevron-right"></i> Hotline: 1900 6000 hoặc gửi yêu cầu <a href="contact.html" style="color:red;"> tại đây</a> </a></li>
 							</ul>
 						</div>
-						<div id="beta-instagram-feed"><div>							
-						</div>
-						</div>
 					</div>
 				</div>
 				<div class="col-sm-3">
