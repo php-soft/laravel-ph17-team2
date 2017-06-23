@@ -19,11 +19,11 @@
 </head>
 <body>
 
-    @include('header')
+    @include('layouts.header')
     <div class="rev-slider">
         @yield('content')
     </div>
-    @include('footer')
+    @include('layouts.footer')
        
     
     <!-- include js files -->
