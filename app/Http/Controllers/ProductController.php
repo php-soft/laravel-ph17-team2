@@ -53,7 +53,7 @@ class ProductController extends Controller
     {
         $content =Cart::content();
         $total=cart::total();
-        return view('checkout')->with('content',$content)->with('total',$total);
+        return view('checkout')->with('content', $content)->with('total', $total);
     }
 }
 
