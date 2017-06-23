@@ -12,20 +12,20 @@ class NewsCategoryController extends Controller
         $newscategories = \App\NewsCategory::All();
         return view('admin/newscategory/index')->with('newscategories', $newscategories);
     }
-    
+ 
     public function create()
     {
         $newscategory_cr = \App\NewsCategory::pluck('name', 'id');
         return view('admin/newscategory/create')->with('newscategory_cr', $newscategory_cr);
     }
      
-    public function edit()
+    public function edit($id)
     {
         $newscategory = \App\NewsCategory::find($id);
         return view('admin/newscategory/create')->with('newscategory', $newscategory);
     }
-
-    public function update()
+  
+    public function update($id)
     {
         $newscategory = \App\NewsCategory::find($id);
         $newscategory->update(Input::all());
@@ -38,8 +38,8 @@ class NewsCategoryController extends Controller
         \App\NewsCategory::create(Input::all());
         return redirect('/admin/newscategory')->withSuccess('Cat has been created.');
     }
-
-    public function delete()
+    
+    public function delete($id)
     {
         $newcategory = \App\NewsCategory::find($id);
         $newcategory->delete();
