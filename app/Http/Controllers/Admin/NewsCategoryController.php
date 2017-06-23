@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class NewsCategoryController extends Controller
-{   
+{
     public function index()
     {
         $newscategories = \App\NewsCategory::All();
