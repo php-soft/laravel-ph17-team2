@@ -37,7 +37,8 @@
                 </div>
                 <div>
                 <div class="form-group">
-                    {{Form::open()}}
+                    @foreach($content as $contents)
+                    {{Form::open(['route'=>['shoppingEditQty', $contents->id,$contents->qty], 'method'=>'put', 'class'=>'form-status'])}}
                         {{ Form::hidden('id', $shopProduct->product->id) }}
                         {{ Form::hidden('name', $shopProduct->product->name) }}
                         {{ Form::hidden('price', $shopProduct->product->price) }}
@@ -58,14 +59,15 @@
                                     {!! Form::label('qty', 'Số lượng', ['class' => 'form-lb-lb']) !!}
                                 </div>
                                 <div class="form-controls" style="height: 45px;">
-                                    {{ Form::number('qty', 1, ['class'=>'form-control form-quantity', 'min' => 1, 'max' => 99, 'size' => 1]) }}
+                                    {{ Form::number('qty',$contents->qty, ['class'=>'form-control form-quantity qty', 'min' => 1, 'max' => 99, 'size' => 1]) }}
                                 </div>
                             </div>
                         </div>
                         <div class="order">
-                            <button class="btn btn-success w3-btn btn-add">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                            <button class="btn btn-success w3-btn btn-add updateCart" id="{!! $contents->rowId  !!}" >Thêm vào giỏ hàng</button>
                         </div>
                     {{ Form::close() }}
+                    @endforeach
                 </div>
             </div>
          </div>
