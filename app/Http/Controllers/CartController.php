@@ -21,7 +21,7 @@ class CartController extends Controller
     {
         $content=Cart::content();
         $total=Cart::total();
-        return view('shopping_cart')->with('content', $content)->with('total', $total);
+        return view('cart/shopping_cart')->with('content', $content)->with('total', $total);
     }
 
     public function delete($rowId)
