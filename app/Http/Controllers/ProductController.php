@@ -19,9 +19,9 @@ class ProductController extends Controller
     public function muaHang($id)
     {
         if (Request::ajax()) {
-            $product_buy=\App\ShopProduct::where('id', $id)->first();
-            Cart::add(['id' =>$product_buy->product->id, 'name' =>$product_buy->product->name, 'qty' => 1, 'price' =>
-            $product_buy->product->price]);
+            $productBuy=\App\ShopProduct::where('id', $id)->first();
+            Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
+            $productBuy->product->price]);
             $content=Cart::content();
             $content->save();
         };
@@ -48,4 +48,12 @@ class ProductController extends Controller
             Cart::update($id, $qty);
         }
     }
+
+    public function datHang()
+    {
+        $content =Cart::content();
+        $total=cart::total();
+        return view('checkout')->with('content',$content)->with('total',$total);
+    }
 }
+
