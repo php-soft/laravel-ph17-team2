@@ -11,6 +11,6 @@ class OrderController extends Controller
     {
         $content =Cart::content();
         $total=cart::total();
-        return view('order/gicheckout')->with('content', $content)->with('total', $total);
+        return view('order/checkout')->with('content', $content)->with('total', $total);
     }
 }

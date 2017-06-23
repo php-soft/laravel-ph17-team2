@@ -13,15 +13,15 @@ class CartController extends Controller
             $productBuy=\App\ShopProduct::where('id', $id)->first();
             Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
             $productBuy->product->price]);
-            return "oke";
+            return response()->json(['count'=>Cart::count()]);
         };
     }
 
     public function show()
     {
         $content=Cart::content();
-        $total=Cart::total();
-        return view('cart/shopping_cart')->with('content', $content)->with('total', $total);
+        $subtotal=Cart::subtotal();
+        return view('cart/shopping_cart')->with('content', $content)->with('subtotal', $subtotal);
     }
 
     public function delete($rowId)
@@ -36,6 +36,7 @@ class CartController extends Controller
             $id=Request::get('id') ;
             $qty=Request::get('qty') ;
             Cart::update($id, $qty);
+            return response()->json(['count'=>Cart::count()]);
         }
     }
 }

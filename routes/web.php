@@ -20,9 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
-route::get('/cart/show', 'CartController@show');
+route::get('/cart/show', 'CartController@show')->name('cart');
 route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
-Route::get('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
+Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
 Route::get('order', 'OrderController@show')->name('orderShow');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {

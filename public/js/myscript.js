@@ -18,10 +18,10 @@ $(document).ready(function() {
         var token=$("input[name='_token']").val();
         $.ajax({
             url:'cart/'+rowId+'/'+qty,
-            type:"GET",
+            type:"put",
             data:{"_token":token,"id":rowId,"qty":qty},
             success:function (data) {
-
+                $('#cart-count').html(data.count);
             }
         });
     });
@@ -34,10 +34,8 @@ $(document).ready(function(){
             {
                 url:'home/mua-hang/'+id,
                 type:'GET',
-                success:function(data){
-                    if(data=="oke"){
-                        alert("thêm thành công");
-                    }
+                success:function(data) {
+                    $('#cart-count').html(data.count);
                 }
             });
     });

@@ -55,7 +55,7 @@
 					<table class="table table-striped table-bordered ">
 						<tr>
 							<td><span class="extra bold totalamout">Tổng tiền thanh toán :</span></td>
-							<td><span class="bold totalamout">{!! ($total) !!}</span></td>
+							<td><span class="bold totalamout">{!! ($subtotal) !!}</span></td>
 						</tr>
 					</table>
 					<a href="{!! url('dat-hang') !!}">

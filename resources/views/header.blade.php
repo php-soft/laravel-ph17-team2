@@ -28,33 +28,15 @@
 					<!-- headr cart -->
 					<div class="beta-comp">
 						<div class="cart">
-							<div class="beta-select">
-							
-								<i class="fa fa-shopping-cart btn btn-danger"> Giỏ hàng </i>
-							</div>
-							<div class="beta-dropdown cart-body">
-								@foreach($content=Cart::content() as $contents)
-								<div class="cart-item">
-									 <div class="media">
-										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/1.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">{!! $contents->name !!}</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">{!!$contents->qty  !!}*<span>{!! $contents->price !!}</span></span>
-										</div>
-									</div>
+								<div class="beta-select">
+									<i class="fa fa-shopping-cart btn btn-danger" onclick="newCart()">Giỏ hàng (<span id="cart-count">{!! Cart::count() !!}</span>)</i>
 								</div>
-								@endforeach
-								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{!! Cart::total() !!}</span></div>
-									<div class="clearfix"></div>
-
-									<div class="center">
-										<div class="space10">&nbsp;</div>
-										<a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-									</div>
-								</div>
-							</div> 
+								<script>
+									function newCart() {
+										window.location.assign("{!! url('/cart/show') !!} ")
+									}
+								</script>
+							</a>
 						</div> <!-- .cart  -->
 					</div>
 					<div class="beta-comp">
