@@ -19,7 +19,7 @@ class NewsCategoryController extends Controller
         return view('admin/newscategory/create')->with('newscategory_cr', $newscategory_cr);
     }
      
-    public function edit($)
+    public function edit()
     {
         $newscategory = \App\NewsCategory::find($id);
         return view('admin/newscategory/create')->with('newscategory', $newscategory);
