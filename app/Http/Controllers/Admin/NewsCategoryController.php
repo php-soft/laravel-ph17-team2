@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 
@@ -13,23 +12,20 @@ class NewsCategoryController extends Controller
         $newscategories = \App\NewsCategory::All();
         return view('admin/newscategory/index')->with('newscategories', $newscategories);
     }
-
     
     public function create()
     {
         $newscategory_cr = \App\NewsCategory::pluck('name', 'id');
         return view('admin/newscategory/create')->with('newscategory_cr', $newscategory_cr);
     }
-  
-    
-    public function edit($id)
+     
+    public function edit($)
     {
         $newscategory = \App\NewsCategory::find($id);
         return view('admin/newscategory/create')->with('newscategory', $newscategory);
     }
 
-    
-    public function update($id)
+    public function update()
     {
         $newscategory = \App\NewsCategory::find($id);
         $newscategory->update(Input::all());
@@ -43,8 +39,7 @@ class NewsCategoryController extends Controller
         return redirect('/admin/newscategory')->withSuccess('Cat has been created.');
     }
 
-    
-    public function delete($id)
+    public function delete()
     {
         $newcategory = \App\NewsCategory::find($id);
         $newcategory->delete();
