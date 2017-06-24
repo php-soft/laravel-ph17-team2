@@ -9,12 +9,10 @@
             </div>
             <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
             <a href="">{!! $shopProduct->shop->name !!}</a>
-            @if (Auth::check())
             <div class="pull-right">
                 <div><a href="{{ url('home/shop/create') }}">Tạo sản phẩm</a></div>
                 <div><a href="">Chỉnh sửa sản phẩm</a></div>
             </div>
-            @endif
         </div>
         <div class="block-img-attr">
             <div class="block-pro-img">
@@ -52,11 +50,11 @@
                             @foreach($category->categoryAttributeValues as $attribute)
                                 <div class="form-controls form-inline" style="height: 45px;">
                                     <div class="form-lb">
-                                        {!! $attribute->name !!}
+                                        <div class="form-lb-lb">{!! $attribute->name !!}</div>
                                     </div>
                                     <div class="attr">
                                         @foreach($attribute->productAttributeValues as $key)
-                                            {!! $key->value !!}
+                                            <label class="form-lb-lb"></label>{!! $key->value !!}
                                         @endforeach
                                     </div>
                                 </div>
@@ -83,13 +81,23 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">SẢN PHẨM LIÊN QUAN</a>
+                <a href="#relative" aria-controls="home" role="tab" data-toggle="tab">SẢN PHẨM LIÊN QUAN</a>
             </li>
         </ul>
     
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">...</div>
+            <div role="tabpanel" class="tab-pane active row box-item" id="relative">
+                @foreach ($shopProduct->shop->shopProducts as $key)
+                <div class="col-md-2 item-preview">
+                    <a href="{{ url('home/san-pham/' . $key->product->id)}}">
+                        <img src="{!! $key->product->img !!}" alt="{!! $key->product->name !!}" width="149" height="149">
+                        <span class="price">{!! $key->product->price !!} đ</span>
+                        <p class="prod-name">{!! $key->product->name !!}</p>
+                    </a>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <br>
@@ -109,9 +117,9 @@
     
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="detail">...</div>
-            <div role="tabpanel" class="tab-pane" id="feedback">...</div>
-            <div role="tabpanel" class="tab-pane" id="answer">...</div>
+            <div role="tabpanel" class="tab-pane active box-item" id="detail">...</div>
+            <div role="tabpanel" class="tab-pane box-item" id="feedback">...</div>
+            <div role="tabpanel" class="tab-pane box-item" id="answer">...</div>
         </div>
     </div>
 </div>

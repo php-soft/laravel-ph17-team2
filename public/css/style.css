@@ -143,3 +143,30 @@ body {
 .info {
 	border-top: 2px solid black;
 }
+
+.item-preview {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.box-item {
+	margin: 0;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.price {
+	color: red;
+	height: 28px;
+	padding: 5px 0;
+	line-height: 18px;
+	display: block;
+	overflow: hidden;
+}
+
+.prod-name {
+	overflow: hidden;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
