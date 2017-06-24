@@ -28,8 +28,7 @@ class OrderController extends Controller
             $Order->name = Auth::user()->name;
             $Order->phone = Auth::user()->profile['phone'];
             $Order->address = Auth::user()->profile['address'];
-        }
-        else {
+        } else {
             $Order->name = Input::get('name');
             $Order->phone = Input::get('phone');
             $Order->address = Input::get('address');
@@ -39,7 +38,7 @@ class OrderController extends Controller
         $Order->shipping_phone = Input::get('shipping_phone');
         $Order->voucher_code = Input::get('voucher_code');
         $Order->status 	= 0;
-        $Order->total_price = $total;
+        $Order->total_price=$total;
         $Order->save();
         $content =Cart::content();
         $OrderProduct = new OrderProduct;
