@@ -18,7 +18,7 @@ class ProductController extends Controller
             ->with('category', $category);
     }
 
-    public function create(Request $request)
+    public function create()
     {
         $categories = \App\Category::pluck('name', 'id', 'parent_id');
         $user = Auth::user();
