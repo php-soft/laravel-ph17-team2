@@ -9,6 +9,12 @@
             </div>
             <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
             <a href="">{!! $shopProduct->shop->name !!}</a>
+            @if (Auth::check())
+            <div class="pull-right">
+                <div><a href="{{ url('home/shop/create') }}">Tạo sản phẩm</a></div>
+                <div><a href="">Chỉnh sửa sản phẩm</a></div>
+            </div>
+            @endif
         </div>
         <div class="block-img-attr">
             <div class="block-pro-img">
@@ -44,7 +50,7 @@
                         {{ Form::hidden('image', $shopProduct->product->image) }}
                         <div class="form-attr">
                             @foreach($category->categoryAttributeValues as $attribute)
-                                <div class="form-controls" style="height: 45px;">
+                                <div class="form-controls form-inline" style="height: 45px;">
                                     <div class="form-lb">
                                         {!! $attribute->name !!}
                                     </div>
@@ -55,12 +61,12 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div>
+                            <div class="form-inline">
                                 <div class="form-lb">
                                     {!! Form::label('qty', 'Số lượng', ['class' => 'form-lb-lb']) !!}
                                 </div>
                                 <div class="form-controls" style="height: 45px;">
-                                    {{ Form::number('qty', 1, ['class'=>'form-control form-quantity', 'min' => 1, 'max' => 99, 'size' => 1]) }}
+                                    {{ Form::number('qty', 1, ['class'=>'form-control form-quantity', 'min' => 1, 'max' => 99, 'size' => 1]) }} (Còn lại {!! $shopProduct->quantity !!} sản phẩm)
                                 </div>
                             </div>
                         </div>
