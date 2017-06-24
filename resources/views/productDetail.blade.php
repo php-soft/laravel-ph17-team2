@@ -49,14 +49,16 @@
                         <div class="form-attr">
                             @foreach($category->categoryAttributeValues as $attribute)
                                 <div class="form-controls form-inline" style="height: 45px;">
-                                    <div class="form-lb">
-                                        <div class="form-lb-lb">{!! $attribute->name !!}</div>
-                                    </div>
-                                    <div class="attr">
-                                        @foreach($attribute->productAttributeValues as $key)
-                                            <label class="form-lb-lb"></label>{!! $key->value !!}
-                                        @endforeach
-                                    </div>
+                                    <fieldset id="{{ $attribute->name }}">
+                                        <div class="form-lb">
+                                            <div class="form-lb-lb">{!! $attribute->name !!}</div>
+                                        </div>
+                                        <div class="attr">
+                                            @foreach($attribute->productAttributeValues as $key)
+                                                {{ Form::radio($attribute->name, $key->value) }} <span>{{ $key->value }}</span>
+                                            @endforeach
+                                        </div>
+                                    </fieldset>
                                 </div>
                             @endforeach
                             <div class="form-inline">
