@@ -37,7 +37,7 @@ class OrderController extends Controller
         $Order->shipping_name = Input::get('shipping_name');
         $Order->shipping_phone = Input::get('shipping_phone');
         $Order->voucher_code = Input::get('voucher_code');
-        $Order->status 	= 0;
+        $Order->status = 0;
         $Order->total_price=$total;
         $Order->save();
         $content =Cart::content();
