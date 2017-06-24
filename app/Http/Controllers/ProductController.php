@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function productDetail($shopProductId)
     {
-        $content=Cart::content()->where('id', $shopProductId);
+        $content=Cart::content()->where('id','=!',$shopProductId);
         $shopProduct = \App\ShopProduct::find($shopProductId);
         $attributes = $shopProduct->product->productAttributeValues;
         return view('productDetail')
