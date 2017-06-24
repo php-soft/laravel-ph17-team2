@@ -20,12 +20,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail');
 Route::get('/home/shop/create', 'ProductController@create');
+route::get('/home/mua-hang/{id}/', 'CartController@store');
+route::get('/cart/show', 'CartController@show')->name('cart');
+route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
+Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
+Route::get('order', 'OrderController@show')->name('orderShow');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
     Route::get('/orders/{id}', 'OrdersController@show')->name('adminOrders');
     Route::put('/orders/{id}/{status}', 'OrdersController@edit')->name('adminOrderEditStatus');
-    Route::put('/orders/{id}/edit', 'OrdersController@edit')->name('adminOrderEdit');
 
     Route::get('/user', 'UserController@index')->name('managerUser');
     Route::get('/user/{user}/delete', 'UserController@destroy');
