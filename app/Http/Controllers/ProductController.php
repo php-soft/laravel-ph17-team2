@@ -16,4 +16,3 @@ class ProductController extends Controller
             ->with('attributes', $attributes);
     }
 }
-
