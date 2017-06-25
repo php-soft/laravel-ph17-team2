@@ -13,17 +13,8 @@ class UserController extends Controller
 {
     public function index($id)
     {
-        $user = User::find($id);//ok roi day
+        $user = User::find($id);
         return view('profile.index')->with('user', $user);
-    }
-
-    public function showuser(){
-        return view('profile.showuser')->with('users', $users);	
-    }
-
-    public function information()
-    {
-        return view('profile.information');
     }
 
 }
