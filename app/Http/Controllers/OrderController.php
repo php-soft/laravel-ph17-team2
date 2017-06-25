@@ -20,7 +20,7 @@ class OrderController extends Controller
         return view('order/checkout')->with('content', $content)->with('total', $total)->with('order', $order);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $Order = new Order;
         $total=Cart::total();
