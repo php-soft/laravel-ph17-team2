@@ -5,6 +5,15 @@
     <div class="container">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
+				@if(count($errors)>0)
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{!! $error !!}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif()
 				<div class="s-cart-all">
 					<div class="checkoutsteptitle down">Bước 1: Xác nhận đơn hàng</div>
 					<div class="table-responsive">
@@ -37,7 +46,7 @@
 							<tr>
 								<td colspan="5">Tổng tiền<br>
 								<td>
-									<span>{!! $total !!}</span><br>
+									<span>{!! $subtotal !!}</span><br>
 								</td>
 							</tr>
 						</table>
