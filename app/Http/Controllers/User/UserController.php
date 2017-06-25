@@ -14,7 +14,8 @@ class UserController extends Controller
     public function index($id)
     {
         $user = User::find($id);
-        $phoneProfile = $user->profile->phone;
+        $phoneProfile = $user->Profile->adress;
+        echo $phoneProfile;
         return view('profile.index')->with('user', $user)->with('phoneProfle', $phoneProfile);
     }
 

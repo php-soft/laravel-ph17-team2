@@ -28,7 +28,7 @@
 				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
 				<p>Email: <span>{{$user->email}}</span></p>
 				<p>Password: <span><a href="">Thay đổi password</a></span></p>
-				<p>Điện thoại: <span>{{ $phoneProfile }}</span></p>
+				<p>Điện thoại: <span>{!! $user->profile->phone !!}</span></p>
 			</div>
 			
 		</div>
