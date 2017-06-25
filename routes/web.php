@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail');
-Route::get('/home/shop/create', 'ProductController@create');
+Route::get('/home/san-pham', 'ProductController@index')->name('adminProduct');
+Route::get('/home/san-pham/create', 'ProductController@create')->name('adminProductCreate');
+Route::post('/home/san-pham', 'ProductController@store')->name('adminProductStore');
+Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail')->name('adminProductDetail');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/cart/show', 'CartController@show')->name('cart');
 route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');

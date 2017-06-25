@@ -10,7 +10,7 @@
             <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
             <a href="">{!! $shopProduct->shop->name !!}</a>
             <div class="pull-right">
-                <div><a href="{{ url('home/shop/create') }}">Tạo sản phẩm</a></div>
+                <div><a href="{{ url('home/san-pham/create') }}">Tạo sản phẩm</a></div>
                 <div><a href="">Chỉnh sửa sản phẩm</a></div>
             </div>
         </div>

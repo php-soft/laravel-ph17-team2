@@ -10,9 +10,15 @@
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('categories', 'Danh Mục chính') !!}
+            {!! Form::label('buys', 'Buys') !!}
             <div class="form-conrols">
-                {!! Form::select('categories', $categories, null, ['class' => 'form-control']) !!}
+                {!! Form::number('buys', 0, ['class' => 'form-control', 'min' => 0]) !!}
+            </div>
+        </div>
+        <div class="form-group">
+            {!! Form::label('category_id', 'Danh Mục chính') !!}
+            <div class="form-conrols">
+                {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
             </div>
         </div>
         <div class="form-group">
@@ -37,7 +43,7 @@
         <div class="form-group">
             {!! Form::label('image', 'Ảnh') !!}
             <div class="form-conrols">
-                {!! Form::file('image', null, ['class' => 'form-control']) !!}
+                {!! Form::text('image', null, ['class' => 'form-control']) !!}
             </div>
         </div>
         <div class="form-group">
