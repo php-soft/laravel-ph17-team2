@@ -35,18 +35,18 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
-        $this->validate($request, [
-                'shipping_name' => 'required|max:100',
-                'shipping_address' => 'required|max:255',
-                'shipping_phone' => 'required|max:20',
-            ], [
-                'shipping_name.required' => 'Bạn phải điền tên người nhận',
-                'shipping_name.max' => 'Bạn không được quá 100 kí tự',
-                'shipping_address.required' => 'Bạn phải điền đia chỉ người nhận',
-                'shipping_address.max' => 'Bạn không được quá 255 kí tự',
-                'shipping_phone.required' => 'Bạn phải điền số điện thoại người nhận',
-                'shipping_phone.max' => 'Bạn phải điền số điên thoại',
-            ]);
+            $this->validate($request, [
+                    'shipping_name' => 'required|max:100',
+                    'shipping_address' => 'required|max:255',
+                    'shipping_phone' => 'required|max:20',
+                ], [
+                    'shipping_name.required' => 'Bạn phải điền tên người nhận',
+                    'shipping_name.max' => 'Bạn không được quá 100 kí tự',
+                    'shipping_address.required' => 'Bạn phải điền đia chỉ người nhận',
+                    'shipping_address.max' => 'Bạn không được quá 255 kí tự',
+                    'shipping_phone.required' => 'Bạn phải điền số điện thoại người nhận',
+                    'shipping_phone.max' => 'Bạn phải điền số điên thoại',
+                ]);
         } else {
             $this->validate($request, [
                 'name' => 'required|max:100',
@@ -73,7 +73,7 @@ class OrderController extends Controller
                 'shipping_phone.required' => 'Bạn phải điền số điện thoại người nhận',
                 'shipping_phone.max' => 'Bạn phải điền số điên thoại',
             ]);
-            }
+        }
         $subtotal=Cart::subtotal(0, '', '');
         $Order = new Order;
         if (Auth::check()) {
@@ -87,7 +87,7 @@ class OrderController extends Controller
             $Order->address = Input::get('address');
             $Order->email = Input::get('email');
         }
-        
+
         $Order->shipping_address = Input::get('shipping_address');
         $Order->shipping_name = Input::get('shipping_name');
         $Order->shipping_phone = Input::get('shipping_phone');
