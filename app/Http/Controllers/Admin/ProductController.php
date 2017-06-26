@@ -9,7 +9,6 @@ use Input;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
-
 class ProductController extends Controller
 {
     public function index()
