@@ -24,6 +24,7 @@ route::get('/cart/show', 'CartController@show')->name('cart');
 route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
 Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
 Route::get('order', 'OrderController@show')->name('orderShow');
+Route::post('order', 'OrderController@store')->name('orderStore');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
@@ -34,6 +35,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}/delete', 'UserController@destroy');
     Route::get('/user/{user}/edit', 'UserController@edit');
     Route::get('/user/{user}', 'UserController@update');
+   
+    Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
+    Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
+    Route::post('/newscategory', 'NewsCategoryController@post')->name('newscategory.post');
+    Route::get('/newscategory/edit/{id}', 'NewsCategoryController@edit')->name('newscategory.edit');
+    Route::patch('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
+    Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
 });
 
 Route::group(['middleware' => ['auth']], function () {
