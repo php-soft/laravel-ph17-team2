@@ -11,6 +11,6 @@
         </div>
     @endif
     {!! Form::open(['route' => 'adminProductStore']) !!}
-        @include('partials.forms.product')
+        @include('admin.products.partials.forms.product')
     {!! Form::close() !!}
 @endsection

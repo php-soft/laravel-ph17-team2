@@ -40,3 +40,19 @@ $(document).ready(function(){
             });
     });
 });
+$(document).ready(function() {
+    $(".form-order-detail .btn-add").click(function (e) {
+        e.preventDefault();
+        var qty=$(this).parent().parent().find(".qty").val();
+        var token=$("input[name='_token']").val();
+        var id = $(this).attr('id');
+        $.ajax({
+            url:'home/mua-hang/'+id+'/'+qty,
+            type:"GET",
+            data:{"_token":token,"id":id,"qty":qty},
+            success:function (data) {
+                $('#cart-count').html(data.count);
+            }
+        });
+    });
+});

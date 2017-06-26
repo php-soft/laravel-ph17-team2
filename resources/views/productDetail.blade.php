@@ -7,8 +7,10 @@
             <div class="pull-left">
                 <img src="{!! $shopProduct->shop->logo !!}" alt="{!! $shopProduct->shop->logo !!}" width="80" height="40">
             </div>
-            <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
-            <a href="">{!! $shopProduct->shop->name !!}</a>
+            <div class="form-inline">
+                <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
+                <a href="">{!! $shopProduct->shop->name !!}</a>
+            </div>
         </div>
         <div class="block-img-attr">
             <div class="block-pro-img">
@@ -37,7 +39,7 @@
                 </div>
                 <div>
                 <div class="form-group">
-                    {{Form::open()}}
+                    {{Form::open(['method'=>'put', 'class'=>'form-order-detail'])}}
                         {{ Form::hidden('id', $shopProduct->product->id) }}
                         {{ Form::hidden('name', $shopProduct->product->name) }}
                         {{ Form::hidden('price', $shopProduct->product->price) }}
@@ -62,12 +64,12 @@
                                     {!! Form::label('qty', 'Số lượng', ['class' => 'form-lb-lb']) !!}
                                 </div>
                                 <div class="form-controls" style="height: 45px;">
-                                    {{ Form::number('qty', 1, ['class'=>'form-control form-quantity', 'min' => 1, 'max' => 99, 'size' => 1]) }} (Còn lại {!! $shopProduct->quantity !!} sản phẩm)
+                                    {{ Form::number('qty', 1, ['class'=>'form-control form-quantity qty', 'min' => 1, 'max' => 99, 'size' => 1]) }} (Còn lại {!! $shopProduct->quantity !!} sản phẩm)
                                 </div>
                             </div>
                         </div>
                         <div class="order">
-                            <button class="btn w3-btn btn-order add">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                            <button class="btn w3-btn btn-order add" id="{!! $shopProduct->product->id  !!}">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart"></span></button>
                             <button class="btn w3-btn btn-order buy">Mua ngay <span class="glyphicon glyphicon-ok"></span></button>
                         </div>
                     {{ Form::close() }}

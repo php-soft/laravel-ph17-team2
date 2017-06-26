@@ -58,7 +58,7 @@
 
                             <div class="row">
                                 @foreach($shopProducts as $shopProduct)
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3">
                                         <div class="single-item">
                                             <div class="single-item-header">
                                                 <a href="{{ url('home/san-pham/' .  $shopProduct->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>

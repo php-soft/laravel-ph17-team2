@@ -8,6 +8,8 @@ body {
 .lb {
 	margin-left: 1em;
 	font-weight: normal;
+	display: inline;
+	
 }
 
 .well {
@@ -91,6 +93,16 @@ body {
 .attr {
 	height: 30px;
 	line-height: 30px;
+}
+
+.attr input {
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+
+.attr span {
+	margin-right: 4px;
 }
 
 .form-lb {

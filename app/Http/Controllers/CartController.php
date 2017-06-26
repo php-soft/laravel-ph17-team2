@@ -17,6 +17,17 @@ class CartController extends Controller
         };
     }
 
+    public function storeQty($id)
+    {
+        if (Request::ajax()) {
+            $qty=Request::get('qty') ;
+            $productBuy=\App\ShopProduct::where('id', $id)->first();
+            Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => $qty, 'price' =>
+                $productBuy->product->price]);
+            return response()->json(['count'=>Cart::count()]);
+        };
+    }
+
     public function show()
     {
         $content=Cart::content();
