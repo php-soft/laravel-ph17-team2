@@ -87,6 +87,7 @@ class OrderController extends Controller
             $Order->address = Input::get('address');
             $Order->email = Input::get('email');
         }
+        
         $Order->shipping_address = Input::get('shipping_address');
         $Order->shipping_name = Input::get('shipping_name');
         $Order->shipping_phone = Input::get('shipping_phone');
@@ -96,6 +97,7 @@ class OrderController extends Controller
         $Order->save();
         $content =Cart::content();
         $OrderProduct = new OrderProduct;
+
         foreach ($content as $contents) {
             $OrderProduct->quantity=$contents->qty;
             $OrderProduct->price=$contents->price;
@@ -103,6 +105,7 @@ class OrderController extends Controller
             $OrderProduct->product_id=$contents->id;
             $OrderProduct->save();
         }
+
         Cart::destroy();
         echo "<script>
 			alert('Cảm ơn bạn đã đặt hàng ');
