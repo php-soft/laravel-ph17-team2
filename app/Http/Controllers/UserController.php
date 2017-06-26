@@ -22,6 +22,6 @@ class UserController extends Controller
     public function update($id)
     {
         $user->update(Input::all());
-    	return redirect('user/profile/{id}');
+        return redirect('user/profile/{id}');
     }
 }
