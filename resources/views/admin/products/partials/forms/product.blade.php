@@ -10,12 +10,6 @@
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('buys', 'Buys') !!}
-            <div class="form-conrols">
-                {!! Form::number('buys', 0, ['class' => 'form-control', 'min' => 0]) !!}
-            </div>
-        </div>
-        <div class="form-group">
             {!! Form::label('category_id', 'Danh Mục chính') !!}
             <div class="form-conrols">
                 {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
@@ -61,5 +55,6 @@
         {{-- {!! Form::hidden('shop_id', $user->shop->id) !!} --}}
         {!! Form::hidden('user_id', $user->id) !!}
         {!! Form::hidden('shop_id', $shop->id) !!}
+        {!! Form::hidden('buys', 0) !!}
         {!! Form::submit('Tạo sản phẩm', ['class' => 'btn btn-primary']) !!}
     </div>

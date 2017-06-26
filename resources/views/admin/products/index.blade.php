@@ -17,23 +17,23 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Price</th>
-                                {{-- <th>Quantity</th> --}}
-                                {{-- <th>Shop</th> --}}
-                                {{-- <th>Category</th> --}}
+                                <th>Quantity</th>
+                                <th>Shop</th>
+                                <th>Category</th>
                                 <th class="text-right">Actions</th>
                             </tr>
-                        @foreach($products as $product)
+                        @foreach($shopProducts as $shopProduct)
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ number_format($product->price) }}</td>
-                                {{-- <td>{{ $product->quantity }}</td> --}}
-                                {{-- <td>{{ $product->shop->name }}</td>
-                                <td>{{ $product->category->name }}</td> --}}
+                                <td>{{ $shopProduct->id }}</td>
+                                <td>{{ $shopProduct->name }}</td>
+                                <td>{{ number_format($shopProduct->price) }}</td>
+                                <td>{{ $shopProduct->quantity }}</td>
+                                <td>{{ $shopProduct->shop->name }}</td>
+                                <td>{{ $shopProduct->product->category->name }}</td>
                                 <td>
-                                    {{-- <a href="{{ route('adminProductsEdit', ['id' => $product->id] ) }}"><button class="btn btn-xs btn-primary">Edit</button></a>
-                                    <a href="" data-toggle="modal" data-target="{{"#".$product->id}}"><button class="btn btn-xs btn-danger">Delete</button></a> --}}
-                                    <div id="{{$product->id}}" class="modal fade" role="dialog">
+                                    <a href="#"><button class="btn btn-xs btn-primary">Edit</button></a>
+                                    <a href="" data-toggle="modal"><button class="btn btn-xs btn-danger">Delete</button></a>
+                                    <div id="{{$shopProduct->product->id}}" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -44,12 +44,12 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>Do you sure want to delete this product?</p><br>
-                                                    <h4>{{$product->name}}</h4>
+                                                    <h4>{{$shopProduct->product->name}}</h4>
                                                 </div>
-                                                {{-- <div class="modal-footer">
-                                                    <a href="{{ route('adminProductsDelete', ['id' => $product->id] ) }}"><button type="button" class="btn btn-danger">Yes</button></a>
+                                                <div class="modal-footer">
+                                                    <a href="#"><button type="button" class="btn btn-danger">Yes</button></a>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

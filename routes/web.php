@@ -18,9 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/san-pham', 'ProductController@index')->name('adminProduct');
-Route::get('/home/san-pham/create', 'ProductController@create')->name('adminProductCreate');
-Route::post('/home/san-pham', 'ProductController@store')->name('adminProductStore');
 Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail')->name('adminProductDetail');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/cart/show', 'CartController@show')->name('cart');
@@ -37,4 +34,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}/delete', 'UserController@destroy');
     Route::get('/user/{user}/edit', 'UserController@edit');
     Route::get('/user/{user}', 'UserController@update');
+
+    Route::get('/products', 'ProductController@index')->name('adminProduct');
+	Route::get('/products/create', 'ProductController@create')->name('adminProductCreate');
+	Route::post('/products', 'ProductController@store')->name('adminProductStore');
 });
