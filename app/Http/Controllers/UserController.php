@@ -13,15 +13,11 @@ class UserController extends Controller
         return view('userDetail')->with('user', $user);
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $user = User::find($id);
-        return view('editUserDetail')->with('user', $user);
     }
 
-    public function update($id)
+    public function update()
     {
-        $user->update(Input::all());
-        return redirect('user/profile/{id}');
     }
 }
