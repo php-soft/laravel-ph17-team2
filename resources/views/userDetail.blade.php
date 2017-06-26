@@ -11,7 +11,7 @@
 		margin-bottom: 7px;
 	}
 </style>
-<div class="container-fluid">
+<div class="container">
 	<div class="row content">
 		<div class="col-sm-3 sidenav">
 			<ul class="nav nav-pills nav-stacked">
@@ -27,6 +27,16 @@
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="" width="200px" height="200px">
 			</div>
 			<div class="col-sm-6">
+			@if(empty($user->profile))
+				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
+				<p>Email: <span>{{$user->email}}</span></p>
+				<p>Password: <span><a href="">Thay đổi password</a></span></p>
+				<p>Điện thoại: <span>Chưa cập nhật</span></p>
+				<p>Địa chỉ: <span>Chưa cập nhật</span></p>
+				<p>Ngày sinh: <span>Chưa cập nhật</span></p>
+				<p>Giới tính: <span>Chưa cập nhật</span></p>
+				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Thay đổi</button></a>
+			@else
 				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
 				<p>Email: <span>{{$user->email}}</span></p>
 				<p>Password: <span><a href="">Thay đổi password</a></span></p>
@@ -44,6 +54,7 @@
 				</span>
 				</p>
 				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Thay đổi</button></a>
+			@endif
 			</div>
 			
 		</div>
