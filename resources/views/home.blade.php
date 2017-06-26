@@ -97,7 +97,7 @@
                                         <div class="single-item-body">
                                             <p class="single-item-title">{!! $sp->name !!}</p>
                                             <p class="single-item-price">
-                                                <span>{!! $sp->price !!}</span>
+                                                <span>{!! $sp->price !!} VNĐ</span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">

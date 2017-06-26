@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
        
         $products = DB::table('products')
-         	->select('id', 'name', 'image', 'price')
+            ->select('id', 'name', 'image', 'price')
             ->orderBy('id', 'DESC')
             ->limit(3)
             ->get();
