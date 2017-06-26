@@ -88,7 +88,7 @@
                             <div class="space30">&nbsp;</div>
                        
                             <div class="row">
-                             @foreach($sp as $sp)
+                            @foreach($sp as $sp)
                                 <div class="col-sm-4">
                                     <div class="single-item">
                                         <div class="single-item-header">
