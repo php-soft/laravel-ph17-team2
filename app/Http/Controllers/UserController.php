@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Profile;
 
 class UserController extends Controller
 {
@@ -13,13 +14,14 @@ class UserController extends Controller
         return view('userDetail')->with('user', $user);
     }
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
         return view('editUserDetail')->with('user', $user);
     }
 
-    public function update()
+    public function update(User $user)
     {
+        $user->profile->update(Input::all());
+        return redirect('user/profile/$user->id/index');
     }
 }
