@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product = \App\Product::create($data);
         $dt = $request->except('description', 'category_id', 'image', 'alias', 'name');
         $dt['product_id'] = $product->id;
-        $shopProduct = \App\ShopProduct::create($dt);
+        \App\ShopProduct::create($dt);
         return redirect()->route('adminProduct');
     }
 }
