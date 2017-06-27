@@ -52,6 +52,4 @@ class OrdersController extends Controller
         $orders =  \App\Order::onlyTrashed()->Paginate(10);
         return view('admin/orders/withtrash')->with('orders', $orders);
     }
-
 }
-

@@ -9,7 +9,6 @@ use App\Order;
 use App\OrderProduct;
 use Validate;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class OrderController extends Controller
 {
@@ -98,19 +97,19 @@ class OrderController extends Controller
         $Order->total_price = $subtotal;
         $Order->save();
         $content =Cart::content();
-
+        $OrderProduct = new OrderProduct;
 
         foreach ($content as $contents) {
             $OrderProduct = new OrderProduct;
             $OrderProduct->quantity=$contents->qty;
             $OrderProduct->price=$contents->price;
+            $OrderProduct->order_id=$Order->id;
             $OrderProduct->product_id=$contents->id;
             $OrderProduct->order_id=$Order->id;
             $OrderProduct->save();
-            Cart::destroy();
         }
 
-
+        Cart::destroy();
         echo "<script>
 			alert('Cảm ơn bạn đã đặt hàng ');
 			window.location = '".url('/home')."'
