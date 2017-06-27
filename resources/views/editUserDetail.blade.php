@@ -48,9 +48,9 @@
 				<button type="submit" class="btn btn-default btn-success pull-right">Cập Nhật</button>
 			</form>
 			@else
-				<form action="">
+				<form action="{{ url('user/profile/'.Auth::user()->id.'/index') }} " method="put" value="{!! csrf_token() !!}">
 				<h3>Cập nhật thông tin cá nhân</h3>
-				<hr>
+				<hr> 
 				<div class="form-group">
 					<label for="text">Tên : <span>{{$user->name}}</span></label>
 					<input type="text" class="form-control" id="name" placeholder="Update tên" name="name">
