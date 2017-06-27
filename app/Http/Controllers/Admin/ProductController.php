@@ -20,10 +20,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = \App\Category::renderAsDropdown();
-        $categories = str_replace('<select  >',
-            '<select id="category_id" name="category_id" class="form-control"',
-            $categories
-            );
+        $categories = str_replace(
+            '<select  >',
+            '<select id="category_id" name="category_id" class="form-control"', $categories);
         $user = Auth::user();
         $shop = $user->shops->first();
         return view('admin.products.create')
