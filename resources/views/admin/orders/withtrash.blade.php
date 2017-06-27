@@ -5,13 +5,12 @@
         <!-- Advanced Tables -->
         <div class="panel panel-default">
             <div class="panel-heading">
-                List Orders
+                Danh sách đơn hàng
             </div>
             <div class="panel-body">
 
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="example">
-                        <h3><a href="{{ url('admin/orders/withtrashed') }}" title=""><span class="glyphicon glyphicon-trash"></span>Thùng Rác</a></h3>
                         <thead>
                             <tr class="orders">
                                 <th class="text-center">ID</th>
@@ -20,8 +19,7 @@
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Total Price</th>
                                 <th class="text-center" >Status</th>
-                                <th class="text-center" >Actions</th>
-                                <th class="text-center">Delete</th>
+                                <th class="text-center">Actions</th>
                                 <th class="text-center">Handler</th>
                             </tr>
                         </thead>
@@ -39,16 +37,14 @@
                                     <td class="center">{!! $order->total_price !!}</td>
                                     <td class="text-center" id="stutustext">{{ $order->statusText() }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('admin/orders/'.$order->id) }}">
+                                        <a href="{{ url('admin/orders/withtrashed/'.$order->id) }}">
                                             show
                                         </a>
                                     </td>
-                                    <td class="text-center" ><a href="{{ url('admin/orders/'.$order->id.'/delete') }}" title=""><span class="glyphicon glyphicon-trash"></span></a></td>
                                     <td class="text-center" ></td>
                                 </tr>
                             @endforeach
                             <?php echo $orders->links(); ?>
-
                         </tbody>
 
                     </table>

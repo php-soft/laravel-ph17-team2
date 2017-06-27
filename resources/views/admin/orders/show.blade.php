@@ -7,20 +7,22 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <a href="{{ url('/admin/orders') }}">Back to overview</a>
-                                <h2>Customer  Informations</h2>
+                                <div class="panel-heading">
+                                    <h2>Customer Informations</h2>
+                                </div>
                                 <div class="col-md-6">
                                     @if (!empty($orders->user_id))
                                         @foreach($users as $user)
                                             <h3><strong>Tên khách hàng mua:{!! $user->name !!}</strong></h3>
                                         @endforeach
-                                    <h3>Đia chỉ khách hàng:{!! $user->address !!}</h3>
-                                    <h3>Số điện thoại khách hàng:{!! $user->phone !!}</h3>
-                                    <h3>Email khách hàng :{!! $user->email !!} </h3>
+                                    <h3>Đia chỉ khách hàng mua:{!! $user->address !!}</h3>
+                                    <h3>Số điện thoại khách hàng mua:{!! $user->phone !!}</h3>
+                                    <h3>Email khách hàng mua:{!! $user->email !!} </h3>
                                     @else
-                                        <p>Name:{!! $orders->name !!}</p>
-                                        <p>Email: None</p>
-                                        <p>Address: None</p>
-                                        <p>Phone: None</p>
+                                        <h3><strong>Tên người mua:{!! $orders->name !!}</strong></h3>
+                                        <h3>Email người mua:{!! $orders->email !!}</h3>
+                                        <h3>Đia chỉ người mua người mua:{!! $orders->address !!}</h3>
+                                        <h3>Số điện thoại người mua: {!! $orders->phone !!}</h3>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
@@ -33,7 +35,7 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <h2>Product Informations</h2>
+                            <h2>Status Informations</h2>
 
                             <div class="col-md-12 order-status-actions">
                                 <div class="col-md-1">
@@ -107,24 +109,26 @@
                             </tr>
                             </thead>
                             <tbody>
+                                <?php $stt =0;?>
                                 @foreach($orders->orderProducts as $Products)
+                                    <?php $stt= $stt+1?>
                                     <tr class="odd gradeX">
-                                        <td class="text-center">{!! $Products->id !!}</td>
+                                        <td class="text-center">{!! $stt !!}</td>
                                         <td class="text-center">{!! $Products->product->name !!}</td>
                                         <td class="text-center">{!! $Products->quantity !!}</td>
-                                        <td class="text-center">{!! $Products->price !!}</td>
-                                        <td class="text-center">{!! $Products->price*$Products->quantity!!}</td>
+                                        <td class="text-center">{!! number_format($Products->price,0,",",".") !!}</td>
+                                        <td class="text-center">{!! number_format($Products->price * $Products->quantity,0,",","." ) !!}</td>
                                         @foreach($Products->product->ShopProducts as $Shops)
                                             <td class="text-center">{!! $Shops->shop->name!!} </td>
                                         @endforeach
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td>Total</td>
+                                    <td class="text-center">Total</td>
                                     <td></td>
-                                    <td class="center">{{ $orders->orderProducts->sum('quantity') }}</td>
+                                    <td class="text-center">{{ $orders->orderProducts->sum('quantity') }}</td>
                                     <td></td>
-                                    <td class="center">{{ $total_amount }}</td>
+                                    <td class="text-center">{!! number_format($total_amount,0,",","." ) !!}</td>
                                     <td></td>
                                 </tr>
                             </tbody>

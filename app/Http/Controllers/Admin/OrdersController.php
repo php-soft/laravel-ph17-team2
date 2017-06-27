@@ -10,7 +10,7 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        $orders = \App\Order::all();
+        $orders = \App\Order::Paginate(10);
         return view('admin.orders.index')->with('orders', $orders);
     }
 
@@ -38,4 +38,20 @@ class OrdersController extends Controller
             return response()->json(['status' => $orders->status]);
         }
     }
+
+    public function destroy($id)
+    {
+        $orders = \App\Order::find($id);
+        $orders->delete();
+        return redirect('admin/orders')
+            ->withSuccess('Orders has been delete.');
+    }
+
+    public function withtrashed()
+    {
+        $orders =  \App\Order::onlyTrashed()->Paginate(10);
+        return view('admin/orders/withtrash')->with('orders', $orders);
+    }
+
 }
+
