@@ -37,7 +37,7 @@
                                     <td class="center">{!! $order->total_price !!}</td>
                                     <td class="text-center" id="stutustext">{{ $order->statusText() }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('admin/orders/withtrashed/'.$order->id) }}">
+                                        <a href="{{ url('admin/orders/'.$order->id.'/withtrashed') }}">
                                             show
                                         </a>
                                     </td>
