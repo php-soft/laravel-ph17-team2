@@ -25,7 +25,7 @@
                         @foreach($shopProducts as $shopProduct)
                             <tr>
                                 <td>{{ $shopProduct->id }}</td>
-                                <td>{{ $shopProduct->name }}</td>
+                                <td>{{ $shopProduct->product->name }}</td>
                                 <td>{{ number_format($shopProduct->price) }}</td>
                                 <td>{{ $shopProduct->quantity }}</td>
                                 <td>{{ $shopProduct->shop->name }}</td>

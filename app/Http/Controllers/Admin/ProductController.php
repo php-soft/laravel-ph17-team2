@@ -19,7 +19,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = \App\Category::where('parent_id', '<>', 0)->pluck('name', 'id', 'parent_id');
+        $categories = \App\Category::renderAsDropdown();
+        $categories = str_replace('<select  >', '<select id="category_id" name="category_id" class="form-control"', $categories);
         $user = Auth::user();
         $shop = $user->shops->first();
         return view('admin.products.create')
@@ -43,8 +44,9 @@ class ProductController extends Controller
             'alias' => 'required|max:255',
             'user_id' => 'required|numeric|exists:users,id',
             'discount' => 'required|numeric'
+            // 'view' => 'numeric'
         ]);
-        $data = $request->except('quantity', 'shop_id', 'user_id', 'discount', 'buys');
+        $data = $request->except('quantity', 'shop_id', 'user_id', 'discount');
         // $file = $request->file('photo');
         // if (!empty($file)) {
         //     $data['image'] = str_slug(Carbon::now().'_'.$data['name'].'.'.$file->getClientOriginalExtension());
