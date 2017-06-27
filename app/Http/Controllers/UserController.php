@@ -27,8 +27,8 @@ class UserController extends Controller
         $user->update(Input::all());
         if (empty($user->profile)) {
             $user->profile = Profile::create(Input::all());
-        }
-        else
+        } 
+        else 
         {
             $user->profile->update(Input::all());
         }
