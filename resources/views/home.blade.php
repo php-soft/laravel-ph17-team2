@@ -57,20 +57,20 @@
                              <div class="space30">&nbsp;</div>
 
                             <div class="row">
-                                @foreach($products as $product)
+                                @foreach($shopProducts as $shopProduct)
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ route('productsDetail', ['id' => $product->id]) }}"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                                <a href=""><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{!! $product->name !!}</p>
+                                                <p class="single-item-title">{!! $shopProduct->product->name !!}</p>
                                                 <p class="single-item-price">
-                                                    <span>{!! $product->price !!} VNĐ</span>
+                                                    <span>{!! $shopProduct->product->price !!} VNĐ</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href="javascript:void(0)"><i class="fa fa-shopping-cart" id={!! $product->id !!}></i></a>
+                                                <a class="add-to-cart pull-left" href="javascript:void(0)"><i class="fa fa-shopping-cart" id={!! $shopProduct->product->id !!}></i></a>
                                                 <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -92,12 +92,12 @@
                                 <div class="col-sm-4">
                                     <div class="single-item">
                                         <div class="single-item-header">
-                                            <a href="{{ route('productsDetail', ['buys' => $sp->buys]) }}"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                            <a href=""><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
                                         </div>
                                         <div class="single-item-body">
-                                            <p class="single-item-title">{!! $sp->name !!}</p>
+                                            <p class="single-item-title">{!! $sp->product->name !!}</p>
                                             <p class="single-item-price">
-                                                <span>{!! $sp->price !!} VNĐ</span>
+                                                <span>{!! $sp->product->price !!} VNĐ</span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
