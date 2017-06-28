@@ -13,8 +13,9 @@ class ProductAttributeValuesTableSeeder extends Seeder
     {
         DB::table('product_attribute_values')->insert([
             ['product_id' => 3, 'category_attribute_value_id' => 1, 'value' => 'Đỏ'],
-            ['product_id' => 1, 'category_attribute_value_id' => 2, 'value' => 'L'],
-            ['product_id' => 1, 'category_attribute_value_id' => 3, 'value' => 'Trắng']
+            ['product_id' => 1, 'category_attribute_value_id' => 6, 'value' => 'L'],
+            ['product_id' => 1, 'category_attribute_value_id' => 7, 'value' => 'Trắng'],
+            ['product_id' => 1, 'category_attribute_value_id' => 6, 'value' => 'XL']
         ]);
     }
 }

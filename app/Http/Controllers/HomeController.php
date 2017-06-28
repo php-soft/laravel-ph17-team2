@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-       
         $products = DB::table('products')
             ->select('id', 'name', 'image', 'price')
             ->orderBy('id', 'DESC')

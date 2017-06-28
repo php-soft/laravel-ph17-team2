@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 use Cart;
 
 class ProductController extends Controller
@@ -10,9 +10,9 @@ class ProductController extends Controller
     public function productDetail($shopProductId)
     {
         $shopProduct = \App\ShopProduct::find($shopProductId);
-        $attributes = $shopProduct->product->productAttributeValues;
+        $category = $shopProduct->product->category;
         return view('productDetail')
             ->with('shopProduct', $shopProduct)
-            ->with('attributes', $attributes);
+            ->with('category', $category);
     }
 }

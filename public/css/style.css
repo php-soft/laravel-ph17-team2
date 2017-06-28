@@ -7,6 +7,20 @@ body {
 
 .lb {
 	margin-left: 1em;
+	font-weight: normal;
+	display: inline;
+	
+}
+
+.well {
+	height: 62px;
+	padding: 10px;
+}
+
+.well a {
+	color: blue;
+	font-weight: bold;
+	font-size: 15px;
 }
 
 .block-img-attr {
@@ -81,6 +95,16 @@ body {
 	line-height: 30px;
 }
 
+.attr input {
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+
+.attr span {
+	margin-right: 4px;
+}
+
 .form-lb {
 	float: left;
 	width: 100px;
@@ -103,21 +127,58 @@ body {
 	margin-top: 20px;
 }
 
-.btn-add {
+.buy {
+	background-color: #e60f1e;
+	color: white;
+}
+
+.add {
+	background-color: #029900;
+	color: white;
+}
+
+.btn-order {
 	height: 42px;
 	line-height: 42px;
-	background-color: #029900;
 	font-size: 15px; width: 195px;
 	margin-right: 14px;
 	padding: 0;
 }
 
-.btn-add:hover {
-	box-shadow: 5px 5px 2px #888888;
-	background-color: #029900;
+
+.btn-order:hover {
+	color: white;
+	box-shadow: 4px 4px 3px #888888;
+	transition: .3s;
 }
 
 .info {
 	border-top: 2px solid black;
 }
 
+.item-preview {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.box-item {
+	margin: 0;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.price {
+	color: red;
+	height: 28px;
+	padding: 5px 0;
+	line-height: 18px;
+	display: block;
+	overflow: hidden;
+}
+
+.prod-name {
+	overflow: hidden;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
