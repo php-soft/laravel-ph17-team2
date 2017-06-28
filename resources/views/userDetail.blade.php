@@ -35,7 +35,7 @@
 				<p>Địa chỉ: <span>Chưa cập nhật</span></p>
 				<p>Ngày sinh: <span>Chưa cập nhật</span></p>
 				<p>Giới tính: <span>Chưa cập nhật</span></p>
-				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Thay đổi</button></a>
+				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Cập nhật thông tin</button></a>
 			@else
 				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
 				<p>Email: <span>{{$user->email}}</span></p>
@@ -53,7 +53,7 @@
 					@endif
 				</span>
 				</p>
-				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Thay đổi</button></a>
+				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Cập nhật thông tin</button></a>
 			@endif
 			</div>
 			
