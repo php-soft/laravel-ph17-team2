@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Shop;
+use App\User;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        return view('shop');
+        $user = User::find($id);
+        return view('shop')->with('user', $user);
+    }
+
+    public function create($id)
+    {
+        return view('shopCreate');
     }
 }
