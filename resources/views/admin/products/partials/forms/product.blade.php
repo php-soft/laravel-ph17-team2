@@ -1,5 +1,4 @@
     <div class="container">
-    {{-- {{dd($categories)}} --}}
         <div class="form-group">
             {!! Form::label('', 'Tên cửa hàng') !!}
             {!! Form::label('', $shop->name, ['class' => 'form-control']) !!}
@@ -10,12 +9,6 @@
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
         </div>
-{{--         <div class="form-group">
-            {!! Form::label('category_id', 'Danh Mục chính') !!}
-            <div class="form-conrols">
-                {!! Form::select('category_id', $shop, ['class' => 'form-control']) !!}
-            </div>
-        </div> --}}
         <div class="form-group">
             {!! Form::label('category_id', 'Danh Mục chính') !!}
             <div class="form-conrols sc">
@@ -64,5 +57,4 @@
         {!! Form::hidden('shop_id', $shop->id) !!}
         {!! Form::hidden('buys', 0) !!}
         {!! Form::hidden('view', 0) !!}
-        {!! Form::submit('Tạo sản phẩm', ['class' => 'btn btn-primary']) !!}
     </div>
