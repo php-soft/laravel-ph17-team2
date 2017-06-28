@@ -30,7 +30,7 @@ class UserController extends Controller
             'address' => 'required',
             'gender' => 'required',
             'date_of_birth' => 'required',
-        ] , [
+        ], [
             'name.required' => 'Bắt buộc phải điền tên',
             'name.max' => 'Tên không quá 10 ký tự',
             'email.required' => 'Bắt buộc phải điền email',
