@@ -29,8 +29,12 @@ Route::post('order', 'OrderController@store')->name('orderStore');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
+    Route::get('/orders/withtrashed', 'OrdersController@withtrashed')->name('adminOrderWithtrashed');
+    Route::get('/orders/{id}/withtrashed', 'OrdersController@showWithtrashed')->name('adminOrdershowWithtrashed');
     Route::get('/orders/{id}', 'OrdersController@show')->name('adminOrders');
     Route::put('/orders/{id}/{status}', 'OrdersController@edit')->name('adminOrderEditStatus');
+    Route::get('/orders/{id}/delete', 'OrdersController@destroy')->name('adminOrderDelete');
+
 
     Route::get('/user', 'UserController@index')->name('managerUser');
     Route::get('/user/{user}/delete', 'UserController@destroy');
@@ -51,5 +55,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 Route::group(['middleware' => ['auth']], function () {
     Route::get('user/profile/{id}/index', 'UserController@index');
     Route::get('user/profile/{id}/edit', 'UserController@edit');
-    Route::get('user/profile/{id}', 'UserController@update');
+    Route::put('user/profile/{id}/index', 'UserController@update');
 });

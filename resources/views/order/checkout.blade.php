@@ -79,6 +79,12 @@
 								{!! Form::text('address', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
+						<div class="control-group">
+							{!! Form::label('email', 'Đia chỉ email người mua') !!}
+							<div class="controls">
+							{!! Form::text('email', null, ['class' => 'form-control']) !!}
+							</div>
+						</div>
 
 					</div>
 			</div>
@@ -146,8 +152,8 @@
 		@endif
 		<div style="clear: both;"></div>
 	</div>
-		<div class="checkoutsteptitle down">Bước 3: Đặt Hàng</div>
-			{!! Form::submit('Đặt hàng', ['class' => 'btn btn-primary']) !!}
+	<div class="checkoutsteptitle down">Bước 3: Đặt Hàng</div>
+			{!! Form::submit('Đặt hàng', ['class' => 'btn btn-primary order']) !!}
 	{{ Form::close() }}
 	</div>
 </div>
