@@ -40,7 +40,7 @@ class ShopController extends Controller
         return redirect('user/shop/'.$user->id.'/index');
     }
 
-    public function show($id)
+    public function show()
     {
         return view('shopShow');
     }
