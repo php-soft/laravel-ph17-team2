@@ -103,10 +103,7 @@ class OrderController extends Controller
 
 
         Cart::destroy();
-        echo "<script>
-			alert('Cảm ơn bạn đã đặt hàng ');
-			window.location = '".url('/home')."'
-		</script>";
+        
     }
 
     public function activateOrder($id)
