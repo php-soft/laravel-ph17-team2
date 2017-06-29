@@ -7,6 +7,63 @@
     "content-hash": "3aa3294ede2b55d9a986d108d6638fb9",
     "packages": [
         {
+            "name": "atayahmet/laravel-nestable",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atayahmet/laravel-nestable.git",
+                "reference": "91f8d4195ae4a537416b75e6d74751c4865e2068"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atayahmet/laravel-nestable/zipball/91f8d4195ae4a537416b75e6d74751c4865e2068",
+                "reference": "91f8d4195ae4a537416b75e6d74751c4865e2068",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.2.*|5.3.*|5.4.*",
+                "illuminate/support": "5.2.*|5.3.*|5.4.*",
+                "php": ">=5.5.5"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nestable\\": "src/",
+                    "Nestable\\Tests\\": "tests/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmet ATAY",
+                    "email": "ahmet.atay@hotmail.com",
+                    "homepage": "http://www.atayahmet.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 nested categories library",
+            "homepage": "https://github.com/atayahmet/nestable",
+            "keywords": [
+                "category",
+                "laravel",
+                "nestable",
+                "nested",
+                "nestedset"
+            ],
+            "time": "2017-05-15T17:53:18+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
