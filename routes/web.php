@@ -62,8 +62,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('user/profile/{id}/index', 'UserController@update');
 
     Route::get('user/shop/{id}/index', 'ShopController@index');
+
     Route::get('user/shop/{id}/create', 'ShopController@create');
     Route::put('user/shop/{id}/index', 'ShopController@update');
+
     Route::get('user/shop/{id}/show', 'ShopController@show');
+
     Route::get('user/shop/{id}/edit', 'ShopController@edit');
+    Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
 });

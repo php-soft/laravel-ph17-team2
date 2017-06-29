@@ -35,7 +35,6 @@ class ShopController extends Controller
             'description.required' => 'Bắt buộc phải nhập mô tả',
             'logo.required' => 'Bắt buộc phải có logo shop',
         ]);
-        // dd('kiemtre');
         $user = User::find($id);
         $user->shops = Shop::create(Input::all());
         return redirect('user/shop/'.$user->id.'/index');
@@ -48,7 +47,27 @@ class ShopController extends Controller
 
     public function edit($id)
     {
-        return view('shopEdit');
+        $shop = Shop::find($id);
+        return view('shopEdit')->with('shop', $shop);
+    }
+
+    public function editUpdate($id, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:25',
+            'address' => 'required',
+            'description' => 'required',
+            'logo' => 'required',
+        ], [
+            'name.required' => 'Bắt buộc phải điền tên shop',
+            'name.max' => 'Tên shop không quá 25 ký tự',
+            'address.required' => 'Bắt buộc phải điền địa chỉ',
+            'description.required' => 'Bắt buộc phải nhập mô tả',
+            'logo.required' => 'Bắt buộc phải có logo shop',
+        ]);
+        $shop = Shop::find($id);
+        $shop->update(Input::all());
+        return redirect('user/shop/'.$shop->id.'/edit');
     }
 
 }
