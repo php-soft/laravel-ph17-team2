@@ -12,7 +12,6 @@ use Validate;
 use Illuminate\Http\Request;
 use App\Mail\OrderShipped;
 
-
 class OrderController extends Controller
 {
     public function show()
@@ -108,7 +107,6 @@ class OrderController extends Controller
 			alert('Cảm ơn bạn đã đặt hàng ');
 			window.location = '".url('/home')."'
 		</script>";
-
     }
 
     public function activateOrder($id)
@@ -120,7 +118,5 @@ class OrderController extends Controller
 			alert('Cảm ơn bạn đã xác nhận đơn hàng thành công ');
 			window.location = '".url('/home')."'
 		</script>";
-
     }
 }
-

@@ -23,7 +23,6 @@ class OrderShipped extends Mailable
     public function __construct(Order $order)
     {
         $this->order = $order;
-
     }
 
     /**
@@ -38,13 +37,11 @@ class OrderShipped extends Mailable
         $subtotal = Cart::subtotal();
         $this->order->activation_link = route('activateOrder', $this->order->id);
         return $this->markdown('mails.shipped')
-            ->with('subtotal',$subtotal)
-            ->with('content',$content)
+            ->with('subtotal', $subtotal)
+            ->with('content', $content)
             ->with([
                 'order' => $this->order,
             ]);
     }
-
-
-
 }
+
