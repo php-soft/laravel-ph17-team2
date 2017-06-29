@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="col-sm-9">
-			<form action="{{ url('user/profile/'.$user->id).'/edit' }}">
+			<form action="{{ url('user/profile/'.$user->id)}}" method="put" >
 				<div class="form-group">
 					<label for="text">Cập nhật Tên :</label>
 					<input type="text" class="form-control" id="name" placeholder="Edit tên" name="name">
@@ -37,7 +37,7 @@
 					<input type="email" class="form-control" id="email" placeholder="Edit Email" name="email">
 				</div>
 				<button type="submit" class="btn btn-default">cập Nhật</button>
-			</form>	
+			</form>
 		</div>
 	</div>
 </div>

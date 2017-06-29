@@ -131,24 +131,41 @@
 						{!! Form::text('voucher_code', null, ['class' => 'form-control']) !!}
 					</div>
 				</div>
+				<div class="control-group">
+					{!! Form::label('shipping_address', 'Đia chỉ người nhận') !!}
+					<div class="controls">
+						{!! Form::text('shipping_address', null, ['class' => 'form-control']) !!}
+					</div>
+				</div>
+				<div class="control-group">
+					{!! Form::label('shipping_name', 'Họ tên người nhận') !!}
+					<div class="controls">
+						{!! Form::text('shipping_name', null, ['class' => 'form-control']) !!}
+					</div>
+				</div>
 			</div>
 		</div>
 			<div  class="col-xs-6">
 				<div class="span4">
-					<div class="control-group">
-						{!! Form::label('shipping_address', 'Đia chỉ người nhận') !!}
-						<div class="controls">
-							{!! Form::text('shipping_address', null, ['class' => 'form-control']) !!}
-						</div>
+					<div class="form-group">
+						<label for="text">Tên : <span></span></label>
+						<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{Auth::user()->name}}">
 					</div>
-					<div class="control-group">
-						{!! Form::label('shipping_name', 'Họ tên người nhận') !!}
-						<div class="controls">
-							{!! Form::text('shipping_name', null, ['class' => 'form-control']) !!}
-						</div>
+					<div class="form-group">
+						<label for="email">Email : <span></span></label>
+						<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{Auth::user()->email}}">
+					</div>
+					<div class="form-group">
+						<label for="phone">Điện thoại : <span></span></label>
+						<input type="text" class="form-control" id="phone" placeholder="Update điện thoại" name="phone" value="{{Auth::user()->profile['phone']}}">
+					</div>
+					<div class="form-group">
+						<label for="address">Địa chỉ : <span></span></label>
+						<input type="text" class="form-control" id="address" placeholder="Update địa chỉ" name="address" value="{{Auth::user()->profile['address']}}">
 					</div>
 				</div>
 			</div>
+
 		@endif
 		<div style="clear: both;"></div>
 	</div>

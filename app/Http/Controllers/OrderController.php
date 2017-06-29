@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Cart;
 use Input;
 use App\Order;
 use App\OrderProduct;
 use Validate;
 use Illuminate\Http\Request;
+use App\Mail\OrderShipped;
+
 
 class OrderController extends Controller
 {
@@ -32,22 +35,9 @@ class OrderController extends Controller
             ->with('order', $order);
     }
 
+
     public function store(Request $request)
     {
-        if (Auth::check()) {
-            $this->validate($request, [
-                    'shipping_name' => 'required|max:100',
-                    'shipping_address' => 'required|max:255',
-                    'shipping_phone' => 'required|max:20',
-                ], [
-                    'shipping_name.required' => 'Bạn phải điền tên người nhận',
-                    'shipping_name.max' => 'Bạn không được quá 100 kí tự',
-                    'shipping_address.required' => 'Bạn phải điền đia chỉ người nhận',
-                    'shipping_address.max' => 'Bạn không được quá 255 kí tự',
-                    'shipping_phone.required' => 'Bạn phải điền số điện thoại người nhận',
-                    'shipping_phone.max' => 'Bạn phải điền số điên thoại',
-                ]);
-        } else {
             $this->validate($request, [
                 'name' => 'required|max:100',
                 'address' => 'required|max:255',
@@ -73,15 +63,14 @@ class OrderController extends Controller
                 'shipping_phone.required' => 'Bạn phải điền số điện thoại người nhận',
                 'shipping_phone.max' => 'Bạn phải điền số điên thoại',
             ]);
-        }
+
         $subtotal=Cart::subtotal(0, '', '');
         $Order = new Order;
         if (Auth::check()) {
-            $Order->name = Auth::user()->name;
-            $Order->phone = Auth::user()->profile['phone'];
-            $Order->address = Auth::user()->profile['address'];
-            $Order->email = Auth::user()->email;
-//            $Order->user_id= Auth::user()->id;
+            $Order->name = Input::get('name');
+            $Order->phone = Input::get('phone');
+            $Order->address = Input::get('address');
+            $Order->email = Input::get('email');
         } else {
             $Order->name = Input::get('name');
             $Order->phone = Input::get('phone');
@@ -99,6 +88,10 @@ class OrderController extends Controller
         $content =Cart::content();
         $OrderProduct = new OrderProduct;
 
+
+        Mail::to($request->email)->send(new OrderShipped($Order));
+
+
         foreach ($content as $contents) {
             $OrderProduct = new OrderProduct;
             $OrderProduct->quantity=$contents->qty;
@@ -109,10 +102,25 @@ class OrderController extends Controller
             $OrderProduct->save();
         }
 
+
         Cart::destroy();
         echo "<script>
 			alert('Cảm ơn bạn đã đặt hàng ');
 			window.location = '".url('/home')."'
 		</script>";
+
+    }
+
+    public function activateOrder($id)
+    {
+        $order = Order::find($id);
+        $order->status = 1;
+        $order->save();
+        echo "<script>
+			alert('Cảm ơn bạn đã xác nhận đơn hàng thành công ');
+			window.location = '".url('/home')."'
+		</script>";
+
     }
 }
+
