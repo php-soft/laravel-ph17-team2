@@ -103,7 +103,6 @@ class OrderController extends Controller
 
 
         Cart::destroy();
-        
     }
 
     public function activateOrder($id)

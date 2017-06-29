@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 use Input;
+
 class UserController extends Controller
 {
     public function index($id)
@@ -43,6 +45,7 @@ class UserController extends Controller
         } else {
             $user->profile->update(Input::all());
         }
+        
         return redirect('user/profile/'.$user->id.'/index');
     }
 }
