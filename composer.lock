@@ -7,6 +7,7 @@
     "content-hash": "f68634458d5c1a154df079041c776f09",
     "packages": [
         {
+<<<<<<< HEAD
             "name": "aws/aws-sdk-php",
             "version": "3.30.2",
             "source": {
@@ -60,10 +61,44 @@
                 },
                 "files": [
                     "src/functions.php"
+=======
+            "name": "atayahmet/laravel-nestable",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atayahmet/laravel-nestable.git",
+                "reference": "91f8d4195ae4a537416b75e6d74751c4865e2068"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atayahmet/laravel-nestable/zipball/91f8d4195ae4a537416b75e6d74751c4865e2068",
+                "reference": "91f8d4195ae4a537416b75e6d74751c4865e2068",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.2.*|5.3.*|5.4.*",
+                "illuminate/support": "5.2.*|5.3.*|5.4.*",
+                "php": ">=5.5.5"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nestable\\": "src/",
+                    "Nestable\\Tests\\": "tests/"
+                },
+                "files": [
+                    "src/helpers.php"
+>>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
+<<<<<<< HEAD
                 "Apache-2.0"
             ],
             "authors": [
@@ -85,6 +120,28 @@
                 "sdk"
             ],
             "time": "2017-06-23T18:54:40+00:00"
+=======
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmet ATAY",
+                    "email": "ahmet.atay@hotmail.com",
+                    "homepage": "http://www.atayahmet.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 nested categories library",
+            "homepage": "https://github.com/atayahmet/nestable",
+            "keywords": [
+                "category",
+                "laravel",
+                "nestable",
+                "nested",
+                "nestedset"
+            ],
+            "time": "2017-05-15T17:53:18+00:00"
+>>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

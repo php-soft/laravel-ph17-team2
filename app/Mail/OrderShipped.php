@@ -44,4 +44,3 @@ class OrderShipped extends Mailable
             ]);
     }
 }
-

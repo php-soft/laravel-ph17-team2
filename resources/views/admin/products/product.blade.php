@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container font">
@@ -67,10 +67,6 @@
                                     {{ Form::number('qty', 1, ['class'=>'form-control form-quantity qty', 'min' => 1, 'max' => 99, 'size' => 1]) }} (Còn lại {!! $shopProduct->quantity !!} sản phẩm)
                                 </div>
                             </div>
-                        </div>
-                        <div class="order">
-                            <button class="btn w3-btn btn-order add" id="{!! $shopProduct->product->id  !!}">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart"></span></button>
-                            <button class="btn w3-btn btn-order buy">Mua ngay <span class="glyphicon glyphicon-ok"></span></button>
                         </div>
                     {{ Form::close() }}
                 </div>

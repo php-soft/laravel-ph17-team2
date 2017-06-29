@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail');
+Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail')->name('adminProductDetail');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/home/mua-hang/{id}/{qty}', 'CartController@storeQty');
 route::get('/cart/show', 'CartController@show')->name('cart');
@@ -42,7 +42,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}/delete', 'UserController@destroy');
     Route::get('/user/{user}/edit', 'UserController@edit');
     Route::get('/user/{user}', 'UserController@update');
-   
+    Route::get('/products', 'ProductController@index')->name('adminProduct');
+    Route::get('/products/create', 'ProductController@create')->name('adminProductCreate');
+    Route::post('/products', 'ProductController@store')->name('adminProductStore');
+    Route::get('/products/{shopProductId}/edit', 'ProductController@edit')->name('adminProductEdit');
+    Route::put('/products/{shopProductId}', 'ProductController@update')->name('adminProductUpdate');
+    Route::get('/products/{shopProductId}/delete', 'ProductController@destroy')->name('adminProductDetele');
+    Route::get('/products/{shopProductId}', 'ProductController@show')->name('adminProductShow');
+ 
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
     Route::post('/newscategory', 'NewsCategoryController@post')->name('newscategory.post');
@@ -54,5 +61,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 Route::group(['middleware' => ['auth']], function () {
     Route::get('user/profile/{id}/index', 'UserController@index');
     Route::get('user/profile/{id}/edit', 'UserController@edit');
-    Route::get('user/profile/{id}', 'UserController@update');
+    Route::put('user/profile/{id}/index', 'UserController@update');
 });

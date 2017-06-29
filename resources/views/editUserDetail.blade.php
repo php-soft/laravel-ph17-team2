@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<style type="text/css" media="screen">
-
-</style>
 <div class="container">
 	<div class="row content">
 		<div class="col-sm-3 sidenav">
@@ -15,29 +12,119 @@
 		</div>
 
 		<div class="col-sm-9">
+<<<<<<< HEAD
 			<form action="{{ url('user/profile/'.$user->id)}}" method="put" >
+=======
+			@if(empty($user->profile))
+			@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
+			<form action="{{ url('user/profile/'.$user->id.'/index') }}" method="POST">
+				<input name="_token" type="hidden" value="{{ csrf_token() }}">
+				<input name="_method" type="hidden" value="PUT">
+				<input type="hidden" name="user_id" value="{{$user->id}}">
+				<h3>Cập nhật thông tin cá nhân</h3>
+				<hr> 
 				<div class="form-group">
-					<label for="text">Cập nhật Tên :</label>
-					<input type="text" class="form-control" id="name" placeholder="Edit tên" name="name">
+					<label for="text">Tên : <span></span></label>
+					<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{$user->name}}">
 				</div>
 				<div class="form-group">
-					<label for="email">Cập nhật Email :</label>
-					<input type="email" class="form-control" id="email" placeholder="Edit Email" name="email">
+					<label for="email">Email : <span></span></label>
+					<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{$user->email}}">
 				</div>
 				<div class="form-group">
-					<label for="email">Cập nhật Điện thoại :</label>
-					<input type="email" class="form-control" id="email" placeholder="Edit Email" name="email">
+					<label for="phone">Điện thoại : <span></span></label>
+					<input type="text" class="form-control" id="phone" placeholder="Update điện thoại" name="phone" value="123456789">
 				</div>
 				<div class="form-group">
-					<label for="email">Cập nhật Địa chỉ :</label>
-					<input type="email" class="form-control" id="email" placeholder="Edit Email" name="email">
+					<label for="address">Địa chỉ : <span></span></label>
+					<input type="text" class="form-control" id="address" placeholder="Update địa chỉ" name="address" value="Chưa cập nhật">
 				</div>
 				<div class="form-group">
-					<label for="email">Cập nhật Giới tính :</label>
-					<input type="email" class="form-control" id="email" placeholder="Edit Email" name="email">
+					<label for="gender">Giới tính : 
+						<span>
+							Chưa cập nhật
+						</span>
+					</label><br>
+					<label class="radio-inline"><input type="radio" name="gender" value="1">Nam</label>
+					<label class="radio-inline"><input type="radio" name="gender" value="2">Nữ</label>
 				</div>
+				<div class="form-group">
+					<label for="date_of_birth">Ngày sinh : <span></span></label>
+					<input type="date" class="form-control" id="date_of_birth" placeholder="Update giới tính" name="date_of_birth" value="Chưa cập nhật">
+				</div>
+				<div class="form-group">
+					<label for="image">Hình ảnh: <span></span></label>
+					<input type="text" class="form-control" id="image" placeholder="Update giới tính" name="image" value="Chưa cập nhật">
+				</div>
+				<button type="submit" class="btn btn-default btn-success pull-right">Cập Nhật</button>
+			</form>
+			@else
+			@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
+			<form action="{{ url('user/profile/'.$user->id.'/index') }}" method="POST">
+				<input name="_token" type="hidden" value="{{ csrf_token() }}">
+				<input name="_method" type="hidden" value="PUT">
+				<h3>Cập nhật thông tin cá nhân</h3>
+				<hr> 
+				<div class="form-group">
+					<label for="text">Tên : <span></span></label>
+					<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{$user->name}}">
+				</div>
+>>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
+				<div class="form-group">
+					<label for="email">Email : <span></span></label>
+					<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{$user->email}}">
+				</div>
+				<div class="form-group">
+					<label for="phone">Điện thoại : <span></span></label>
+					<input type="text" class="form-control" id="phone" placeholder="Update điện thoại" name="phone" value="{{$user->profile->phone}}">
+				</div>
+				<div class="form-group">
+					<label for="address">Địa chỉ : <span></span></label>
+					<input type="text" class="form-control" id="address" placeholder="Update địa chỉ" name="address" value="{{$user->profile->address}}">
+				</div>
+				<div class="form-group">
+					<label for="gender">Giới tính : 
+						<span>
+							@if(($user->profile->gender) == 1)
+							Nam
+							@endif
+							@if(($user->profile->gender) == 2)
+							Nữ
+							@endif
+						</span>
+					</label><br>
+					<label class="radio-inline"><input type="radio" name="gender" value="1">Nam</label>
+					<label class="radio-inline"><input type="radio" name="gender" value="2">Nữ</label>
+				</div>
+				<div class="form-group">
+					<label for="date_of_birth">Ngày sinh : <span></span></label>
+					<input type="date" class="form-control" id="date_of_birth" placeholder="Update giới tính" name="date_of_birth" value="{{$user->profile->date_of_birth}}">
+				</div>
+<<<<<<< HEAD
 				<button type="submit" class="btn btn-default">cập Nhật</button>
 			</form>
+=======
+				<button type="submit" class="btn btn-default btn-success pull-right">Cập Nhật</button>
+			</form>
+			@endif
+			
+>>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
 		</div>
 	</div>
 </div>
