@@ -45,7 +45,7 @@ class UserController extends Controller
         } else {
             $user->profile->update(Input::all());
         }
-        
+
         return redirect('user/profile/'.$user->id.'/index');
     }
 }
