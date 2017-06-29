@@ -41,4 +41,14 @@ class ShopController extends Controller
         return redirect('user/shop/'.$user->id.'/index');
     }
 
+    public function show($id)
+    {
+        return view('shopShow');
+    }
+
+    public function edit($id)
+    {
+        return view('shopEdit');
+    }
+
 }
