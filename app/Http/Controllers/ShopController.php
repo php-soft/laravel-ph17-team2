@@ -69,5 +69,4 @@ class ShopController extends Controller
         $shop->update(Input::all());
         return redirect('user/shop/'.$shop->id.'/edit');
     }
-
 }
