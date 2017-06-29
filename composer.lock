@@ -7,7 +7,6 @@
     "content-hash": "f68634458d5c1a154df079041c776f09",
     "packages": [
         {
-<<<<<<< HEAD
             "name": "aws/aws-sdk-php",
             "version": "3.30.2",
             "source": {
@@ -61,7 +60,6 @@
                 },
                 "files": [
                     "src/functions.php"
-=======
             "name": "atayahmet/laravel-nestable",
             "version": "v0.8.0",
             "source": {
@@ -93,12 +91,11 @@
                 },
                 "files": [
                     "src/helpers.php"
->>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
+
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< HEAD
                 "Apache-2.0"
             ],
             "authors": [
@@ -120,7 +117,6 @@
                 "sdk"
             ],
             "time": "2017-06-23T18:54:40+00:00"
-=======
                 "MIT"
             ],
             "authors": [
@@ -141,7 +137,6 @@
                 "nestedset"
             ],
             "time": "2017-05-15T17:53:18+00:00"
->>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
