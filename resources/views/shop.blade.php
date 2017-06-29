@@ -17,7 +17,6 @@
         <div class="col-sm-9">
             <h6>Quản lý shop</h6>
             <a href="{{ url('user/shop/'.Auth::user()->id.'/create') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Thêm một shop mới</a>
-            <a href="" class="btn btn-sm btn-danger pull-left"><span class="glyphicon glyphicon-trash"></span> Thùng rác </a>
             <br>
             <hr>
             <div class="row">
