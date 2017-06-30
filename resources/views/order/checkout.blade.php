@@ -17,7 +17,7 @@
 				<div class="s-cart-all">
 					<div class="checkoutsteptitle down">Bước 1: Xác nhận đơn hàng</div>
 					<div class="table-responsive">
-						<table class="table table-striped table-bordered table-hover" id="example">
+						<table class="table table-hover" id="example">
 							<tr>
 								<th>STT</th>
 								<th>Hình ảnh</th>
@@ -62,25 +62,25 @@
 			<div class="col-xs-6">
 					<div class="span4">
 						<div class="control-group">
-							{!! Form::label('name', 'Họ tên người mua') !!}
+							{!! Form::label('name', 'Họ tên người mua :') !!}:
 							<div class="controls">
 								{!! Form::text('name', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
 						<div class="control-group">
-							{!! Form::label('phone', 'Số điện thoại người mua') !!}
+							{!! Form::label('phone', 'Số điện thoại người mua :') !!} :
 							<div class="controls">
 								{!! Form::text('phone', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
 						<div class="control-group">
-							{!! Form::label('address', 'Đia chỉ người nhận') !!}
+							{!! Form::label('address', 'Đia chỉ người nhận :') !!} :
 							<div class="controls">
 								{!! Form::text('address', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
 						<div class="control-group">
-							{!! Form::label('email', 'Đia chỉ email người mua') !!}
+							{!! Form::label('email', 'Đia chỉ email người mua :') !!} :
 							<div class="controls">
 							{!! Form::text('email', null, ['class' => 'form-control']) !!}
 							</div>
@@ -91,25 +91,25 @@
 			<div  class="col-xs-6">
 				<div class="span4">
 					<div class="control-group">
-						{!! Form::label('shipping_address', 'Đia chỉ người nhận') !!}
+						{!! Form::label('shipping_address', 'Đia chỉ người nhận :') !!}
 						<div class="controls">
 							{!! Form::text('shipping_address', null, ['class' => 'form-control']) !!}
 						</div>
 					</div>
 					<div class="control-group">
-						{!! Form::label('shipping_name', 'Họ tên người nhận') !!}
+						{!! Form::label('shipping_name', 'Họ tên người nhận :') !!}
 						<div class="controls">
 							{!! Form::text('shipping_name', null, ['class' => 'form-control']) !!}
 						</div>
 					</div>
 					<div class="control-group">
-						{!! Form::label('shipping_phone', 'Số điện thoại người nhận') !!}
+						{!! Form::label('shipping_phone', 'Số điện thoại người nhận :') !!}
 						<div class="controls">
 							{!! Form::text('shipping_phone', null, ['class' => 'form-control']) !!}
 						</div>
 					</div>
 					<div class="control-group">
-						{!! Form::label('voucher_code', 'Mã khuyến mãi') !!}
+						{!! Form::label('voucher_code', 'Mã khuyến mãi :') !!}
 						<div class="controls">
 							{!! Form::text('voucher_code', null, ['class' => 'form-control']) !!}
 						</div>
@@ -120,51 +120,52 @@
 		<div  class="col-xs-6">
 			<div class="span4">
 				<div class="control-group">
-					{!! Form::label('shipping_phone', 'Số điện thoại người nhận') !!}
+					<label for="text">Họ tên người mua : <span></span></label>
+					<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{Auth::user()->name}}">
+				</div>
+				<div class="control-group">
+					<label for="email">Email : <span></span></label>
+					<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{Auth::user()->email}}">
+				</div>
+				<div class="control-group">
+					<label for="phone">Số điện thoại người mua : <span></span></label>
+					<input type="text" class="form-control" id="phone" placeholder="Update điện thoại" name="phone" value="{{Auth::user()->profile['phone']}}">
+				</div>
+				<div class="control-group">
+					<label for="address">Đia chỉ email người mua : <span></span></label>
+					<input type="text" class="form-control" id="address" placeholder="Update địa chỉ" name="address" value="{{Auth::user()->profile['address']}}">
+				</div>
+			</div>
+		</div>
+		<div  class="col-xs-6">
+			<div class="span4">
+				<div class="control-group">
+					{!! Form::label('shipping_phone', 'Số điện thoại người nhận :') !!}
 					<div class="controls">
 						{!! Form::text('shipping_phone', null, ['class' => 'form-control']) !!}
 					</div>
 				</div>
 				<div class="control-group">
-					{!! Form::label('voucher_code', 'Mã khuyến mãi') !!}
+					{!! Form::label('voucher_code', 'Mã khuyến mãi :') !!}
 					<div class="controls">
 						{!! Form::text('voucher_code', null, ['class' => 'form-control']) !!}
 					</div>
 				</div>
 				<div class="control-group">
-					{!! Form::label('shipping_address', 'Đia chỉ người nhận') !!}
+					{!! Form::label('shipping_address', 'Đia chỉ người nhận :') !!}
 					<div class="controls">
 						{!! Form::text('shipping_address', null, ['class' => 'form-control']) !!}
 					</div>
 				</div>
 				<div class="control-group">
-					{!! Form::label('shipping_name', 'Họ tên người nhận') !!}
+					{!! Form::label('shipping_name', 'Họ tên người nhận :')  !!}
 					<div class="controls">
 						{!! Form::text('shipping_name', null, ['class' => 'form-control']) !!}
 					</div>
 				</div>
 			</div>
 		</div>
-			<div  class="col-xs-6">
-				<div class="span4">
-					<div class="form-group">
-						<label for="text">Tên : <span></span></label>
-						<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{Auth::user()->name}}">
-					</div>
-					<div class="form-group">
-						<label for="email">Email : <span></span></label>
-						<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{Auth::user()->email}}">
-					</div>
-					<div class="form-group">
-						<label for="phone">Điện thoại : <span></span></label>
-						<input type="text" class="form-control" id="phone" placeholder="Update điện thoại" name="phone" value="{{Auth::user()->profile['phone']}}">
-					</div>
-					<div class="form-group">
-						<label for="address">Địa chỉ : <span></span></label>
-						<input type="text" class="form-control" id="address" placeholder="Update địa chỉ" name="address" value="{{Auth::user()->profile['address']}}">
-					</div>
-				</div>
-			</div>
+
 
 		@endif
 		<div style="clear: both;"></div>
