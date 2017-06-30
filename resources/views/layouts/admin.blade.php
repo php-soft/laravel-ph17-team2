@@ -39,6 +39,7 @@
                             <li><a href="{{ route('managerUser') }}">User</a></li>
                             <li><a href="{{ route('adminProduct') }}">Products</a></li>
                             <li><a href="{{ route('newscategory') }}">News Category</a></li>
+                            <li><a href="{{ route('managerShop') }}">Shop Manager</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
