@@ -11,12 +11,12 @@ class UserController extends Controller
     public function index($id)
     {
         $user = User::find($id);
-        return view('userDetail')->with('user', $user);
+        return view('user.userDetail')->with('user', $user);
     }
     public function edit($id)
     {
         $user = User::find($id);
-        return view('editUserDetail')->with('user', $user);
+        return view('user.editUserDetail')->with('user', $user);
     }
     public function update($id, Request $request)
     {

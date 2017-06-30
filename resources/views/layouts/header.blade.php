@@ -59,6 +59,8 @@
                                         </a>
                                         <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}">Quản lý tài khoản
                                         </a>
+                                        <a href="{{ url('user/shop/'.Auth::user()->id.'/index')}}">Quản lý Shop
+                                        </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
