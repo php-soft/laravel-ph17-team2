@@ -69,4 +69,11 @@ class ShopController extends Controller
         $shop->update(Input::all());
         return redirect('user/shop/'.$shop->id.'/edit');
     }
+
+    public function destroy($id)
+    {
+        $shop = Shop::find($id);
+        $shop->delete();
+        return redirect('user/shop/'.$shop->user_id.'/index');
+    }
 }

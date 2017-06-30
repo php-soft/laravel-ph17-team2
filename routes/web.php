@@ -70,4 +70,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('user/shop/{id}/edit', 'ShopController@edit');
     Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
+
+    Route::get('user/shop/{id}/delete', 'ShopController@destroy');
 });
