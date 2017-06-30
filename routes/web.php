@@ -60,4 +60,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('user/profile/{id}/index', 'UserController@index');
     Route::get('user/profile/{id}/edit', 'UserController@edit');
     Route::put('user/profile/{id}/index', 'UserController@update');
+
+    Route::get('user/shop/{id}/index', 'ShopController@index');
+
+    Route::get('user/shop/{id}/create', 'ShopController@create');
+    Route::put('user/shop/{id}/index', 'ShopController@update');
+
+    Route::get('user/shop/{id}/show', 'ShopController@show');
+
+    Route::get('user/shop/{id}/edit', 'ShopController@edit');
+    Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
+
+    Route::get('user/shop/{id}/delete', 'ShopController@destroy');
 });
