@@ -12,13 +12,13 @@ class ShopController extends Controller
     public function index($id)
     {
         $user = User::find($id);
-        return view('shop')->with('user', $user);
+        return view('shop.shop')->with('user', $user);
     }
 
     public function create($id)
     {
         $user = User::find($id);
-        return view('shopCreate')->with('user', $user);
+        return view('shop.shopCreate')->with('user', $user);
     }
 
     public function update($id, Request $request)
@@ -42,13 +42,13 @@ class ShopController extends Controller
 
     public function show()
     {
-        return view('shopShow');
+        return view('shop.shopShow');
     }
 
     public function edit($id)
     {
         $shop = Shop::find($id);
-        return view('shopEdit')->with('shop', $shop);
+        return view('shop.shopEdit')->with('shop', $shop);
     }
 
     public function editUpdate($id, Request $request)
