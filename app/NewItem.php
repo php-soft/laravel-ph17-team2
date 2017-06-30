@@ -16,8 +16,8 @@ class NewItem extends Model
         'description',
         'content',
         'image',
-        'users_id',
-        'new_categories_id',
+        'user_id',
+        'news_category_id',
         'alias'
     ];
 
