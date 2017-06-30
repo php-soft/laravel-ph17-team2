@@ -54,6 +54,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/newscategory/edit/{id}', 'NewsCategoryController@edit')->name('newscategory.edit');
     Route::patch('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
     Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
+
+    Route::get('/shop/index', 'ShopController@index');
 });
 
 Route::group(['middleware' => ['auth']], function () {
