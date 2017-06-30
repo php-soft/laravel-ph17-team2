@@ -10,7 +10,7 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        $orders = \App\Order::all();
+        $orders = \App\Order::Paginate(10);
         return view('admin.orders.index')->with('orders', $orders);
     }
 
@@ -37,5 +37,34 @@ class OrdersController extends Controller
             $orders->save();
             return response()->json(['status' => $orders->status]);
         }
+    }
+
+    public function destroy($id)
+    {
+        $orders = \App\Order::find($id);
+        $orders->delete();
+        return redirect('admin/orders')
+            ->withSuccess('Orders has been delete.');
+    }
+
+    public function withtrashed()
+    {
+        $orders =  \App\Order::onlyTrashed()->Paginate(10);
+        return view('admin/orders/withtrash')->with('orders', $orders);
+    }
+
+    public function showWithtrashed($id)
+    {
+        $orders = \App\Order::onlyTrashed($id)->find($id);
+        $status = $orders->status;
+        $total_amount = 0;
+        foreach ($orders->orderProducts as $product) {
+            $amount = $product->price*$product->quantity;
+            $total_amount = $amount + $total_amount;
+        }
+        $users = DB::table('orders')->join('users', 'users.id', '=', 'orders.user_id')
+            ->join('profiles', 'users.id', '=', 'profiles.user_id')->where('users.id', '=', $id)->get();
+        return view('admin/orders/showwithtrash')->with('orders', $orders)->with('users', $users)
+            ->with('status', $status)->with('total_amount', $total_amount);
     }
 }

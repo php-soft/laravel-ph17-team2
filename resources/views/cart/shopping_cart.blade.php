@@ -58,7 +58,7 @@
 							<td><span class="bold totalamout">{!! ($subtotal) !!}</span></td>
 						</tr>
 					</table>
-					<a href="{!! url('dat-hang') !!}">
+					<a href="{!! url('order') !!}">
 						<input type="submit" value="Đặt hàng" class="btn btn-orange pull-right">
 					</a>
 					<a href="{!! url('/home') !!}">

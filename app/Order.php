@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\forceDelete;
 
 class Order extends Model
 {
@@ -13,6 +15,8 @@ class Order extends Model
     const STATUS_RETURN = 4;
     const STATUS_DONE = 5;
 
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
     protected $table = 'orders';
 
     public $timestamp = true;

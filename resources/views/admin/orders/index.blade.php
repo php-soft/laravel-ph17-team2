@@ -5,11 +5,13 @@
         <!-- Advanced Tables -->
         <div class="panel panel-default">
             <div class="panel-heading">
-                Danh sách đơn hàng
+                List Orders
             </div>
             <div class="panel-body">
+
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="example">
+                        <h3><a href="{{ url('admin/orders/withtrashed') }}" title=""><span class="glyphicon glyphicon-trash"></span>Thùng Rác</a></h3>
                         <thead>
                             <tr class="orders">
                                 <th class="text-center">ID</th>
@@ -17,15 +19,18 @@
                                 <th class="text-center">User</th>
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Total Price</th>
-                                <th class="text-center" >Processor</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Actions</th>
+                                <th class="text-center" >Status</th>
+                                <th class="text-center" >Actions</th>
+                                <th class="text-center">Delete</th>
+                                <th class="text-center">Handler</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $stt =0 ?>
                             @foreach($orders as $order)
+                            <?php $stt= $stt+1?>
                                 <tr class="odd gradeX">
-                                    <td class="text-center">{!! $order->id !!}</td>
+                                    <td class="text-center">{!! $stt !!}</td>
                                     <td class="text-center">{!! $order->updated_at !!}</td>
                                     <td class="text-center">
                                         <a href="{{ url('admin/orders/'.$order->id) }}">{!! $order->name !!}</a>
@@ -38,10 +43,14 @@
                                             show
                                         </a>
                                     </td>
+                                    <td class="text-center" ><a href="{{ url('admin/orders/'.$order->id.'/delete') }}" title=""><span class="glyphicon glyphicon-trash"></span></a></td>
                                     <td class="text-center" ></td>
                                 </tr>
                             @endforeach
+                            <?php echo $orders->links(); ?>
+
                         </tbody>
+
                     </table>
                 </div>
             </div>

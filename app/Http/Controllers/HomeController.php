@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-       
         $shopProducts = \App\shopProduct::orderBy('id', 'DESC')
             ->take(3)
             ->get();

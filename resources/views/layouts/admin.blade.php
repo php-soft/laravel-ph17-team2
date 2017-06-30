@@ -12,10 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- jQuery -->
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
     <!-- DataTables -->
@@ -36,6 +37,8 @@
                         <ul class="nav navbar-nav">
                             <li><a href="{{ route('ordersAdmin') }}">Orders</a></li>
                             <li><a href="{{ route('managerUser') }}">User</a></li>
+                            <li><a href="{{ route('adminProduct') }}">Products</a></li>
+                            <li><a href="{{ route('newscategory') }}">News Category</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->

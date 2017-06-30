@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Nestable\NestableTrait;
 
 class Category extends Model
 {
+    use NestableTrait;
+
+    protected $parent = 'parent_id';
+    
     public $timestamp = false;
 
     protected $fillable = [
@@ -27,6 +32,6 @@ class Category extends Model
 
     public function categoryAttributeValues()
     {
-        return $this->hasMany('App\CategoryAttributeValues');
+        return $this->hasMany('App\CategoryAttributeValue');
     }
 }
