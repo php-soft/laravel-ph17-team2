@@ -22,6 +22,11 @@
             </style>
         </head>
         <body>
+            @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
             # Order Shipped
 
             <h2>Kính chào quý khách <strong class="namecustomer">:{!! $order->name !!}</strong></h2>,

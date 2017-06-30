@@ -101,8 +101,9 @@ class OrderController extends Controller
             $OrderProduct->save();
         }
 
-
         Cart::destroy();
+        return redirect('home')
+            ->withSuccess('Cảm ơn bạn đã đặt hàng thành công.');
     }
 
     public function activateOrder($id)
@@ -110,9 +111,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->status = 1;
         $order->save();
-        echo "<script>
-			alert('Cảm ơn bạn đã xác nhận đơn hàng thành công ');
-			window.location = '".url('/home')."'
-		</script>";
+        return redirect('home')
+            ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');
     }
 }

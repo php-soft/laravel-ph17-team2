@@ -14,10 +14,15 @@
 						</ul>
 					</div>
 				@endif()
+				@if(Session::has('success'))
+					<div class="alert alert-success">
+						{{Session::get('success')}}
+					</div>
+				@endif
 				<div class="s-cart-all">
 					<div class="checkoutsteptitle down">Bước 1: Xác nhận đơn hàng</div>
 					<div class="table-responsive">
-						<table class="table table-hover" id="example">
+						<table class="table table-striped table-bordered table-hover" id="example">
 							<tr>
 								<th>STT</th>
 								<th>Hình ảnh</th>
@@ -62,25 +67,25 @@
 			<div class="col-xs-6">
 					<div class="span4">
 						<div class="control-group">
-							{!! Form::label('name', 'Họ tên người mua :') !!}:
+							{!! Form::label('name', 'Họ tên người mua :') !!}
 							<div class="controls">
 								{!! Form::text('name', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
 						<div class="control-group">
-							{!! Form::label('phone', 'Số điện thoại người mua :') !!} :
+							{!! Form::label('phone', 'Số điện thoại người mua :') !!}
 							<div class="controls">
 								{!! Form::text('phone', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
 						<div class="control-group">
-							{!! Form::label('address', 'Đia chỉ người nhận :') !!} :
+							{!! Form::label('address', 'Đia chỉ người nhận :') !!}
 							<div class="controls">
 								{!! Form::text('address', null, ['class' => 'form-control']) !!}
 							</div>
 						</div>
 						<div class="control-group">
-							{!! Form::label('email', 'Đia chỉ email người mua :') !!} :
+							{!! Form::label('email', 'Đia chỉ email người mua :') !!}
 							<div class="controls">
 							{!! Form::text('email', null, ['class' => 'form-control']) !!}
 							</div>

@@ -4,9 +4,6 @@
 	<div class="row content">
 		@include('layouts.sidebar')
 		<div class="col-sm-9">
-<<<<<<< HEAD
-			<form action="{{ url('user/profile/'.$user->id)}}" method="put" >
-=======
 			@if(empty($user->profile))
 			@if ($errors->any())
 			<div class="alert alert-danger">
@@ -77,7 +74,6 @@
 					<label for="text">Tên : <span></span></label>
 					<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{$user->name}}">
 				</div>
->>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
 				<div class="form-group">
 					<label for="email">Email : <span></span></label>
 					<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{$user->email}}">
@@ -108,15 +104,10 @@
 					<label for="date_of_birth">Ngày sinh : <span></span></label>
 					<input type="date" class="form-control" id="date_of_birth" placeholder="Update giới tính" name="date_of_birth" value="{{$user->profile->date_of_birth}}">
 				</div>
-<<<<<<< HEAD
-				<button type="submit" class="btn btn-default">cập Nhật</button>
-			</form>
-=======
 				<button type="submit" class="btn btn-default btn-success pull-right">Cập Nhật</button>
 			</form>
 			@endif
 			
->>>>>>> 93183997ad6a04749b7237d812768b3753f5c1ce
 		</div>
 	</div>
 </div>
