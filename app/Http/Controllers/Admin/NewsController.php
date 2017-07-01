@@ -29,6 +29,9 @@ class NewsController extends Controller
     {
         $userData = Auth::user();
         $newscategorys = \App\NewItem::with('newsCategory')->get(); 
+        // echo '<pre>';
+        // print_r($userData->id);
+        // echo '</pre>';
         return view('admin/news/create')->with('userData', $userData)->with('newscategorys', $newscategorys);
     }
 
@@ -62,7 +65,13 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $userData = Auth::user();
+        // $newsdetail = \App\NewItem::find($id);
+        $news = $newsdetail::with('user', 'newsCategory')->get(); 
+        //$news = \App\NewItem::find($id);  
+        //var_dump($news);     
+        return view('admin/news/create')->with('news', $news);
+        //->with('userData', $userData)
     }
 
     /**

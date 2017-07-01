@@ -43,8 +43,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/products', 'ProductController@index')->name('adminProduct');
     Route::get('/products/create', 'ProductController@create')->name('adminProductCreate');
     Route::post('/products', 'ProductController@store')->name('adminProductStore');
-    
 
+    Route::get('/products/{shopProductId}/edit', 'ProductController@edit')->name('adminProductEdit');
+    Route::put('/products/{shopProductId}', 'ProductController@update')->name('adminProductUpdate');
+    Route::get('/products/{shopProductId}/delete', 'ProductController@destroy')->name('adminProductDetele');
+    Route::get('/products/{shopProductId}', 'ProductController@show')->name('adminProductShow');
+ 
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
     Route::post('/newscategory', 'NewsCategoryController@post')->name('newscategory.post');
@@ -64,4 +68,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('user/profile/{id}/index', 'UserController@index');
     Route::get('user/profile/{id}/edit', 'UserController@edit');
     Route::put('user/profile/{id}/index', 'UserController@update');
+
+    Route::get('user/shop/{id}/index', 'ShopController@index');
+
+    Route::get('user/shop/{id}/create', 'ShopController@create');
+    Route::put('user/shop/{id}/index', 'ShopController@update');
+
+    Route::get('user/shop/{id}/show', 'ShopController@show');
+
+    Route::get('user/shop/{id}/edit', 'ShopController@edit');
+    Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
+
+    Route::get('user/shop/{id}/delete', 'ShopController@destroy');
 });
