@@ -20,4 +20,16 @@ class ShopController extends Controller
         $users = User::All();
         return view('admin.shop.userShop')->with('users', $users);
     }
+
+    public function destroy($id)
+    {
+        $shop = Shop::find($id)->delete();
+        return redirect('admin/shop/index');
+    }
+
+    public function show($id)
+    {
+        $shop = Shop::find($id);
+        return view('admin.shop.show')->with('shop', $shop);
+    }
 }

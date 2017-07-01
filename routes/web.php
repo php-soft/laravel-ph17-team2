@@ -57,6 +57,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 
     Route::get('/shop/index', 'ShopController@index')->name('managerShop');
     Route::get('/shop/user', 'ShopController@user');
+    Route::get('/shop/{id}/delete', 'ShopController@destroy');
+    Route::get('/shop/{id}/show', 'ShopController@show');
 });
 
 Route::group(['middleware' => ['auth']], function () {
