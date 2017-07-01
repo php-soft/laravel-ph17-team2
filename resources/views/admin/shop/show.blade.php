@@ -9,7 +9,6 @@
             <a href="{{ url('admin/shop/user') }}" title=""><button type="button" class="btn btn-info">Shop của User</button></a>
             </div>
             <div>
-            <h4>Tên User: <span><a href=""></a></span> Tên Shop: <span><a href="">{{ $shop->name }}</a></span> Địa chỉ: <span><a href="">{{$shop->address}}</a></span></h4>
             </div>
             <div class="panel-body">
 
@@ -19,7 +18,7 @@
                         <thead>
                             <tr class="orders">
                                 <th class="text-center">ID</th>
-                                <th class="text-center">Name Products</th>
+                                <th class="text-center">Products_ID</th>
                                 <th class="text-center">Buys</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Discount</th>
@@ -29,18 +28,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <h4>Danh sách sản phẩm của shop: <a href="">{{ $shop->name }}</a> Địa chỉ: <a href="">{{$shop->address}}</a></h4>
                             <?php $stt =0 ?>
+							@foreach($shop->shopProducts as $shopProduct)
                                 <?php $stt= $stt+1?>
                                 <tr class="odd gradeX">
-                                    <td class="text-center">1</td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center">buys</td>
-                                    <td class="center">10000</td>
-                                    <td class="center">10%</td>
-                                    <td class="text-center" id="stutustext"></td>
-                                    <td class="text-center" ></td>
+                                    <td class="text-center">{{ $stt }}</td>
+                                    <td class="text-center">{{$shopProduct->product_id}}</td>
+                                    <td class="text-center">{{$shopProduct->buys}}</td>
+                                    <td class="center">{{$shopProduct->price}}</td>
+                                    <td class="center">{{$shopProduct->discount}}</td>
+                                    <td class="text-center" >{{$shopProduct->created_at}}</td>
+                                    <td class="text-center" >{{$shopProduct->updated_at}}</td>
                                     <td class="text-center" ><a href="{{ url('admin/shop/'.$shop->id.'/delete') }}" title=""><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                                 </tr>
+                            @endforeach
                         </tbody>
 
                     </table>
