@@ -56,9 +56,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
 
     Route::get('/shop/index', 'ShopController@index')->name('managerShop');
-    Route::get('/shop/user', 'ShopController@user');
     Route::get('/shop/{id}/delete', 'ShopController@destroy');
     Route::get('/shop/{id}/show', 'ShopController@show');
+
+    Route::get('/shop/user', 'ShopController@user');
+    Route::get('/shop/user/{id}/show', 'ShopController@showShopUser');
 });
 
 Route::group(['middleware' => ['auth']], function () {

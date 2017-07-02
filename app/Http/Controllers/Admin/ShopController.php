@@ -32,4 +32,10 @@ class ShopController extends Controller
         $shop = Shop::find($id);
         return view('admin.shop.show')->with('shop', $shop);
     }
+
+    public function showShopUser($id)
+    {
+        $user = User::find($id);
+        return view('admin.shop.userShowShop')->with('user', $user);
+    }
 }
