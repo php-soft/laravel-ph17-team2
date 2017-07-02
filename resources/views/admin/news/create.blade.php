@@ -14,8 +14,7 @@
 	<!-- Tabs Content -->
 	<div class="tab-content">
 		<!-- General tab -->
-			<div class="tab-pane active" id="tab-general">				
-
+			<div class="tab-pane active" id="tab-general">
 				<div class="form-group">
 				  {!! Form::label('tile', 'Title') !!}
 				  <div class="form-controls">
@@ -65,14 +64,7 @@
 					<div class="form-controls">
 				  {!! Form::select('news_category_id', $arrnewscategory, null, ['placeholder' => 'Select news category']) !!}					
 				  </div>
-				</div>
-
-				<!-- <div class="form-group">
-				  {!! Form::label('news_category_id', 'New Category') !!}
-				  <div class="form-controls">
-				    {!! Form::text('news_category_id', null, ['class' => 'form-control']) !!}
-				  </div>
-				</div> -->
+				</div>				
 			</div>
 			<!-- ./ general tab -->
 		</div>

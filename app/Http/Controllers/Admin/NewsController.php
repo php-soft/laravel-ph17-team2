@@ -36,36 +36,13 @@ class NewsController extends Controller
        
         return view('admin/news/create')->with('userData', $userData)->with('arrnewscategory', $arrnewscategory);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {     
         $userData = Auth::user();   
         $news = \App\NewItem::find($id);  
@@ -83,14 +60,14 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update()
     {
         $news = \App\NewItem::find($id);
         $news->update(Input::all());
         return redirect('/admin/news');       
     }
 
-    public function post(Request $request)
+    public function post()
     {      
        \App\NewItem::create(Input::all());
        return redirect('/admin/news');
@@ -101,7 +78,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function delete()
     {
         $newcategory = \App\NewItem::find($id);
         $newcategory->delete();
