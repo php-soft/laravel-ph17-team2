@@ -23,7 +23,8 @@ class ShopController extends Controller
 
     public function destroy($id)
     {
-        $shop = Shop::find($id)->delete();
+        $shop = Shop::find($id);
+        $shop->delete();
         return redirect('admin/shop/index');
     }
 
