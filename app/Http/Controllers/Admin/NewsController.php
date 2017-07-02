@@ -28,11 +28,13 @@ class NewsController extends Controller
     public function create()
     {
         $userData = Auth::user();
-        $newscategorys = \App\NewItem::with('newsCategory')->get(); 
-        // echo '<pre>';
-        // print_r($userData->id);
-        // echo '</pre>';
-        return view('admin/news/create')->with('userData', $userData)->with('newscategorys', $newscategorys);
+        $newscategorys = \App\newsCategory::all();   
+
+        foreach ($newscategorys as $newscategory) {
+            $arrnewscategory[$newscategory->id] = $newscategory->name; 
+        }
+       
+        return view('admin/news/create')->with('userData', $userData)->with('arrnewscategory', $arrnewscategory);
     }
 
     /**
@@ -64,14 +66,14 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        // $userData = Auth::user();
-        // $newsdetail = \App\NewItem::find($id);
-        $news = $newsdetail::with('user', 'newsCategory')->get(); 
-        //$news = \App\NewItem::find($id);  
-        //var_dump($news);     
-        return view('admin/news/create')->with('news', $news);
-        //->with('userData', $userData)
+    {     
+        $userData = Auth::user();   
+        $news = \App\NewItem::find($id);  
+        $newscategorys = \App\newsCategory::all();
+        foreach ($newscategorys as $newscategory) {
+            $arrnewscategory[$newscategory->id] = $newscategory->name; 
+        }
+        return view('admin/news/create')->with('news', $news)->with('userData', $userData)->with('arrnewscategory', $arrnewscategory);      
     }
 
     /**
@@ -81,32 +83,17 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $news = \App\NewItem::find($id);
+        $news->update(Input::all());
+        return redirect('/admin/news');       
     }
+
     public function post(Request $request)
-    {
-        $this->validate($request, [
-
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-    ]);
-
-    var_dump($request);
-    $image = $request->file('image');
-
-    $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-
-    $destinationPath = public_path('/images');
-
-    $image->move($destinationPath, $input['imagename']);
-
-
-    $this->postImage->add($input);
-
-       // \App\NewItem::create(Input::all());
-       // return redirect('/admin/news');
+    {      
+       \App\NewItem::create(Input::all());
+       return redirect('/admin/news');
     }
     /**
      * Remove the specified resource from storage.
