@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = \App\NewItem::with('user', 'newsCategory')->get();    
+        $news = \App\NewItem::with('user', 'newsCategory')->get();
         return view('admin/news/index')->with('news', $news);
     }
 
@@ -28,10 +28,10 @@ class NewsController extends Controller
     public function create()
     {
         $userData = Auth::user();
-        $newscategorys = \App\newsCategory::all(); 
+        $newscategorys = \App\newsCategory::all();
 
         foreach ($newscategorys as $newscategory) {
-            $arrnewscategory[$newscategory->id] = $newscategory->name; 
+            $arrnewscategory[$newscategory->id] = $newscategory->name;
         }
        
         return view('admin/news/create')->with('userData', $userData)
@@ -67,7 +67,7 @@ class NewsController extends Controller
     {
         $news = \App\NewItem::find($id);
         $news->update(Input::all());
-        return redirect('/admin/news');   
+        return redirect('/admin/news');
     }
 
     public function post()
