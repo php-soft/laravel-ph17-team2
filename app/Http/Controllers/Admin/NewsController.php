@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = \App\NewItem::with('user', 'newsCategory')->get();         
+        $news = \App\NewItem::with('user', 'newsCategory')->get();    
         return view('admin/news/index')->with('news', $news);
     }
 
@@ -28,13 +28,14 @@ class NewsController extends Controller
     public function create()
     {
         $userData = Auth::user();
-        $newscategorys = \App\newsCategory::all();   
+        $newscategorys = \App\newsCategory::all(); 
 
         foreach ($newscategorys as $newscategory) {
             $arrnewscategory[$newscategory->id] = $newscategory->name; 
         }
        
-        return view('admin/news/create')->with('userData', $userData)->with('arrnewscategory', $arrnewscategory);
+        return view('admin/news/create')->with('userData', $userData)
+        ->with('arrnewscategory', $arrnewscategory);
     }
     /**
      * Show the form for editing the specified resource.
@@ -42,15 +43,17 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {     
-        $userData = Auth::user();   
-        $news = \App\NewItem::find($id);  
+    public function edit($id)
+    {
+        $userData = Auth::user();
+        $news = \App\NewItem::find($id);
         $newscategorys = \App\newsCategory::all();
         foreach ($newscategorys as $newscategory) {
-            $arrnewscategory[$newscategory->id] = $newscategory->name; 
+            $arrnewscategory[$newscategory->id] = $newscategory->name;
         }
-        return view('admin/news/create')->with('news', $news)->with('userData', $userData)->with('arrnewscategory', $arrnewscategory);      
+        return view('admin/news/create')->with('news', $news)
+        ->with('userData', $userData)
+        ->with('arrnewscategory', $arrnewscategory);
     }
 
     /**
@@ -60,17 +63,17 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update($id)
     {
         $news = \App\NewItem::find($id);
         $news->update(Input::all());
-        return redirect('/admin/news');       
+        return redirect('/admin/news');   
     }
 
     public function post()
-    {      
-       \App\NewItem::create(Input::all());
-       return redirect('/admin/news');
+    {
+        \App\NewItem::create(Input::all());
+        return redirect('/admin/news');
     }
     /**
      * Remove the specified resource from storage.
@@ -78,7 +81,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete()
+    public function delete($id)
     {
         $newcategory = \App\NewItem::find($id);
         $newcategory->delete();
