@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="source/assets/dest/css/animate.css">
     <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 </head>
 <body>
 
@@ -53,6 +54,12 @@
             }}
         )
     })
+    </script>
+     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script>
+        $(function(){
+            $("#example").dataTable();
+        })
     </script>
 </body>
 </html>

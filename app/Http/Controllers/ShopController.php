@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
+use App\Product;
 use Input;
 
 class ShopController extends Controller
@@ -76,5 +77,12 @@ class ShopController extends Controller
         $shop = Shop::find($id);
         $shop->delete();
         return redirect('user/shop/'.$shop->user_id.'/index');
+    }
+
+    public function post($id)
+    {
+        $shop = Shop::find($id);
+        $products = Product::All();
+        return view('shop.post')->with('shop', $shop)->with('products', $products);
     }
 }

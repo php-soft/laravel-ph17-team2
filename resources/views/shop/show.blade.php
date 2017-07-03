@@ -16,7 +16,7 @@
         @include('layouts.sidebar')
         <div class="col-sm-9">
             <h6>Quản lý chi tiết shop</h6>
-            <a href="" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop</a>
+            <a href="{{ url('user/shop/'.$shop->id.'/post') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop: <span>{{$shop->name}}</span></a>
             <br>
             <hr>
             <div class="row">
@@ -27,7 +27,7 @@
                         <table class="table table-striped table-bordered table-hover" id="example">
                             <thead>
                                 <tr class="orders">
-                                    <th class="text-center">Product_ID</th>
+                                    <th class="text-center">Tên sản phẩm</th>
                                     <th class="text-center">Buys</th>
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Discount</th>
@@ -41,8 +41,7 @@
                                     <td class="text-center"></td>
                                     <td class="text-center"></td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-success btn-sm pull-right"><span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa </a>
-                                        <a href="" class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span> Xóa </a>
+                                        <a href="" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span> Xem chi tiết </a>
                                     </td>                                 
                                 </tr>
                             </tbody>
