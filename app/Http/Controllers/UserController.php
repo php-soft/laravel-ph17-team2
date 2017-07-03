@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,13 +13,11 @@ class UserController extends Controller
         $user = User::find($id);
         return view('user.userDetail')->with('user', $user);
     }
-
     public function edit($id)
     {
         $user = User::find($id);
         return view('user.editUserDetail')->with('user', $user);
     }
-
     public function update($id, Request $request)
     {
         $this->validate($request, [
@@ -48,6 +45,7 @@ class UserController extends Controller
         } else {
             $user->profile->update(Input::all());
         }
+
         return redirect('user/profile/'.$user->id.'/index');
     }
 }

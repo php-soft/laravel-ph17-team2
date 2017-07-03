@@ -6,19 +6,23 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Order;
+use Cart;
 
 class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $orders;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
-        //
+        $this->order = $order;
     }
 
     /**
@@ -28,21 +32,15 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.orders.shipped');
-    }
 
-    public function ship(Request $request, $orderId)
-    {
-
-        $order = Order::findOrFail($orderId);
-        dd($order);
-
-        $message = (new OrderShipped($order))
-            ->onConnection('sqs')
-            ->onQueue('emails');
-
-
-        Mail::to($request->user())
-            ->queue($message);
+        $content = Cart::content();
+        $subtotal = Cart::subtotal();
+        $this->order->activation_link = route('activateOrder', $this->order->id);
+        return $this->markdown('mails.shipped')
+            ->with('subtotal', $subtotal)
+            ->with('content', $content)
+            ->with([
+                'order' => $this->order,
+            ]);
     }
 }

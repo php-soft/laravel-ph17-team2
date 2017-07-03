@@ -121,7 +121,6 @@ return [
     ],
     'from' => [
         'address' => 'phuquydn94@gmail.com',
-        'name' => 'Mr Quy',
+        'name' => 'abc',
     ],
-
 ];
