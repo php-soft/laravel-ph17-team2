@@ -28,16 +28,17 @@
 					<!-- headr cart -->
 					<div class="beta-comp">
 						<div class="cart">
-								<div class="beta-select">
-									<i class="fa fa-shopping-cart btn btn-danger" onclick="newCart()">Giỏ hàng (<span id="cart-count">{!! Cart::count() !!}</span>)</i>
-								</div>
-								<script>
-                                    function newCart() {
-                                        window.location.assign("{!! url('/cart/show') !!} ")
-                                    }
-								</script>
-								</a>
-						</div> <!-- .cart  -->
+<<<<<<< HEAD
+							<div class="beta-select">
+								<i class="fa fa-shopping-cart btn btn-danger" onclick="newCart()">Giỏ hàng (<span id="cart-count">{!! Cart::count() !!}</span>)</i>
+							</div>
+							<script>
+                                function newCart() {
+                                    window.location.assign("{!! url('/cart/show') !!} ")
+                                }
+							</script>
+							</a>
+						</div>
 					</div>
 					<div class="beta-comp">
 					
