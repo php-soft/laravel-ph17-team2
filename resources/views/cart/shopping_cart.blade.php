@@ -28,6 +28,7 @@
 					<th class="total">Chức năng</th>
 					<th class="price">Đơn giá</th>
 					<th class="total">Tổng tiền</th>
+					<th class="total">Shop</th>
 				</tr>
 				<?php $STT=0;?>
 				@foreach($content as $contents)
@@ -42,8 +43,9 @@
 								<a href="#"  class="updateCart" id="{!! $contents->rowId  !!}" ><img class="tooltip-test" data-original-title="Cập nhật" src="{!! asset('/user/img/update.png') !!}" alt=""></a>
 								<a href="{{ route('cartDelete',['rowId' => $contents->rowId]) }}"><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
 							</td>
-							<td class="price">{!! number_format($contents->price,0,",",".") !!} Đ </td>
+							<td class="total">{!! number_format($contents->price,0,",",".") !!} Đ </td>
 							<td class="total">{!! number_format($contents->price*$contents->qty,0,",",".") !!} Đ </td>
+							<td>{!! $contents->options->shop !!}</td>
 						</tr>
 				{{ Form::close() }}
 				@endforeach
