@@ -13,15 +13,7 @@
 </style>
 <div class="container">
 	<div class="row content">
-		<div class="col-sm-3 sidenav">
-			<ul class="nav nav-pills nav-stacked">
-				<li><a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}">Quản lý tài khoản</a></li>
-				<li><a href="#">Danh sách yêu thích</a></li>
-				<li><a href="#">Đơn đặt hàng</a></li>
-				<li><a href="#">Quản lý shop</a></li>
-			</ul>
-		</div>
-
+		@include('layouts.sidebar')
 		<div class="col-sm-9">
 			<div class="col-sm-3">
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="" width="200px" height="200px">
@@ -35,7 +27,7 @@
 				<p>Địa chỉ: <span>Chưa cập nhật</span></p>
 				<p>Ngày sinh: <span>Chưa cập nhật</span></p>
 				<p>Giới tính: <span>Chưa cập nhật</span></p>
-				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Thay đổi</button></a>
+				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Cập nhật thông tin</button></a>
 			@else
 				<p>Tên tài khoản: <span>{{$user->name}}</span></p>
 				<p>Email: <span>{{$user->email}}</span></p>
@@ -53,7 +45,7 @@
 					@endif
 				</span>
 				</p>
-				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Thay đổi</button></a>
+				<a href="{{ url('user/profile/'.Auth::user()->id.'/edit')}}" title=""><button type="button" class="btn btn-success" >Cập nhật thông tin</button></a>
 			@endif
 			</div>
 			

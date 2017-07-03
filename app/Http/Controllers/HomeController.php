@@ -9,7 +9,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $shopProducts = \App\ShopProduct::all();
-        return view('home')->with('shopProducts', $shopProducts);
+        $shopProducts = \App\shopProduct::orderBy('id', 'DESC')
+            ->take(3)
+            ->get();
+        $sp = \App\shopProduct::orderBy('buys', 'DESC')
+            ->take(3)
+            ->get();
+        return view('home')
+            ->with('shopProducts', $shopProducts)
+            ->with('sp', $sp);
     }
 }

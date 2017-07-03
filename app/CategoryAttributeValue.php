@@ -8,7 +8,7 @@ class CategoryAttributeValue extends Model
 {
     protected $fillable = [
         'category_id',
-        'attribute_value_id'
+        'name'
     ];
 
     public function category()
@@ -18,6 +18,6 @@ class CategoryAttributeValue extends Model
 
     public function productAttributeValues()
     {
-        return $this->hasMany('App\CategoryAttributeValue');
+        return $this->hasMany('App\ProductAttributeValue');
     }
 }

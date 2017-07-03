@@ -4,6 +4,7 @@
 				
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
+					<div class="pull-right">
 						<li><a href="#"><i class="fa fa-user"></i>Hướng dẫn</a></li>
 						<li><a href="#">Kiểm tra đơn hàng</a></li>
 						<li><a href="wishlist.html">Yêu thích </a></li>

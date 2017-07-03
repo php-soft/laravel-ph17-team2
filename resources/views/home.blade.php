@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
     <div class="fullwidthbanner-container">
                     <div class="fullwidthbanner">
                         <div class="bannercontainer" >
@@ -53,15 +58,15 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="beta-products-list">
-                            <h4>New Products</h4>
-                            
+                            <h4>Sản Phẩm Mới</h4>
+                             <div class="space30">&nbsp;</div>
 
                             <div class="row">
                                 @foreach($shopProducts as $shopProduct)
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('home/san-pham/' .  $shopProduct->id) }}"><img src="source/assets/dest/images/products/1.jpg" alt="{!! $shopProduct->product->image !!}"></a>
+                                                <a href=""><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{!! $shopProduct->product->name !!}</p>
@@ -74,7 +79,7 @@
                                                 <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <div class="single-item-footer">{!! $shopProduct->shop->name !!}</div>
+                                            
                                         </div>
                                     </div>
                                 @endforeach
@@ -84,18 +89,20 @@
                         <div class="space50">&nbsp;</div>
 
                         <div class="beta-products-list">
-                            <h4>Top Products</h4>
-                        
+                            <h4>Sản Phẩm Bán Chạy</h4>
+                            <div class="space30">&nbsp;</div>
+                       
                             <div class="row">
-                                <div class="col-sm-3">
+                            @foreach($sp as $sp)
+                                <div class="col-sm-4">
                                     <div class="single-item">
                                         <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                            <a href=""><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
                                         </div>
                                         <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
+                                            <p class="single-item-title">{!! $sp->product->name !!}</p>
                                             <p class="single-item-price">
-                                                <span>$34.55</span>
+                                                <span>{!! $sp->product->price !!} VNĐ</span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
@@ -104,150 +111,16 @@
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
+                                  
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                              @endforeach  
+                   </div>
 
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span class="flash-del">$34.55</span>
-                                                <span class="flash-sale">$33.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span>$34.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span>$34.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="space40">&nbsp;</div>
-                            <h4>Hot Products</h4>
-                        
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span>$34.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                   </div>
+                   
+               
 
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span class="flash-del">$34.55</span>
-                                                <span class="flash-sale">$33.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span>$34.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="single-item">
-                                        <div class="single-item-header">
-                                            <a href="product.html"><img src="source/assets/dest/images/products/3.jpg" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">Sample Woman Top</p>
-                                            <p class="single-item-price">
-                                                <span>$34.55</span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- .beta-products-list -->
-                    </div>
-                </div> <!-- end section with sidebar and main content -->
-
-
+</div>
             </div> <!-- .main-content -->
         </div> <!-- #content -->
     </div> <!-- .container -->

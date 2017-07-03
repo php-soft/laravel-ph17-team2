@@ -28,6 +28,7 @@
 					<!-- headr cart -->
 					<div class="beta-comp">
 						<div class="cart">
+<<<<<<< HEAD
 							<div class="beta-select">
 								<i class="fa fa-shopping-cart btn btn-danger" onclick="newCart()">Giỏ hàng (<span id="cart-count">{!! Cart::count() !!}</span>)</i>
 							</div>
@@ -59,6 +60,8 @@
                                         </a>
                                         <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}">Quản lý tài khoản
                                         </a>
+                                        <a href="{{ url('user/shop/'.Auth::user()->id.'/index')}}">Quản lý Shop
+                                        </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -78,14 +81,23 @@
 				
 				<nav class="main-menu">
 					<ul class="l-inline ov">
-						
 						<li><a href="#">Sản phẩm</a>
 							<ul class="sub-menu">
 								@foreach ($categories as $category)
 								<li><a href="">{!! $category->name !!}</a>
-									<ul class="sub-menu">
+									<ul class="sub-menu"  >
 										@foreach ($category->getCategoriesByParent($category->id) as $subcat)
-					                    	<li><a href="#">{!! $subcat->name !!}</a></li>
+					                    	<li><a href="{{!! URL('categories',[$subcat->id]) !!}}">{!! $subcat->name !!}</a>
+					                   	
+										<ul class="sub-menu" >
+											@foreach ($subcat->getCategoriesByParent($subcat->id) as $subcat1)
+						                    	<li><a href="{{!! URL('categories',[$subcat1->id]) !!}}">{!! $subcat1->name !!}</a>
+											     
+						                    	</li>
+					                		@endforeach
+						                </ul>
+						               
+					                    	</li>
 				                		@endforeach
 					                </ul>
 				                </li>
@@ -94,7 +106,9 @@
 								
 							</ul>
 						</li>
-						<li><a href="">Trang chủ</a></li>
+					
+						
+						<li><a href="{{ url('/')}}">Trang chủ</a></li>
 						<li><a href="voucher.html">Khuyến mãi</a></li>
 						<li><a href="#">Bán chạy</a></li>
 						<li><a href="about.html">Giới thiệu</a></li>
