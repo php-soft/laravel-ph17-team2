@@ -85,4 +85,10 @@ class ShopController extends Controller
         $products = Product::All();
         return view('shop.post')->with('shop', $shop)->with('products', $products);
     }
+
+    public function createProduct($id)
+    {
+        $product = Product::find($id);
+        return view('shop.postProduct')->with('product', $product);
+    }
 }
