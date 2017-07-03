@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
     <div class="fullwidthbanner-container">
                     <div class="fullwidthbanner">
                         <div class="bannercontainer" >

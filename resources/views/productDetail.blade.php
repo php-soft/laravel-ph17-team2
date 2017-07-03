@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="order">
-                            <button class="btn w3-btn btn-order add" id="{!! $shopProduct->product->id  !!}">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                            <button class="btn w3-btn btn-order btn-add add" id="{!! $shopProduct->product->id  !!}">Thêm vào giỏ hàng <span class="glyphicon glyphicon-shopping-cart"></span></button>
                             <button class="btn w3-btn btn-order buy">Mua ngay <span class="glyphicon glyphicon-ok"></span></button>
                         </div>
                     {{ Form::close() }}
