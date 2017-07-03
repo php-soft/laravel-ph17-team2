@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Nestable\NestableServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
         /*
          * Application Service Providers...
