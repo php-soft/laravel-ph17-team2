@@ -26,6 +26,7 @@ route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
 Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
+Route::get('news', );
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
