@@ -40,9 +40,10 @@ class ShopController extends Controller
         return redirect('user/shop/'.$user->id.'/index');
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('shop.show');
+        $shop = Shop::find($id);
+        return view('shop.show')->with('shop', $shop);
     }
 
     public function edit($id)

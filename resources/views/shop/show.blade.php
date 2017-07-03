@@ -15,30 +15,32 @@
     <div class="row content">
         @include('layouts.sidebar')
         <div class="col-sm-9">
-        <h6>Quản lý sản phẩm trong shop</h6>
-            <a href="" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng bán sản phẩm</a><br>
+            <h6>Quản lý chi tiết shop</h6>
+            <a href="" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop</a>
+            <br>
             <hr>
             <div class="row">
                 <!-- Advanced Tables -->                    
                 <div class="panel-body">
-                <h6>Danh sách sản phẩm đã đăng</h6>
+                <h6>Danh sách sản phẩm của shop: <span>{{$shop->name}}</span> Địa chỉ: <span>{{$shop->address}}</span></h6>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover" id="example">
                             <thead>
                                 <tr class="orders">
-                                    <th class="text-center">Tên sản phẩm</th>
-                                    <th class="text-center">Giá sản phẩm</th>
-                                    <th class="text-center">Số lượng</th>
-                                    <th class="text-center">Chức năng</th>
+                                    <th class="text-center">Product_ID</th>
+                                    <th class="text-center">Buys</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Discount</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="odd gradeX">
-                                    <td class="text-center">Iphone</td>
-                                    <td class="text-center">300000</td>
-                                    <td class="text-center">10</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-info btn-sm pull-right"><span class="glyphicon glyphicon-book"></span> Quản lý sản phẩm </a>
                                         <a href="" class="btn btn-success btn-sm pull-right"><span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa </a>
                                         <a href="" class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span> Xóa </a>
                                     </td>                                 
