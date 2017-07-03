@@ -24,9 +24,11 @@ route::get('/home/mua-hang/{id}/{qty}', 'CartController@storeQty');
 route::get('/cart/show', 'CartController@show')->name('cart');
 route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
 Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
+Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('activateOrder');
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
-Route::get('news', );
+Route::get('news');
+
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
@@ -56,7 +58,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/newscategory/edit/{id}', 'NewsCategoryController@edit')->name('newscategory.edit');
     Route::patch('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
     Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
-    
+   
     Route::get('/news', 'NewsController@index')->name('news');
     Route::get('/news/create', 'NewsController@create')->name('news.create');
     Route::post('/news', 'NewsController@post')->name('news.post');
