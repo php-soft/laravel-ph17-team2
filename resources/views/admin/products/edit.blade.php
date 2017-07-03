@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-	{!! Form::model($shopProduct, ['route' => ['adminProductUpdate', $shopProduct->id], 'method' => 'put']) !!}
-		@include('admin.products.partials.forms.product')
-		{!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
-	{!! Form::close() !!}
+    {!! Form::model($product, ['route' => ['adminProductUpdate', $product->id], 'method' => 'put']) !!}
+        @include('admin.products.partials.forms.product')
+        <div class="container">
+            {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+        </div>
+    {!! Form::close() !!}
 @stop
