@@ -10,6 +10,9 @@
     p{
         margin-bottom: 7px;
     }
+    .pull-left{
+        margin-right: 20px;
+    }
 </style>
 <div class="container">
     <div class="row content">

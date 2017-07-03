@@ -90,16 +90,24 @@ class OrderController extends Controller
 
         Mail::to($request->email)->send(new OrderShipped($Order));
 
-
+        $voucher = \App\Voucher::all();
         foreach ($content as $contents) {
+            foreach ($voucher as $vouchers) {
             $OrderProduct = new OrderProduct;
             $OrderProduct->quantity=$contents->qty;
-            $OrderProduct->price=$contents->price;
-            $OrderProduct->order_id=$Order->id;
-            $OrderProduct->product_id=$contents->id;
-            $OrderProduct->order_id=$Order->id;
-            $OrderProduct->save();
+                if($vouchers->code == Input::get('voucher_code')) {
+                    $OrderProduct->price = $contents->price*((100-$vouchers->discount)/100);
+                }else{
+                    $OrderProduct->price = $contents->price;
+                }
+                $OrderProduct->order_id=$Order->id;
+                $OrderProduct->product_id=$contents->id;
+                $OrderProduct->order_id=$Order->id;
+                $OrderProduct->save();
+            }
         }
+        $vouchers->quantity=$vouchers->quantity -1;
+        $vouchers->save();
 
         Cart::destroy();
         return redirect('home')

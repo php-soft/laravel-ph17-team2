@@ -10,13 +10,17 @@
     p{
         margin-bottom: 7px;
     }
+    .pull-left{
+        margin-right: 20px;
+    }
 </style>
 <div class="container">
     <div class="row content">
         @include('layouts.sidebar')
         <div class="col-sm-9">
         <h6>Quản lý sản phẩm trong shop</h6>
-            <a href="" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng bán sản phẩm</a><br>
+            <a href="{{ url('user/shop/'.Auth::user()->id.'/') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng bán sản phẩm</a>
+            <a href="" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Danh sách voucher</a><br>
             <hr>
             <div class="row">
                 <!-- Advanced Tables -->                    

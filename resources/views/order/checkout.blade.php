@@ -14,11 +14,6 @@
 						</ul>
 					</div>
 				@endif()
-				@if(Session::has('success'))
-					<div class="alert alert-success">
-						{{Session::get('success')}}
-					</div>
-				@endif
 				<div class="s-cart-all">
 					<div class="checkoutsteptitle down">Bước 1: Xác nhận đơn hàng</div>
 					<div class="table-responsive">
