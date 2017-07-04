@@ -21,6 +21,8 @@
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <!-- CKEditor -->
+    <script src="/laravel-ph17-team2/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -39,7 +41,7 @@
                             <li><a href="{{ route('managerUser') }}">User</a></li>
                             <li><a href="{{ route('adminProduct') }}">Products</a></li>
                             <li><a href="{{ route('newscategory') }}">News Category</a></li>
-                            <li><a href="{{ route('managerShop') }}">Shop Manager</a></li>
+                            <li><a href="{{ route('news') }}">News</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->

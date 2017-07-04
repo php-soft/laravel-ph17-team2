@@ -27,6 +27,7 @@ Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty')
 Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('activateOrder');
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
+Route::get('news');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/products', 'ProductController@index')->name('adminProduct');
     Route::get('/products/create', 'ProductController@create')->name('adminProductCreate');
     Route::post('/products', 'ProductController@store')->name('adminProductStore');
+
     Route::get('/products/{shopProductId}/edit', 'ProductController@edit')->name('adminProductEdit');
     Route::put('/products/{shopProductId}', 'ProductController@update')->name('adminProductUpdate');
     Route::get('/products/{shopProductId}/delete', 'ProductController@destroy')->name('adminProductDetele');
@@ -56,13 +58,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/newscategory/edit/{id}', 'NewsCategoryController@edit')->name('newscategory.edit');
     Route::patch('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
     Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
-
-    Route::get('/shop/index', 'ShopController@index')->name('managerShop');
-    Route::get('/shop/{id}/delete', 'ShopController@destroy');
-    Route::get('/shop/{id}/show', 'ShopController@show');
-
-    Route::get('/shop/user', 'ShopController@user');
-    Route::get('/shop/user/{id}/show', 'ShopController@showShopUser');
+   
+    Route::get('/news', 'NewsController@index')->name('news');
+    Route::get('/news/create', 'NewsController@create')->name('news.create');
+    Route::post('/news', 'NewsController@post')->name('news.post');
+    Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
+    Route::patch('/news/edit/{id}', 'NewsController@update')->name('news.update');
+    Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
 });
 
 Route::group(['middleware' => ['auth']], function () {
