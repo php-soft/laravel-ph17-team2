@@ -12,6 +12,6 @@ class CategoryController extends Controller
         $categories = \App\Product::where('category_id', $id)
             ->get();    
         return view('categories')    	
-        ->with('categories', $categories);
+            ->with('categories', $categories);
     }
 }
