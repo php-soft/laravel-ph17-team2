@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
 use App\Product;
+use App\ShopProduct;
 use Input;
 
 class ShopController extends Controller
@@ -86,15 +87,17 @@ class ShopController extends Controller
         return view('shop.post')->with('shop', $shop)->with('products', $products);
     }
 
-    public function createProduct($id)
+    public function createProduct($id_shop, $id_product)
     {
-        $product = Product::find($id);
-        return view('shop.postProduct')->with('product', $product);
+        $shop = Shop::find($id_shop);
+        $product = Product::find($id_product);
+        return view('shop.postProduct')->with('shop', $shop)->with('product', $product);
     }
 
     public function postProduct($id)
     {
-        $shop = Shop::find($id);
-        return redirect('user/shop/'.$shop->id.'/index');
+        
+        $product = Product::find($id);
+        
     }
 }

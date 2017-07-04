@@ -10,11 +10,13 @@
 
     <div class="col-sm-4 sidenav">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="" width="300px" height="300px">
-        <h6>Sản phẩm đang chọn</h6>
+        <h6>Thông tin chi tiết</h6>
         <p><span class="glyphicon glyphicon-ok"></span> Tên sản phẩm: <span>{{$product->name}}</span></p>
         <p><span class="glyphicon glyphicon-ok"></span> Giá đề nghị: <span>{{$product->price}}</span></p>
         <p><span class="glyphicon glyphicon-ok"></span> Mô tả: <span>{{$product->description}}</span></p>
         <p><span class="glyphicon glyphicon-ok"></span> Category: <span>{{$product->category->name}}</span></p>
+        <p><span class="glyphicon glyphicon-ok"></span> Tên shop đang đăng sản phẩm: <span>{{$shop->name}}</span></p>
+        <p><span class="glyphicon glyphicon-ok"></span> ID User Quản lý shop: <span>{{$shop->user_id}}</span></p>
         
     </div>
 
@@ -22,7 +24,7 @@
       <form action="" method="POST">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                 <input name="_method" type="hidden" value="PUT">
-                <input type="hidden" name="user_id" value="">
+                <input type="hidden" name="" value="">
                 <div class="well"><h4>{{$product->name}}</h4></div>
                 <div class="form-group">
                     <label for="price">Giá bán của bạn : <span></span></label>
