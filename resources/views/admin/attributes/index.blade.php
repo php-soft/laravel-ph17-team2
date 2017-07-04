@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">List of products
+            <div class="panel-heading">List of attributes
                 <div class="pull-right">
                     <a href="{{ route('adminAttributeCreate') }}"><button class="btn btn-xs btn-primary ">Create new attribute</button></a>
                 </div>
@@ -30,8 +30,8 @@
                                 <td>{{ $categoryAttribute->category->id }}</td>
                                 <td>{{ $categoryAttribute->name }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('adminAttributeEdit', ['id' => $categoryAttribute->id]) }}#"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
-                                    <a href="{{ route('adminAttributeDetele', ['id' => $categoryAttribute->id]) }}#" data-toggle="modal"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</button></a>
+                                    <a href="{{ route('adminAttributeEdit', ['id' => $categoryAttribute->id]) }}"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
+                                    <a href="{{ route('adminAttributeDetele', ['id' => $categoryAttribute->id]) }}" data-toggle="modal"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</button></a>
                                 </td>
                             </tr>
                         @endforeach

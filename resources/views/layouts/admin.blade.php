@@ -40,6 +40,7 @@
                             <li><a href="{{ route('ordersAdmin') }}">Orders</a></li>
                             <li><a href="{{ route('managerUser') }}">User</a></li>
                             <li><a href="{{ route('adminProduct') }}">Products</a></li>
+                            <li><a href="{{ route('adminCategories') }}">Categories</a></li>
                             <li><a href="{{ route('adminAttribute') }}">Attributes</a></li>
                             <li><a href="{{ route('newscategory') }}">News Category</a></li>
                             <li><a href="{{ route('news') }}">News</a></li>

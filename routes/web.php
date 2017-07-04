@@ -52,6 +52,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/products/{id}/delete', 'ProductController@destroy')->name('adminProductDetele');
     Route::get('/products/{id}', 'ProductController@show')->name('adminProductShow');
 
+    Route::get('/categories', 'CategoriesController@index')->name('adminCategories');
+    // Route::get('/categories/parentCategory', 'CategoriesController@indexParentCategories')->name('adminCategoriesParent');
+    Route::get('/categories/createSubCategory', 'CategoriesController@createSubCategory')->name('adminCategoriesCreateSubCategory');
+    Route::post('/categories', 'CategoriesController@storeSubCategory')->name('adminCategoriesStoreSubCategory');
+    Route::get('/categories/mainCategories/createCategory', 'CategoriesController@createCategory')->name('adminCategoriesCreateCategory');
+    Route::post('/categories/mainCategories', 'CategoriesController@storeCategory')->name('adminCategoriesStoreCategory');
+    Route::get('/categories/{id}/edit', 'CategoriesController@edit')->name('adminCategoriesEdit');
+    Route::put('/categories/{id}', 'CategoriesController@update')->name('adminCategoriesUpdate');
+    Route::get('/categories/{id}/delete', 'CategoriesController@destroy')->name('adminCategoriesDetele');
+    Route::get('/categories/{id}', 'CategoriesController@show')->name('adminCategoriesShow');
+
     Route::get('/attributes', 'AttributeController@index')->name('adminAttribute');
     Route::get('/attributes/create', 'AttributeController@create')->name('adminAttributeCreate');
     Route::post('/attributes', 'AttributeController@store')->name('adminAttributeStore');
