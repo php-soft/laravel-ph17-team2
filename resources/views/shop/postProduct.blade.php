@@ -30,9 +30,10 @@
             </ul>
         </div>
         @endif
-        <form action="{{ url('user/shop/'.$shop->id.'/show') }}" method="POST">
+        <form action="{{ url('user/shop'.$shop->id.'/show') }}" method="POST">
             <input name="_token" type="hidden" value="{{ csrf_token() }}">
             <input name="_method" type="hidden" value="PUT">
+
             <input type="hidden" name="buys" value="1">
             <input type="hidden" name="user_id" value="{{$shop->user_id}}">
             <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -53,6 +54,7 @@
                 <input type="text" class="form-control" id="discount" placeholder="" name="discount" value="">
             </div>
             <button type="submit" class="btn btn-default btn-success pull-left">Đăng sản phẩm</button>
+
         </form>
     </div>
 
