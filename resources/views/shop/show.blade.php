@@ -24,29 +24,42 @@
                 <div class="panel-body">
                 <h6>Danh sách sản phẩm của shop: <span>{{$shop->name}}</span> Địa chỉ: <span>{{$shop->address}}</span></h6>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" id="example">
-                            <thead>
-                                <tr class="orders">
-                                    <th class="text-center">Tên sản phẩm</th>
-                                    <th class="text-center">Buys</th>
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Discount</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <table class="table table-striped table-bordered table-hover" id="example">
+                        <thead>
+                            <tr class="orders">
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Tên sản phẩm</th>
+                                <th class="text-center">Buys</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Discount</th>
+                                <th class="text-center" >Create_at</th>
+                                <th class="text-center" >Update_ad</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $stt =0 ?>
+                            @foreach($shop->shopProducts as $shopProduct)
+                                <?php $stt= $stt+1?>
                                 <tr class="odd gradeX">
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center">
-                                        <a href="" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span> Xem chi tiết </a>
-                                    </td>                                 
+                                    <td class="text-center">{{ $stt }}</td>
+                                    <td class="text-center">{{$shopProduct->product->name}}</td>
+                                    <td class="text-center">{{$shopProduct->buys}}</td>
+                                    <td class="center">{{$shopProduct->price}}</td>
+                                    <td class="center">{{$shopProduct->discount}}</td>
+                                    <td class="text-center" >{{$shopProduct->created_at}}</td>
+                                    <td class="text-center" >{{$shopProduct->updated_at}}</td>
+                                    <td class="text-center" >
+                                        <a href="">
+                                            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+                                        </a>
+                                    </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
                 </div>
                 <!--End Advanced Tables -->
             </div>

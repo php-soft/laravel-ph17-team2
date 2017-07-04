@@ -18,7 +18,7 @@
                         <thead>
                             <tr class="orders">
                                 <th class="text-center">ID</th>
-                                <th class="text-center">Products_ID</th>
+                                <th class="text-center">Tên sản phẩm</th>
                                 <th class="text-center">Buys</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Discount</th>
@@ -34,13 +34,13 @@
                                 <?php $stt= $stt+1?>
                                 <tr class="odd gradeX">
                                     <td class="text-center">{{ $stt }}</td>
-                                    <td class="text-center">{{$shopProduct->product_id}}</td>
+                                    <td class="text-center">{{$shopProduct->product->name}}</td>
                                     <td class="text-center">{{$shopProduct->buys}}</td>
                                     <td class="center">{{$shopProduct->price}}</td>
                                     <td class="center">{{$shopProduct->discount}}</td>
                                     <td class="text-center" >{{$shopProduct->created_at}}</td>
                                     <td class="text-center" >{{$shopProduct->updated_at}}</td>
-                                    <td class="text-center" ><a href="{{ url('admin/shop/'.$shop->id.'/delete') }}" title=""><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+                                    <td class="text-center" ><a href="" title=""><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                                 </tr>
                             @endforeach
                         </tbody>
