@@ -97,13 +97,12 @@ class ShopController extends Controller
     public function postProduct($id, Request $request)
     {
         $this->validate($request, [
-            'price' => 'required|numeric|max:6',
+            'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'discount' => 'required|numeric',
         ], [
             'price.required' => 'Bắt buộc phải điền giá thành',
             'price.numeric' => 'Giá phải là dạng số',
-            'price.max' => 'Không hơn 6 chữ số',
             'quantity.required' => 'Bắt buộc phải điền số lượng',
             'quantity.numeric' => 'Số lượng phải là dạng số',
             'discount.required' => 'Bắt buộc phải điền giảm giá',
