@@ -7,49 +7,51 @@
         </div>
     @endif
     <div class="fullwidthbanner-container">
-                    <div class="fullwidthbanner">
-                        <div class="bannercontainer" >
-                        <div class="banner" >
-                                <ul>
-                                    <!-- THE FIRST SLIDE -->
-                                    <li data-transition="boxfade" data-slotamount="20" class="active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-                                    <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="undefined" data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                                                    <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="source/assets/dest/images/thumbs/1.jpg" data-src="source/assets/dest/images/thumbs/1.jpg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('source/assets/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
-                                                    </div>
-                                                </div>
+        <div class="fullwidthbanner">
+            <div class="bannercontainer" >
+                <div class="banner" >
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                        </ol>
 
-                                </li>
-                                <li data-transition="boxfade" data-slotamount="20" class="active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-                                  <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="undefined" data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                                                <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="source/assets/dest/images/thumbs/1.jpg" data-src="source/assets/dest/images/thumbs/1.jpg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('source/assets/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
-                                            </div>
-                                            </div>
-
-                                <li data-transition="boxfade" data-slotamount="20" class="active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-                                    <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="undefined" data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                                                    <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="source/assets/dest/images/thumbs/1.jpg" data-src="source/assets/dest/images/thumbs/1.jpg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('source/assets/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
-                                                </div>
-                                            </div>
-
-                                </li>
-
-                                <li data-transition="boxfade" data-slotamount="20" class="active-revslide current-sr-slide-visible" style="width: 100%; height: 100%; overflow: hidden; visibility: inherit; opacity: 1; z-index: 20;">
-                                    <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="undefined" data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                                                    <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="source/assets/dest/source/images/thumbs/1.jpg" data-src="source/assets/dest/images/thumbs/1.jpg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('source/assets/dest/images/thumbs/1.jpg'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
-                                                </div>
-                                            </div>
-
-                                </li>
-                                 
-                                </ul>
+                            <!-- Wrapper for slides -->
+                 
+                 <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="source/image/slide/slider-1.jpg " alt="Chicago" alt="Los Angeles" style="width:1400px; height:500px;">
+                        <div class="carousel-caption">
+                            <h3 style="color:#ca2a04;">Fs Là Nơi Tốt Nhất Để Mua Sắm!</h3>
+                            <p style="color:#57a7c6">Luôn vui vẻ!</p>
+                        </div>
+                    </div>
+                        <div class="item">
+                            <img src="source/image/slide/slider-2.jpg" alt="Chicago" style="width:1400px; height:500px;">
+                             <div class="carousel-caption">
+                                <h3 style="color:#ca2a04;">Fs Style</h3>
+                                <p style="color:#57a7c6"> Fs style, Cảm ơn!</p>
                             </div>
                         </div>
-
-                        <div class="tp-bannertimer"></div>
-                    </div>
-    </div>
-                <!--slider-->
-    </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                              <span class="glyphicon glyphicon-chevron-left"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                              <span class="glyphicon glyphicon-chevron-right"></span>
+                              <span class="sr-only">Next</span>
+                            </a>                                 
+                            </ul>
+                            </div>
+                                </div>
+                                    <div class="tp-bannertimer"></div>
+                                        </div>
+                                        
+                            </div>
+        <!--slider-->
+                            </div>
 
     <div class="container">
         <div id="content" class="space-top-none">
@@ -63,20 +65,20 @@
 
                             <div class="row">
                                 @foreach($shopProducts as $shopProduct)
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href=""><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                                <a href=""><img src="source/image/product/{!! $shopProduct->product->image !!}" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{!! $shopProduct->product->name !!}</p>
+                                                <p class="single-item-title" style="text-transform: capitalize;">{!! $shopProduct->product->name !!}</p>
                                                 <p class="single-item-price">
-                                                    <span>{!! $shopProduct->product->price !!} VNĐ</span>
+                                                    <span>{!!number_format ($shopProduct->product->price) !!} VNĐ</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
                                                 <a class="add-to-cart pull-left" href="javascript:void(0)"><i class="fa fa-shopping-cart" id={!! $shopProduct->product->id !!}></i></a>
-                                                <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                                                <a class="beta-btn primary" href="{{ url('/home/san-pham/' . $shopProduct->id) }}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
                                             
@@ -94,20 +96,20 @@
                        
                             <div class="row">
                             @foreach($sp as $sp)
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="single-item">
                                         <div class="single-item-header">
-                                            <a href=""><img src="source/assets/dest/images/products/1.jpg" alt=""></a>
+                                            <a href=""><img src="source/image/product/{!! $sp->product->image !!}" alt=""></a>
                                         </div>
                                         <div class="single-item-body">
-                                            <p class="single-item-title">{!! $sp->product->name !!}</p>
+                                            <p class="single-item-title" style="text-transform: capitalize;">{!! $sp->product->name !!}</p>
                                             <p class="single-item-price">
-                                                <span>{!! $sp->product->price !!} VNĐ</span>
+                                                <span>{!! number_format ($sp->product->price) !!} VNĐ</span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
                                             <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
+                                            <a class="beta-btn primary" href="{{ url('/home/san-pham/' . $sp->id) }}">Chi tiết<i class="fa fa-chevron-right"></i></a>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
@@ -118,7 +120,7 @@
 
                    </div>
                    
-               
+              
 
 </div>
             </div> <!-- .main-content -->
