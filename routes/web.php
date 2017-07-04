@@ -59,7 +59,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
         ->name('adminCategoriesStoreSubCategory');
     Route::get('/categories/mainCategories/createCategory', 'CategoriesController@createCategory')
         ->name('adminCategoriesCreateCategory');
-    Route::post('/categories/mainCategories', 'CategoriesController@storeCategory')->name('adminCategoriesStoreCategory');
+    Route::post('/categories/mainCategories', 'CategoriesController@storeCategory')
+        ->name('adminCategoriesStoreCategory');
     Route::get('/categories/{id}/edit', 'CategoriesController@edit')->name('adminCategoriesEdit');
     Route::put('/categories/{id}', 'CategoriesController@update')->name('adminCategoriesUpdate');
     Route::get('/categories/{id}/delete', 'CategoriesController@destroy')->name('adminCategoriesDetele');
