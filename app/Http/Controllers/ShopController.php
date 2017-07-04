@@ -91,4 +91,10 @@ class ShopController extends Controller
         $product = Product::find($id);
         return view('shop.postProduct')->with('product', $product);
     }
+
+    public function postProduct($id)
+    {
+        $shop = Shop::find($id);
+        return redirect('user/shop/'.$shop->id.'/index');
+    }
 }

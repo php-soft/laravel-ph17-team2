@@ -11,15 +11,8 @@
         margin-bottom: 7px;
     }
 </style>
-<div class="container">
-    <div class="row content">
-        @include('layouts.sidebar')
-        <div class="col-sm-9">
-
-            <h6>Đăng sản phẩm shop: <span>{{ $shop->name }}</span></h6>
-            <hr>
-        </div>
-    </div>
+<div class="container"> 
+    <h6>Đăng sản phẩm cho shop: <span>{{ $shop->name }}</span></h6>
     <div class="row">
     <div class="col-lg-12">
         <!-- Advanced Tables -->
