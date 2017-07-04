@@ -50,7 +50,7 @@ class ProductController extends Controller
         //     $data['image'] = 'default.jpg';
         // }
         Product::create($data);
-        return redirect()->route('adminProduct');
+        return redirect()->route('adminProduct')->withSuccess('Product has been created');
     }
 
     public function edit($id)
@@ -88,13 +88,13 @@ class ProductController extends Controller
         // }
         $product = Product::findOrFail($id);
         $product->update($data);
-        return redirect()->route('adminProductShow', ['id' => $product->id]);
+        return redirect()->route('adminProductShow', ['id' => $product->id])->withSuccess('Product has been updated');
     }
 
     public function destroy($id)
     {
         Product::destroy($id);
-        return redirect('admin/products');
+        return redirect('admin/products')->withSuccess('Product has been deleted');
     }
 
     public function show($id)

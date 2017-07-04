@@ -45,10 +45,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/products', 'ProductController@index')->name('adminProduct');
     Route::get('/products/create', 'ProductController@create')->name('adminProductCreate');
     Route::post('/products', 'ProductController@store')->name('adminProductStore');
-    Route::get('/products/{shopProductId}/edit', 'ProductController@edit')->name('adminProductEdit');
-    Route::put('/products/{shopProductId}', 'ProductController@update')->name('adminProductUpdate');
-    Route::get('/products/{shopProductId}/delete', 'ProductController@destroy')->name('adminProductDetele');
-    Route::get('/products/{shopProductId}', 'ProductController@show')->name('adminProductShow');
+    Route::get('/products/{id}/edit', 'ProductController@edit')->name('adminProductEdit');
+    Route::put('/products/{id}', 'ProductController@update')->name('adminProductUpdate');
+    Route::get('/products/{id}/delete', 'ProductController@destroy')->name('adminProductDetele');
+    Route::get('/products/{id}', 'ProductController@show')->name('adminProductShow');
+
+    Route::get('/attributes', 'AttributeController@index')->name('adminAttribute');
+    Route::get('/attributes/create', 'AttributeController@create')->name('adminAttributeCreate');
+    Route::post('/attributes', 'AttributeController@store')->name('adminAttributeStore');
+    Route::get('/attributes/{attributeId}/edit', 'AttributeController@edit')->name('adminAttributeEdit');
+    Route::put('/attributes/{attributeId}', 'AttributeController@update')->name('adminAttributeUpdate');
+    Route::get('/attributes/{attributeId}/delete', 'AttributeController@destroy')->name('adminAttributeDetele');
+    Route::get('/attributes/{attributeId}', 'AttributeController@show')->name('adminAttributeShow');
  
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
