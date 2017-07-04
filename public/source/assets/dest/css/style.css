@@ -1,3 +1,4 @@
+
 /* ============================================================================
 
 Theme Name: BetaDesign - A Premium HTML Template
@@ -1713,9 +1714,9 @@ padding-right:25px
 
 #searchsubmit {
 position:absolute;
-right:6px;
+right:15px;
 top:0;
-bottom:0;
+bottom:9px;
 border:none;
 background:none
 }
@@ -4698,7 +4699,8 @@ background:none;
 border:1px solid white;
 color:white;
 height:37px;
-padding:0 15px
+padding:0 15px;
+margin-right: 112px;
 }
 #footer.color-div button {border:1px solid gray;}
 
@@ -5080,7 +5082,7 @@ position: relative;}
 /*menu*/
 /*********************/
 
-.main-menu>ul.l-inline> li> a{padding: 10px 22px;
+.main-menu>ul.l-inline> li> a{padding: 10px 56px;
 
     -webkit-font-smoothing: antialiased;
     transition: all 0.17s ease-in-out;

@@ -17,10 +17,10 @@
 				
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
-					<div class="beta-comp">
+					<div class="beta-comp" >
 						<form role="search" method="get" id="searchform" action="/">
 					        <div>
-					        	<input type="text" class="form-control" size="50" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+					        	<input type="text" style="width:100%;" class="form-control" size="50" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
 					        </div>
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>
@@ -45,8 +45,9 @@
                             <button class="btn btn-primary"><a href="{{ route('login') }}" style="color:white;">Đăng nhập</a></button>
                             <button class="btn btn-success"><a href="{{ route('register') }}" style="color:white;">Đăng kí</a></button>
                     @else
+                    <ul style="list-style-type: none">
                     <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Chào
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -68,6 +69,7 @@
                                     </li>
                                 </ul>
                             </li>
+                             </ul>
                         @endif
 					</div>
 				</div>
@@ -83,14 +85,14 @@
 						<li><a href="#">Sản phẩm</a>
 							<ul class="sub-menu">
 								@foreach ($categories as $category)
-								<li><a href="">{!! $category->name !!}</a>
+								<li><a href="" style=".main-menu>ul.l-inline> li> a {padding: 10px 56px;">{!! $category->name !!}</a>
 									<ul class="sub-menu"  >
 										@foreach ($category->getCategoriesByParent($category->id) as $subcat)
-					                    	<li><a href="{{!! URL('categories',[$subcat->id]) !!}}">{!! $subcat->name !!}</a>
+					                    	<li><a href="{{ url('categories',[$subcat->id]) }}">{!! $subcat->name !!}</a>
 					                   	
 										<ul class="sub-menu" >
 											@foreach ($subcat->getCategoriesByParent($subcat->id) as $subcat1)
-						                    	<li><a href="{{!! URL('categories',[$subcat1->id]) !!}}">{!! $subcat1->name !!}</a>
+						                    	<li><a href="{{ url('categories',[$subcat1->id]) }}">{!! $subcat1->name !!}</a>
 											     
 						                    	</li>
 					                		@endforeach
@@ -109,7 +111,6 @@
 						
 						<li><a href="{{ url('/')}}">Trang chủ</a></li>
 						<li><a href="voucher.html">Khuyến mãi</a></li>
-						<li><a href="#">Bán chạy</a></li>
 						<li><a href="about.html">Giới thiệu</a></li>
 						<li><a href="news.html">Tin tức</a></li>
 						<li><a href="contacts.html">Liên hệ</a></li>
