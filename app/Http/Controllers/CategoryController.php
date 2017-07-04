@@ -10,8 +10,8 @@ class CategoryController extends Controller
     public function show($id)
     {
         $categories = \App\Product::where('category_id', $id)
-    	    ->get();    
+            ->get();    
         return view('categories')    	
-    	    ->with('categories', $categories);
+        ->with('categories', $categories);
     }
 }
