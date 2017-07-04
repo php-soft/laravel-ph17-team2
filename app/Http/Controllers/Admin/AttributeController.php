@@ -11,13 +11,13 @@ class AttributeController extends Controller
 {
     public function index()
     {
-    	$categoryAttributes = CategoryAttributeValue::all();
-    	return view('admin.attributes.index')->with('categoryAttributes', $categoryAttributes);
+        $categoryAttributes = CategoryAttributeValue::all();
+        return view('admin.attributes.index')->with('categoryAttributes', $categoryAttributes);
     }
 
     public function create()
     {
-    	$categories = Category::renderAsDropdown();
+        $categories = Category::renderAsDropdown();
         $categories = str_replace(
             '<select  >',
             '<select id="category_id" name="category_id" class="form-control"',
@@ -61,7 +61,9 @@ class AttributeController extends Controller
         $data = $request->all();
         $categoryAttribute = CategoryAttributeValue::findOrFail($id);
         $categoryAttribute->update($data);
-        return redirect()->route('adminAttributeShow', ['id' => $categoryAttribute->id])->withSuccess('CategoryAttributeValue has been updated.');
+        return redirect()
+            ->route('adminAttributeShow', ['id' => $categoryAttribute->id])
+            ->withSuccess('CategoryAttributeValue has been updated.');
     }
 
     public function destroy($id)
