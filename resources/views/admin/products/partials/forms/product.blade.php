@@ -7,7 +7,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('category_id', 'Danh Mục chính') !!}
-            <div class="form-conrols sc">
+            <div class="form-conrols">
                 {!! $categories !!}
             </div>
         </div>
