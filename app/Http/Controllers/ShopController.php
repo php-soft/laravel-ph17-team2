@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
+use App\Product;
+use App\ShopProduct;
 use Input;
 
 class ShopController extends Controller
@@ -38,11 +40,6 @@ class ShopController extends Controller
         $user = User::find($id);
         $user->shops = Shop::create(Input::all());
         return redirect('user/shop/'.$user->id.'/index');
-    }
-
-    public function show()
-    {
-        return view('shop.show');
     }
 
     public function edit($id)
