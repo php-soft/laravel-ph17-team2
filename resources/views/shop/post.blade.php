@@ -41,7 +41,7 @@
                                     <td class="text-center">{{$stt}}</td>
                                     <td class="text-center">{{$product->name}}</td>
                                     <td class="text-center">{{$product->category->name}}</td>
-                                    <td class="text-center">{{$product->description}}</td>
+                                    <td class="text-center">{!!$product->description!!}</td>
                                     <td class="center">{{$product->price}}</td>
                                     <td class="text-center">
                                         <a href="{{ url('shop/post/'.$shop->id.'/'.$product->id.'/create') }}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span> Chọn sản phẩm </a>
