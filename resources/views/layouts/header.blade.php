@@ -18,9 +18,9 @@
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
 					<div class="beta-comp" >
-						<form role="search" method="get" id="searchform" action="/">
+						<form role="search" method="get" id="searchform" action="{!! url('/search') !!}">
 					        <div>
-					        	<input type="text" style="width:100%;" class="form-control" size="50" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+					        	<input type="text" style="width:100%;" class="form-control" size="50" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
 					        </div>
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>

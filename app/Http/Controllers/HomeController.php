@@ -19,4 +19,12 @@ class HomeController extends Controller
             ->with('shopProducts', $shopProducts)
             ->with('sp', $sp);
     }
+
+    public function search(Request $req)
+    {
+        $products = \App\Product::where('name', 'Like', '%' . $req->key . '%' )
+            ->get();
+        return view('search')
+            ->with('products', $products);
+    }
 }

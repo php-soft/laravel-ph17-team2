@@ -25,6 +25,7 @@ Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('acti
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
 Route::get('news');
+Route::get('/search', 'HomeController@search')->name('search');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
