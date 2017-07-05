@@ -30,7 +30,7 @@
             </ul>
         </div>
         @endif
-        <form action="{{ url('user/shop/'.$shop->id.'/show') }}" method="POST">
+        <form action="{{ url('shop/'.$shop->id.'/show') }}" method="POST">
             <input name="_token" type="hidden" value="{{ csrf_token() }}">
             <input name="_method" type="hidden" value="PUT">
 

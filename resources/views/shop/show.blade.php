@@ -16,7 +16,7 @@
         @include('layouts.sidebar')
         <div class="col-sm-9">
             <h6>Quản lý chi tiết shop</h6>
-            <a href="{{ url('user/shop/'.$shop->id.'/post') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop: <span>{{$shop->name}}</span></a>
+            <a href="{{ url('shop/'.$shop->id.'/create') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop: <span>{{$shop->name}}</span></a>
             <br>
             <hr>
             <div class="row">
