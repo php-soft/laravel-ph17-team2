@@ -68,7 +68,7 @@
                                     <div class="col-sm-3">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href=""><img src="source/image/product/{!! $shopProduct->product->image !!}" alt=""></a>
+                                                <a href="{{ url('/home/san-pham/' . $shopProduct->id) }}"><img src="source/image/product/{!! $shopProduct->product->image !!}" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title" style="text-transform: capitalize;">{!! $shopProduct->product->name !!}</p>
@@ -99,7 +99,7 @@
                                 <div class="col-sm-3">
                                     <div class="single-item">
                                         <div class="single-item-header">
-                                            <a href=""><img src="source/image/product/{!! $sp->product->image !!}" alt=""></a>
+                                            <a href="{{ url('/home/san-pham/' . $sp->id) }}"><img src="source/image/product/{!! $sp->product->image !!}" alt=""></a>
                                         </div>
                                         <div class="single-item-body">
                                             <p class="single-item-title" style="text-transform: capitalize;">{!! $sp->product->name !!}</p>
