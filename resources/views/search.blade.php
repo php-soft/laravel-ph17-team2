@@ -16,7 +16,7 @@
                                     <div class="col-sm-3">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{ url('/home/san-pham/' . $product->id) }}"><img src="source/image/product/{!! $product->image !!}" alt=""></a>
+                                                <a href="{{ url('/home/san-pham/' . $product->id) }}"><img src="source/image/product/{!! $product->image !!}" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title" style="text-transform: capitalize;">{!! $product->name !!}</p>
