@@ -11,14 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail')->name('adminProductDetail');
+Route::get('/categories/{id}', 'CategoryController@show');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/home/mua-hang/{id}/{qty}', 'CartController@storeQty');
 route::get('/cart/show', 'CartController@show')->name('cart');
@@ -28,6 +25,7 @@ Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('acti
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
 Route::get('news');
+Route::get('/search', 'HomeController@search')->name('search');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
