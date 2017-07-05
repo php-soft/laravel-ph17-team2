@@ -50,22 +50,14 @@
 								@endforeach
 							</div>
 						</div> <!-- .beta-products-list -->
-
+					 {!! $cate->links() !!}
 						
 					</div>
 				</div> <!-- end section with sidebar and main content -->
-		<div> </div>
+			 
 
 			</div> <!-- .main-content -->
 		</div> <!-- #content -->
 	</div> <!-- .container -->
-	<div class="container">
-            <div class="row" style="text-align:center; ">
-                <ul class="pagination" style="background-color: red;">
-                    <li class="active"><a href="">1</a></li>
-                    <li class=""><a href="#">2</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
-            </div>
-        </div>
+	
 @endsection
