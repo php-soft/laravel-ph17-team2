@@ -32,7 +32,7 @@
 								<div class="col-sm-4">
 									<div class="single-item">
 										<div class="single-item-header">
-											<a href=""><img src="source/image/product/{!! $category->image !!}" alt=""></a>
+											<a href="{{ url('/home/san-pham/' . $category->id) }}"><img src="source/image/product/{!! $category->image !!}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{!! $category->name !!}</p>
@@ -54,7 +54,7 @@
 						
 					</div>
 				</div> <!-- end section with sidebar and main content -->
-
+		<div> </div>
 
 			</div> <!-- .main-content -->
 		</div> <!-- #content -->
