@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function search(Request $req)
     {
-        $products = \App\Product::where('name', 'Like', '%' . $req->key . '%' )
+        $products = \App\Product::where('name', 'Like', '%' . $req->key . '%')
             ->get();
         return view('search')
             ->with('products', $products);
