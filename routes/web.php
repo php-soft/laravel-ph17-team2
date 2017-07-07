@@ -76,7 +76,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/productAttributes/{id}', 'ProductAttributeController@show')
         ->name('adminProductAttributeShow');
     Route::post('/productAttributes', 'ProductAttributeController@store')->name('adminProductAttributeStore');
-    Route::get('/productAttributes/{id}/delete', 'ProductAttributeController@destroy')->name('adminProductAttributeDetele');
+    Route::get('/productAttributes/{id}/delete', 'ProductAttributeController@destroy')
+        ->name('adminProductAttributeDetele');
  
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
