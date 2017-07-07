@@ -10,17 +10,10 @@
 </ol>
 			<article class="row">
 	<div>
-
-
-			
-
-
 		<div class="col-sm-12">
 			<header>
-
 				<h5><a href="news/{!! $new->alias !!}">{!! $new->title !!}</a></h5>		
 				</header><!-- .entry-header -->
-
 			<div>
 				{!! $new->content !!}</div>
 				<div>
@@ -29,15 +22,10 @@
 						<span class="glyphicon glyphicon-calendar"> On: {!! $new->created_at!!}</span>
 						<span class="glyphicon glyphicon-folder-open"> Category: {!! $new->newsCategory->name !!}</span>				
 					</div>
-				</div>
-
-			
-
-		
+				</div>		
+			</div>
 	</div>
-</div></article>
-	
-
+	</article>	
 	</div>
 	<div class="col-sm-3">
 		<aside>
@@ -49,12 +37,7 @@
 			@endforeach 
 </div>
 		</aside>
+	</div>				
 	</div>
-		
-
-
-	
-		
 	</div>
-		</div>
 @endsection
