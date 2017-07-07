@@ -12,7 +12,7 @@
 	<div>
 		<div class="col-sm-12">
 			<header>
-				<h5><a href="news/{!! $new->alias !!}">{!! $new->title !!}</a></h5>		
+				<h5>{!! $new->title !!}</h5>		
 				</header><!-- .entry-header -->
 			<div>
 				{!! $new->content !!}</div>
@@ -33,7 +33,7 @@
 			<h5>Danh mục</h5>
 			<div class="list-group">
 			@foreach($categories as $category)
-				<a href="news/{!! $category->alias !!}" class="list-group-item">{!! $category->name !!}<span class="badge">14</span></a>
+				<a href="{{ url('news/'.$category->alias) }}" class="list-group-item">{!! $category->name !!}<span class="badge">14</span></a>
 			@endforeach 
 </div>
 		</aside>

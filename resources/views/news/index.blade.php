@@ -14,7 +14,7 @@
 
 
 			<figure class="col-sm-3">
-				<a href="news/{!! $new->alias !!}">
+				<a href="{{ url('news/'.$new->alias) }}">
 				<img class="img-responsive" width="150" height="115" src="https://ld-wp.template-help.com/wordpress_58404_v4/wp-content/uploads/2016/02/LeBron_James_1-150x115.jpg" alt="LeBron James">
 				</a>
 					
@@ -24,7 +24,7 @@
 		<div class="col-sm-9">
 			<header>
 
-				<h5><a href="news/{!! $new->alias !!}">{!! $new->title !!}</a></h5>		
+				<h5><a href="{{ url('news/'.$new->alias) }}">{!! $new->title !!}</a></h5>		
 				</header><!-- .entry-header -->
 
 			<div>
@@ -42,7 +42,7 @@
 			
 
 		<footer>
-			<a href="news/{!! $new->alias !!}"><span>Read more</span></a>			
+			<a href="{{ url('news/'.$new->alias) }}"><span>Read more</span></a>			
 		</footer>
 	</div>
 </div></article>
@@ -74,7 +74,7 @@
 			<h5>Danh mục</h5>
 			<div class="list-group">
 			@foreach($categories as $category)
-				<a href="news/{!! $category->alias !!}" class="list-group-item">{!! $category->name !!}<span class="badge">14</span></a>
+				<a href="{{ url('news/'.$category->alias) }}" class="list-group-item">{!! $category->name !!}<span class="badge">14</span></a>
 			@endforeach 
 </div>
 		</aside>
