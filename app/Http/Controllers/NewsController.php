@@ -19,9 +19,4 @@ class NewsController extends Controller
         $categories = \App\newsCategory::All();
         return view('news/view')->with('new', $new)->with('categories', $categories);
     }
-
-    public function showcategory($alias)
-    {
-        $new = \App\NewItem::where('alias', '=', $alias)->firstOrFail();
-    }
 }
