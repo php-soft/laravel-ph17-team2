@@ -37,7 +37,6 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-            $error ='';
             $this->validate($request, [
                 'name' => 'required|max:100',
                 'address' => 'required|max:255',
