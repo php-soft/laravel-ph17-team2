@@ -19,4 +19,9 @@ class Voucher extends Model
     {
         return $this->belongsTo('App\ShopProduct');
     }
+
+    public function shop()
+    {
+        return $this->belongsTo('App\Shop');
+    }
 }

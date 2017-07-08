@@ -37,6 +37,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+            $error ='';
             $this->validate($request, [
                 'name' => 'required|max:100',
                 'address' => 'required|max:255',
@@ -92,27 +93,35 @@ class OrderController extends Controller
 
         $voucher = \App\Voucher::all();
         foreach ($content as $contents) {
-            foreach ($voucher as $vouchers) {
             $OrderProduct = new OrderProduct;
-            $OrderProduct->quantity=$contents->qty;
-                if($vouchers->code == Input::get('voucher_code')) {
-                    $OrderProduct->price = $contents->price*((100-$vouchers->discount)/100);
+            $OrderProduct->quantity = $contents->qty;
+                if (Input::get('voucher_code') != null) {
+                    foreach ($voucher as $vouchers) {
+                        if (Input::get('voucher_code') == $vouchers->code and $vouchers->shop->name === $contents->options->shop ) {
+                            if ($vouchers->quantity == 0) {
+                                $OrderProduct->price = $contents->price;
+                            } else {
+                                $OrderProduct->price = $contents->price * ((100 - $vouchers->discount) / 100);
+                                $vouchers->quantity = $vouchers->quantity - 1;
+                                $vouchers->save();
+                            }
+                        } else{
+                            $OrderProduct->price = $contents->price;
+                        }
+                    }
                 }else{
                     $OrderProduct->price = $contents->price;
                 }
-                $OrderProduct->order_id=$Order->id;
-                $OrderProduct->product_id=$contents->id;
-                $OrderProduct->order_id=$Order->id;
+                $OrderProduct->order_id = $Order->id;
+                $OrderProduct->product_id = $contents->id;
+                $OrderProduct->order_id = $Order->id;
                 $OrderProduct->save();
+                Cart::destroy();
             }
-        }
-        $vouchers->quantity=$vouchers->quantity -1;
-        $vouchers->save();
-
-        Cart::destroy();
         return redirect('home')
-            ->withSuccess('Cảm ơn bạn đã đặt hàng thành công.');
-    }
+            ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');
+        }
+
 
     public function activateOrder($id)
     {

@@ -22,6 +22,9 @@
             </style>
         </head>
         <body>
+        @if(!empty($error))
+           {!! $error !!}
+        @endif
             @if(Session::has('success'))
                 <div class="alert alert-success">
                     {{Session::get('success')}}
@@ -64,7 +67,7 @@
                                             <td class="text-center">{!! $stt !!}</td>
                                             <td class="center">{{ $contents->qty }}</td>
                                             <td class="center">{{ $contents->name }}</td>
-                                            <td class="text-center">{{ $contents->price }}</td>
+                                            <td class="text-center">{{ $contents->price }}{{--{{ ShopProduct::getPrice(id) }}--}}</td>
                                         </tr>
                                     @endforeach
                                     <tr>
@@ -85,6 +88,9 @@
                             </table>
                         </div>
                         Thanks,<br>
+                            @foreach($order->orderProducts as $orders)
+                                {!! $orders->price !!}
+                             @endforeach
                         Bấm vào để xác nhận đơn hàng
                             <a href="{{ $order->activation_link }}"><button type="button" class="btn btn-success order">Xác nhận đã đặt hàng</button></a>
                         </div>

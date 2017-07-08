@@ -55,4 +55,10 @@ class ShopProduct extends Model
     {
         return $this->hasMany('App\Abuse');
     }
+
+//    public static function getPrice($id)
+//    {
+//        $shopProduct = ShopProduct::find($id)
+//        return $price;
+//    }
 }

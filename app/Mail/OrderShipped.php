@@ -35,11 +35,9 @@ class OrderShipped extends Mailable
     {
         $content = Cart::content();
         $subtotal = Cart::subtotal();
-        dd($orderProduct=\App\OrderProduct::where('order_id', '=', $this->order->id - 1));
         $this->order->activation_link = route('activateOrder', $this->order->id);
         return $this->markdown('mails.shipped')
             ->with('subtotal', $subtotal)
-            ->with('orderProduct', $orderProduct)
             ->with('content', $content)
             ->with([
                 'order' => $this->order,
