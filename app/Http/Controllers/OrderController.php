@@ -98,7 +98,7 @@ class OrderController extends Controller
             if (Input::get('voucher_code') != null) {
                 foreach ($voucher as $vouchers) {
                     if (Input::get('voucher_code') == $vouchers->code
-                        and $vouchers->shop->name === $contents->options->shop ){
+                        and $vouchers->shop->name === $contents->options->shop ) {
                         if ($vouchers->quantity == 0) {
                             $OrderProduct->price = $contents->price;
                         } else {
@@ -110,8 +110,8 @@ class OrderController extends Controller
                         $OrderProduct->price = $contents->price;
                     }
                 }
-            }else{
-                $OrderProduct->price = $contents->price; 
+            } else {
+                $OrderProduct->price = $contents->price;
             }
             $OrderProduct->order_id = $Order->id;
             $OrderProduct->product_id = $contents->id;
@@ -121,8 +121,7 @@ class OrderController extends Controller
         }
         return redirect('home')
             ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');
-        }
-
+    }
 
     public function activateOrder($id)
     {
