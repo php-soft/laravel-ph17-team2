@@ -95,29 +95,30 @@ class OrderController extends Controller
         foreach ($content as $contents) {
             $OrderProduct = new OrderProduct;
             $OrderProduct->quantity = $contents->qty;
-                if (Input::get('voucher_code') != null) {
-                    foreach ($voucher as $vouchers) {
-                        if (Input::get('voucher_code') == $vouchers->code and $vouchers->shop->name === $contents->options->shop ) {
-                            if ($vouchers->quantity == 0) {
-                                $OrderProduct->price = $contents->price;
-                            } else {
-                                $OrderProduct->price = $contents->price * ((100 - $vouchers->discount) / 100);
-                                $vouchers->quantity = $vouchers->quantity - 1;
-                                $vouchers->save();
-                            }
-                        } else{
+            if (Input::get('voucher_code') != null) {
+                foreach ($voucher as $vouchers) {
+                    if (Input::get('voucher_code') == $vouchers->code
+                        and $vouchers->shop->name === $contents->options->shop ){
+                        if ($vouchers->quantity == 0) {
                             $OrderProduct->price = $contents->price;
+                        } else {
+                            $OrderProduct->price = $contents->price * ((100 - $vouchers->discount) / 100);
+                            $vouchers->quantity = $vouchers->quantity - 1;
+                            $vouchers->save();
                         }
+                    } else{
+                        $OrderProduct->price = $contents->price;
                     }
-                }else{
-                    $OrderProduct->price = $contents->price;
                 }
-                $OrderProduct->order_id = $Order->id;
-                $OrderProduct->product_id = $contents->id;
-                $OrderProduct->order_id = $Order->id;
-                $OrderProduct->save();
-                Cart::destroy();
+            }else{
+                $OrderProduct->price = $contents->price; 
             }
+            $OrderProduct->order_id = $Order->id;
+            $OrderProduct->product_id = $contents->id;
+            $OrderProduct->order_id = $Order->id;
+            $OrderProduct->save();
+            Cart::destroy();
+        }
         return redirect('home')
             ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');
         }
