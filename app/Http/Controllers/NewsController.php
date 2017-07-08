@@ -11,13 +11,14 @@ class NewsController extends Controller
     {
         $news = \App\NewItem::with('user', 'newsCategory')->get();
         $categories = \App\newsCategory::All();
-        $categories_badges = \App\NewItem::with('newsCategory')->select(DB::raw('news_category_id, count(*) as categories_badge_count'))
+        $categories_badges = \App\NewItem::with('newsCategory')
+            ->select(DB::raw('news_category_id, count(*) as categories_badge_count'))
         ->groupBy('news_category_id')
         ->get();
         return view('news/index')
         ->with('news', $news)
         ->with('categories', $categories)
-        ->with('categories_badges', $categories_badges); ;
+        ->with('categories_badges', $categories_badges);
     }
 
     public function show($alias)
@@ -27,11 +28,12 @@ class NewsController extends Controller
 
         $categories = \App\newsCategory::All();
 
-        $categories_badges = \App\NewItem::with('newsCategory')->select(DB::raw('news_category_id, count(*) as categories_badge_count'))
+        $categories_badges = \App\NewItem::with('newsCategory')
+        ->select(DB::raw('news_category_id, count(*) as categories_badge_count'))
         ->groupBy('news_category_id')
-        ->get();        
+        ->get();
         return view('news/view')->with('new', $new)
         ->with('categories', $categories)
-        ->with('categories_badges', $categories_badges);      
+        ->with('categories_badges', $categories_badges);    
     }
 }
