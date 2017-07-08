@@ -106,7 +106,7 @@ class OrderController extends Controller
                             $vouchers->quantity = $vouchers->quantity - 1;
                             $vouchers->save();
                         }
-                    } else{
+                    } else {
                         $OrderProduct->price = $contents->price;
                     }
                 }
