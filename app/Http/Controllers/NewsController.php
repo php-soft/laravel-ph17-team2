@@ -34,6 +34,6 @@ class NewsController extends Controller
         ->get();
         return view('news/view')->with('new', $new)
         ->with('categories', $categories)
-        ->with('categories_badges', $categories_badges);    
+        ->with('categories_badges', $categories_badges);
     }
 }
