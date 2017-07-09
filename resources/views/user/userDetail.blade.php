@@ -16,7 +16,14 @@
 		@include('layouts.sidebar')
 		<div class="col-sm-9">
 			<div class="col-sm-3">
+
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="" width="200px" height="200px">
+                <form action="{{ url('user/profile/'.Auth::user()->id.'/index')}}" method="post" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="file" name="file" id="file" class="btn btn-link">
+                    <input type="submit" value="Cập nhật hình ảnh" class="btn btn-info">
+                </form>
+
 			</div>
 			<div class="col-sm-6">
 			@if(empty($user->profile))

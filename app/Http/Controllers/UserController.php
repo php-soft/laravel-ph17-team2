@@ -13,6 +13,25 @@ class UserController extends Controller
         $user = User::find($id);
         return view('user.userDetail')->with('user', $user);
     }
+
+    public function upload($id, request $request)
+    {
+        $user = User::find($id);
+        if (empty($user->profile->image)) {
+            if ($request->hasFile('file')) {
+            $pathImage = $request->file->store('upload');
+            // echo '<img src="'.asset($pathImage).'">';
+            // dd($pathImage);
+            $profile = new Profile;
+            $profile->image = $pathImage;
+            $profile->save();
+            return redirect('user/profile/'.$user->id.'/index');
+            }else {
+                return "Chưa chọn hình ảnh của bạn";
+            }
+        }
+    }
+
     public function edit($id)
     {
         $user = User::find($id);
