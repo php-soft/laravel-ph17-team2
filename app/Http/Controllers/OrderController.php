@@ -93,7 +93,7 @@ class OrderController extends Controller
 
         $voucher = \App\Voucher::all();
         $chuoi = Input::get('voucher_code');
-        $x = explode(",",$chuoi);
+        $x = explode(",", $chuoi);
         foreach ($x as $item) {
             foreach ($content as $contents) {
                 $OrderProduct = new OrderProduct;
