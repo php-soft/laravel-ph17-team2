@@ -57,6 +57,7 @@
                                         <th class="text-center">Số lượng</th>
                                         <th class="text-center">Tên sản phẩm</th>
                                         <th class="text-center" >Giá bán</th>
+                                        <th class="text-center" >Giá đã giảm</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,7 +68,8 @@
                                             <td class="text-center">{!! $stt !!}</td>
                                             <td class="center">{{ $contents->qty }}</td>
                                             <td class="center">{{ $contents->name }}</td>
-                                            <td class="text-center">{{ $contents->price }}{{--{{ ShopProduct::getPrice(id) }}--}}</td>
+                                            <td class="text-center">{{ $contents->price }}</td>
+                                            <th class="text-center" >{{ $productBuy->product->orderProduct()}}</th>
                                         </tr>
                                     @endforeach
                                     <tr>
