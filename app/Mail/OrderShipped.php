@@ -36,7 +36,7 @@ class OrderShipped extends Mailable
         $content = Cart::content();
         foreach ($content as $contents) {
             $productBuy = \App\ShopProduct::where('id', $contents->id)->first();
-            $orderProduct = \App\orderProduct::where('product_id',$productBuy->product->id)->get();
+            $orderProduct = \App\orderProduct::where('product_id', $productBuy->product->id)->first();
         }
 
 
