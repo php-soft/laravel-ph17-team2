@@ -73,9 +73,9 @@
 			
 			<h5>Danh mục</h5>
 			<div class="list-group">
-			@foreach($categories as $category)
-				<a href="{{ url('news/'.$category->alias) }}" class="list-group-item">{!! $category->name !!}<span class="badge">14</span></a>
-			@endforeach 
+			@foreach($categories_badges as $categories_badge)
+				<a href="{{ url('news/'.$categories_badge->newsCategory->alias) }}" class="list-group-item">{!! $categories_badge->newsCategory->name !!}<span class="badge">{{ $categories_badge->categories_badge_count }}</span></a>
+			@endforeach
 </div>
 		</aside>
 	</div>
