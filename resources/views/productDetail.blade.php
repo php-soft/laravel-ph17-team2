@@ -53,7 +53,9 @@
                                         </div>
                                         <div class="attr">
                                             @foreach($attribute->productAttributeValues as $key)
-                                                {{ Form::radio($attribute->name, $key->value) }} <span>{{ $key->value }}</span>
+                                                @if($key->product_id == $shopProduct->product_id)
+                                                    {{ Form::radio($attribute->name, $key->value) }} <span>{{ $key->value }}</span>
+                                                @endif
                                             @endforeach
                                         </div>
                                     </fieldset>
@@ -91,9 +93,9 @@
             <div role="tabpanel" class="tab-pane active row box-item" id="relative">
                 @foreach ($list as $key)
                 <div class="col-md-2 item-preview">
-                    <a href="{{ url('home/san-pham/' . $key->product->id)}}">
-                        <img src="source/image/product/{!! $key->product->image !!}" width="149" height="149">
-                        <span class="price">{!! $key->product->price !!} đ</span>
+                    <a href="{{ url('home/san-pham/' . $key->product->id)}}" class="list-image">
+                        <img src="source/image/product/{!! $key->product->image !!}" width="149" height="149" style="border: 1px solid #eee;">
+                        <span class="price" style="color: red;">{!! number_format($key->product->price) !!} đ</span>
                         <p class="prod-name">{!! $key->product->name !!}</p>
                     </a>
                 </div>
@@ -120,11 +122,10 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active box-item" id="detail">...</div>
-            <div role="tabpanel" class="tab-pane box-item" id="feedback">
-                
-            </div>
+            <div role="tabpanel" class="tab-pane box-item" id="feedback">...</div>
             <div role="tabpanel" class="tab-pane box-item" id="answer">...</div>
         </div>
     </div>
+    <br>
 </div>
 @endsection

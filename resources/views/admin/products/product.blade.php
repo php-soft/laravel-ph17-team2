@@ -41,7 +41,9 @@
                                 </div>
                                 <div class="attr">
                                     @foreach($attribute->productAttributeValues as $key)
-                                    <span>{{ $key->value }}</span>
+                                        @if($key->product_id == $product->id)
+                                            <span>{{ $key->value }}</span>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>

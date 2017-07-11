@@ -197,3 +197,10 @@ input[type="text"], input[type="email"],input[type="url"],textarea {
 	color: #a94442;
 	display: none;
 }
+
+.list-image img:hover {
+	-webkit-transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s,filter 0.3s;
+	transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s,filter 0.3s;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	transition-delay: 1;
+}

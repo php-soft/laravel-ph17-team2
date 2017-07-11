@@ -35,7 +35,9 @@
                                     @foreach($product->category->categoryAttributeValues as $categoryAttribute)
                                         <div style="margin: 7px 0;">
                                             @foreach($categoryAttribute->productAttributeValues as $productAttribute)
-                                                <span class="label label-info">{{ $productAttribute->value }}</span>
+                                                @if($productAttribute->product_id == $product->id)
+                                                    <span class="label label-info">{{ $productAttribute->value }}</span>
+                                                @endif
                                             @endforeach
                                         </div>
                                     @endforeach
