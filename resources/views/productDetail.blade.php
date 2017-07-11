@@ -120,7 +120,9 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active box-item" id="detail">...</div>
-            <div role="tabpanel" class="tab-pane box-item" id="feedback">...</div>
+            <div role="tabpanel" class="tab-pane box-item" id="feedback">
+                
+            </div>
             <div role="tabpanel" class="tab-pane box-item" id="answer">...</div>
         </div>
     </div>

@@ -3,6 +3,7 @@ $(document).ready(function(){
 		var error = false;
 		if($('#name').val() == "") {
 			$('#name').next('.er').show();
+			
 			error = true;
 		}
 
