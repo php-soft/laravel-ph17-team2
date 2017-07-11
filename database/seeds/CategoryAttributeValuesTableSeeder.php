@@ -107,17 +107,7 @@ class CategoryAttributeValuesTableSeeder extends Seeder
             ['category_id' => 76, 'name' => 'Màu sắc'],
             ['category_id' => 76, 'name' => 'Kích thước'],
             ['category_id' => 77, 'name' => 'Màu sắc'],
-            ['category_id' => 77, 'name' => 'Kích thước'],
-            ['category_id' => 53, 'name' => 'Màu sắc'],
-            ['category_id' => 53, 'name' => 'Kích thước'],
-            ['category_id' => 54, 'name' => 'Màu sắc'],
-            ['category_id' => 54, 'name' => 'Kích thước'],
-            ['category_id' => 55, 'name' => 'Màu sắc'],
-            ['category_id' => 55, 'name' => 'Kích thước'],
-            ['category_id' => 56, 'name' => 'Màu sắc'],
-            ['category_id' => 56, 'name' => 'Kích thước'],
-            ['category_id' => 57, 'name' => 'Màu sắc'],
-            ['category_id' => 57, 'name' => 'Kích thước'],
+            ['category_id' => 77, 'name' => 'Kích thước']
         ]);
     }
 }

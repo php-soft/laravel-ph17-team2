@@ -192,3 +192,8 @@ input[type="text"], input[type="email"],input[type="url"],textarea {
 	height:37px;
 	padding:0 12px
 }
+
+.er {
+	color: #a94442;
+	display: none;
+}

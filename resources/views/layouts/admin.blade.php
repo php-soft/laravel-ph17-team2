@@ -23,6 +23,7 @@
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
     <!-- CKEditor -->
     <script src="/laravel-ph17-team2/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="{{ asset('js/createproduct.js') }}"></script>
 </head>
 <body>
     <div class="collapse navbar-collapse" id="app-navbar-collapse">

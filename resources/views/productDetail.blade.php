@@ -14,7 +14,7 @@
         </div>
         <div class="block-img-attr">
             <div class="block-pro-img">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="{{ $shopProduct->product->image }}" width="350px" height="350px">
+                <img src="source/image/product/{!! $shopProduct->product->image !!}" alt="{{ $shopProduct->product->image }}" width="350px" height="350px">
                 <div class="small-img">
                     <ul>
                         @foreach($shopProduct->product->productImages as $productImage)
@@ -77,6 +77,7 @@
             </div>
          </div>
     </div>
+    @if(count($list) > 1)
     <div role="tabpanel">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
@@ -88,10 +89,10 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active row box-item" id="relative">
-                @foreach ($shopProduct->shop->shopProducts as $key)
+                @foreach ($list as $key)
                 <div class="col-md-2 item-preview">
                     <a href="{{ url('home/san-pham/' . $key->product->id)}}">
-                        <img src="{!! $key->product->img !!}" alt="{!! $key->product->name !!}" width="149" height="149">
+                        <img src="source/image/product/{!! $key->product->image !!}" width="149" height="149">
                         <span class="price">{!! $key->product->price !!} đ</span>
                         <p class="prod-name">{!! $key->product->name !!}</p>
                     </a>
@@ -100,6 +101,7 @@
             </div>
         </div>
     </div>
+    @endif
     <br>
     <div role="tabpanel">
         <!-- Nav tabs -->
