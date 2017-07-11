@@ -17,17 +17,20 @@ class UserController extends Controller
     public function upload($id, request $request)
     {
         $user = User::find($id);
-        if (empty($user->profile->image)) {
+        if ($user->profile->image == "null" || empty($user->profile->image)) {
             if ($request->hasFile('file')) {
             $pathImage = $request->file->store('upload');
-            // echo '<img src="'.asset($pathImage).'">';
-            // dd($pathImage);
-            $profile = new Profile;
-            $profile->image = $pathImage;
-            $profile->save();
-            return redirect('user/profile/'.$user->id.'/index');
-            }else {
-                return "Chưa chọn hình ảnh của bạn";
+            // // // echo '<img src="'.asset($pathImage).'">';
+            
+            // dd($user->profile->image);
+            $user = new User;
+            $user->profile->image = $pathImage;
+            $user->save();
+            // // return redirect('user/profile/'.$user->id.'/index');
+            // }else {
+            //     return "Chưa chọn hình ảnh của bạn";
+            } else {
+                return "Chưa chọn hình ảnh";
             }
         }
     }
