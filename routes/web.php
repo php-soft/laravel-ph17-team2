@@ -26,7 +26,7 @@ Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
 Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
-Route::get('/news/{category}', 'NewsController@showcategory')->name('news.showcategory');
+//Route::get('/news/{category}', 'NewsController@show')->name('news.showcategory');
 Route::get('/search', 'HomeController@search')->name('search');
 
 
@@ -73,6 +73,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::put('/attributes/{attributeId}', 'AttributeController@update')->name('adminAttributeUpdate');
     Route::get('/attributes/{attributeId}/delete', 'AttributeController@destroy')->name('adminAttributeDetele');
     Route::get('/attributes/{attributeId}', 'AttributeController@show')->name('adminAttributeShow');
+
+    Route::get('/productAttributes', 'ProductAttributeController@index')->name('adminProductAttribute');
+    Route::get('/productAttributes/{id}', 'ProductAttributeController@show')
+        ->name('adminProductAttributeShow');
+    Route::post('/productAttributes', 'ProductAttributeController@store')->name('adminProductAttributeStore');
+    Route::get('/productAttributes/{id}/delete', 'ProductAttributeController@destroy')
+        ->name('adminProductAttributeDetele');
  
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
@@ -87,6 +94,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
     Route::patch('/news/edit/{id}', 'NewsController@update')->name('news.update');
     Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
+
+    Route::get('/shop/index', 'ShopController@index')->name('managerShop');
+    Route::get('/shop/{id}/delete', 'ShopController@destroy');
+    Route::get('/shop/{id}/show', 'ShopController@show');
+    Route::get('/shop/user', 'ShopController@user');
+    Route::get('/shop/user/{id}/show', 'ShopController@showShopUser');
 });
 
 Route::group(['middleware' => ['auth']], function () {
