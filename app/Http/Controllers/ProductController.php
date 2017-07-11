@@ -12,9 +12,8 @@ class ProductController extends Controller
         $shopProduct = \App\ShopProduct::find($shopProductId);
         $category = $shopProduct->product->category;
         $listProducts = $shopProduct->shop->shopProducts;
-        foreach($listProducts as $listProduct) 
-        {
-            if($listProduct->product->category->parent_id == $shopProduct->product->category->parent_id) {
+        foreach ($listProducts as $listProduct) {
+            if ($listProduct->product->category->parent_id == $shopProduct->product->category->parent_id) {
                 $list[] = $listProduct;
             }
         }
