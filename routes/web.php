@@ -26,7 +26,7 @@ Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
 Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
-Route::get('/news/{category}', 'NewsController@showcategory')->name('news.showcategory');
+//Route::get('/news/{category}', 'NewsController@show')->name('news.showcategory');
 Route::get('/search', 'HomeController@search')->name('search');
 
 
