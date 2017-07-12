@@ -122,7 +122,37 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active box-item" id="detail">...</div>
-            <div role="tabpanel" class="tab-pane box-item" id="feedback">...</div>
+            <div role="tabpanel" class="tab-pane box-item" id="feedback">
+                {{-- <fieldset>
+                    <form action="">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <label for="textarea">Bạn có câu hỏi với sản phẩm này? Đặt câu hỏi với shop.</label>
+                                        <input type="textarea" class="form-control" id="textarea" placeholder="Đặt câu hỏi..." name="content" style="height: 30px;">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit" class="btn btn-default">Gửi</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </fieldset>
+                <fieldset>
+                    <ul>
+                        <li>
+                            <img src="" alt="avatar" class="pull-left">
+                            <div>
+                                <p><span>Name</span><span>Ngày cmt</span></p>
+                                <p>Content <span class="pull-right">Trả lời</span></p>
+                            </div>
+                        </li>
+                    </ul>
+                </fieldset> --}}
+                ...
+            </div>
             <div role="tabpanel" class="tab-pane box-item" id="answer">...</div>
         </div>
     </div>
