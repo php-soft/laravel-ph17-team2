@@ -18,6 +18,7 @@
 				<input name="_token" type="hidden" value="{{ csrf_token() }}">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="hidden" name="user_id" value="{{$user->id}}">
+				<input type="hidden" name="image" value="null">
 				<h3>Cập nhật thông tin cá nhân</h3>
 				<hr> 
 				<div class="form-group">
@@ -48,10 +49,6 @@
 				<div class="form-group">
 					<label for="date_of_birth">Ngày sinh : <span></span></label>
 					<input type="date" class="form-control" id="date_of_birth" placeholder="Update giới tính" name="date_of_birth" value="Chưa cập nhật">
-				</div>
-				<div class="form-group">
-					<label for="image">Hình ảnh: <span></span></label>
-					<input type="text" class="form-control" id="image" placeholder="Update giới tính" name="image" value="Chưa cập nhật">
 				</div>
 				<button type="submit" class="btn btn-default btn-success pull-right">Cập Nhật</button>
 			</form>
