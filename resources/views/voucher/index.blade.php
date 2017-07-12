@@ -29,20 +29,23 @@
                         <table class="table table-striped table-bordered table-hover" id="example">
                             <thead>
                                 <tr class="orders">
-                                    <th class="text-center">Name Shop</th>
-                                    <th class="text-center">Description</th>
-                                    <th class="text-center">Address</th>
-                                    <th class="text-center">Chức năng</th>
+                                    <th class="text-center">STT</th>
+                                    <th class="text-center">discount</th>
+                                    <th class="text-center">code</th>
+                                    <th class="text-center">quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($user->shops as $shop)
+                                <?php $stt=0; ?>
+                                @foreach($voucher as $vouchers)
+                                <?php $stt=$stt+1?>
                                 <tr class="odd gradeX">
-                                    <td class="text-center">{{$shop->name}}</td>
-                                    <td class="text-center">{{$shop->description}}</td>
-                                    <td class="text-center">{{$shop->address}}</td>
+                                    <td class="text-center">{{$stt}}</td>
+                                    <td class="text-center">{{$vouchers->discount}}</td>
+                                    <td class="text-center">{{$vouchers->code}}</td>
+                                    <td class="text-center">{{$vouchers->quantity}}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('shop/'.$shop->id.'/show') }}" class="btn btn-info btn-sm pull-right"><span class="glyphicon glyphicon-book"></span> Quản lý shop </a>
+                                        <a href="{{ url('user/shop/'.$user->id.'/show') }}" class="btn btn-info btn-sm pull-right"><span class="glyphicon glyphicon-book"></span> Quản lý shop </a>
                                         <a href="{{ url('user/shop/'.$shop->id.'/edit') }}" class="btn btn-success btn-sm pull-right"><span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa </a>
                                         <a href="{{ url('user/shop/'.$shop->id.'/delete') }}" class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span> Xóa </a>
                                     </td>                                 

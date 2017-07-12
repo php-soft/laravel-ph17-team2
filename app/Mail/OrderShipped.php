@@ -7,6 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Order;
+use App\Voucher;
 use Cart;
 
 class OrderShipped extends Mailable
@@ -32,7 +33,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-
         $content = Cart::content();
         $subtotal = Cart::subtotal();
         $this->order->activation_link = route('activateOrder', $this->order->id);

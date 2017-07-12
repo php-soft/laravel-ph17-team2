@@ -10,17 +10,22 @@
     p{
         margin-bottom: 7px;
     }
+    .pull-left{
+        margin-right: 20px;
+    }
 </style>
 <div class="container">
     <div class="row content">
         @include('layouts.sidebar')
         <div class="col-sm-9">
+
             <h6>Quản lý chi tiết shop</h6>
             <a href="{{ url('shop/'.$shop->id.'/create') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop: <span>{{$shop->name}}</span></a>
             <br>
+
             <hr>
             <div class="row">
-                <!-- Advanced Tables -->                    
+                <!-- Advanced Tables -->
                 <div class="panel-body">
                 <h6>Danh sách sản phẩm của shop: <span>{{$shop->name}}</span> Địa chỉ: <span>{{$shop->address}}</span></h6>
                     <div class="table-responsive">
@@ -67,7 +72,7 @@
 
 
 
-            
+
         </div>
     </div>
 </div>

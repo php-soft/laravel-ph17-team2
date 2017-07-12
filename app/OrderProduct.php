@@ -16,6 +16,7 @@ class OrderProduct extends Model
         'price',
         'order_id',
         'product_id',
+        'shop_product_id'
     ];
 
     public function order()
@@ -26,5 +27,10 @@ class OrderProduct extends Model
     public function product()
     {
         return $this->belongsTo('App\Product');
+    }
+
+    public function shopProduct()
+    {
+        return $this->belongsTo('App\ShopProduct');
     }
 }
