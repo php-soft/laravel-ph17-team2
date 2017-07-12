@@ -86,7 +86,6 @@ class OrderController extends Controller
         $Order->total_price = $subtotal;
         $Order->save();
         $content =Cart::content();
-        $OrderProduct = new OrderProduct;
 
 
         Mail::to($request->email)->send(new OrderShipped($Order));
@@ -94,8 +93,9 @@ class OrderController extends Controller
         $voucher = \App\Voucher::all();
         $chuoi = Input::get('voucher_code');
         $x = explode(",", $chuoi);
-        foreach ($x as $item) {
-            foreach ($content as $contents) {
+
+                foreach ($x as $item) {
+                foreach ($content as $contents) {
                 $OrderProduct = new OrderProduct;
                 $OrderProduct->quantity = $contents->qty;
                 if ($item != null) {
@@ -104,28 +104,36 @@ class OrderController extends Controller
                             and $vouchers->shop->name === $contents->options->shop
                         ) {
                             if ($vouchers->quantity == 0) {
-                                $OrderProduct->price = $contents->price;
+                                $OrderProduct->price = $contents->price*$contents->qty;
                             } else {
-                                $OrderProduct->price = $contents->price * ((100 - $vouchers->discount) / 100);
+                                $OrderProduct->price = $contents->price *$contents->qty* ((100 - $vouchers->discount) / 100);
                                 $vouchers->quantity = $vouchers->quantity - 1;
                                 $vouchers->save();
                             }
                         } else {
-                            $OrderProduct->price = $contents->price;
+                            $OrderProduct->price = $contents->price*$contents->qty;
                         }
+                        $OrderProduct->shop_product_id = $contents->options->id;
+                        $OrderProduct->order_id = $Order->id;
+                        $OrderProduct->product_id = $contents->id;
+                        $OrderProduct->order_id = $Order->id;
+                        $OrderProduct->save();
                     }
                 } else {
-                    $OrderProduct->price = $contents->price;
+                    $OrderProduct->price = $contents->price*$contents->qty;
+                    $OrderProduct->shop_product_id = $contents->options->id;
+                    $OrderProduct->order_id = $Order->id;
+                    $OrderProduct->product_id = $contents->id;
+                    $OrderProduct->order_id = $Order->id;
+                    $OrderProduct->save();
                 }
-                $OrderProduct->order_id = $Order->id;
-                $OrderProduct->product_id = $contents->id;
-                $OrderProduct->order_id = $Order->id;
-                $OrderProduct->save();
-                Cart::destroy();
-            }
+
+
+                }
         }
-        return redirect('home')
-            ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');
+        Cart::destroy();
+        return redirect('')
+            ->withSuccess('Cảm ơn bạn đã đặt hàng.');
     }
 
     public function activateOrder($id)
@@ -133,7 +141,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->status = 1;
         $order->save();
-        return redirect('home')
+        return redirect('')
             ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');
     }
 }

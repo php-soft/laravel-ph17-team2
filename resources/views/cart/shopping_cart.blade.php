@@ -9,7 +9,7 @@
 		</div>
 		<div class="pull-right">
 			<div class="beta-breadcrumb font-large">
-				<a href="{!! url('/home') !!}">Trang chủ</a> / <span> Giỏ hàng</span>
+				<a href="{!! url('') !!}">Trang chủ</a> / <span> Giỏ hàng</span>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -34,17 +34,17 @@
 				@foreach($content as $contents)
 				{{Form::open(['route'=>['shoppingEditQty', $contents->id,$contents->qty], 'method'=>'put', 'class'=>'form-status'])}}
 						<tr>
-							<td class="image">{!! $STT=$STT+1 !!}</td>
-							<td class="image"><a href="#"><img title="product" alt="" src="" height="50" width="50"></a></td>
+							<td class="id">{!! $STT=$STT+1 !!}</td>
+							<td class="image"><img title="product" alt="" src="{!! asset('/upload/'.$contents->options->shopImages) !!}" height="50" width="50"></td>
 							<td  class="name"><a href="#">{!! $contents->name !!}</a></td>
-							<td class="quantity"><input class="qty" type="text" size="1" value='{!! $contents->qty !!}' name="quantity[40]" />
+							<td class="quantity" id="priceUpdate" ><input  class="qty" type="text" size="1" value='{!! $contents->qty !!}' name="quantity[40]" />
 							</td>
 							<td class="total">
 								<a href="#"  class="updateCart" id="{!! $contents->rowId  !!}" ><img class="tooltip-test" data-original-title="Cập nhật" src="{!! asset('/user/img/update.png') !!}" alt=""></a>
 								<a href="{{ route('cartDelete',['rowId' => $contents->rowId]) }}"><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
 							</td>
-							<td class="total">{!! number_format($contents->price,0,",",".") !!} Đ </td>
-							<td class="total">{!! number_format($contents->price*$contents->qty,0,",",".") !!} Đ </td>
+							<td class="total" >{!! number_format($contents->price,0,",",".") !!} Đ </td>
+							<td class="total"id="priceUpdate"  >{!! number_format($contents->price*$contents->qty,0,",",".") !!} Đ </td>
 							<td>{!! $contents->options->shop !!}</td>
 						</tr>
 				{{ Form::close() }}

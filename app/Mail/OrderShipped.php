@@ -34,18 +34,11 @@ class OrderShipped extends Mailable
     public function build()
     {
         $content = Cart::content();
-        foreach ($content as $contents) {
-            $productBuy = \App\ShopProduct::where('id', $contents->id)->first();
-            $orderProduct = \App\orderProduct::where('product_id', $productBuy->product->id)->first();
-        }
-
-
         $subtotal = Cart::subtotal();
         $this->order->activation_link = route('activateOrder', $this->order->id);
         return $this->markdown('mails.shipped')
             ->with('subtotal', $subtotal)
-            ->with('contents', $contents)
-            ->with('orderProduct', $orderProduct)
+            ->with('content', $content)
             ->with([
                 'order' => $this->order,
             ]);

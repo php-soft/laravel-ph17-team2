@@ -13,7 +13,7 @@ class CartController extends Controller
             $productBuy=\App\ShopProduct::where('id', $id)->first();
 
             Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
-                $productBuy->product->price,'options' =>['shop'=> $productBuy->shop->name]]);
+                $productBuy->product->price,'options' =>['shop'=> $productBuy->shop->name,'shopImages'=> $productBuy->product->image]]);
             return response()->json(['count'=>Cart::count()]);
         };
     }
@@ -23,8 +23,8 @@ class CartController extends Controller
         if (Request::ajax()) {
             $qty=Request::get('qty') ;
             $productBuy=\App\ShopProduct::where('id', $id)->first();
-            Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => $qty, 'price' =>
-                $productBuy->product->price,'options' =>['shop'=> $productBuy->shop->name]]);
+            Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
+                $productBuy->product->price,'options' =>['shop'=> $productBuy->shop->name,'shopImages'=> $productBuy->product->image,'shopIID'=> $productBuy->shop->id]]);
             return response()->json(['count'=>Cart::count()]);
         };
     }

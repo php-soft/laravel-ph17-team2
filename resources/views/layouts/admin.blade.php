@@ -40,8 +40,12 @@
                             <li><a href="{{ route('ordersAdmin') }}">Orders</a></li>
                             <li><a href="{{ route('managerUser') }}">User</a></li>
                             <li><a href="{{ route('adminProduct') }}">Products</a></li>
+                            <li><a href="{{ route('adminCategories') }}">Categories</a></li>
+                            <li><a href="{{ route('adminAttribute') }}">Attributes</a></li>
+                            <li><a href="{{ route('adminProductAttribute') }}">ProductAttribute</a></li>
                             <li><a href="{{ route('newscategory') }}">News Category</a></li>
                             <li><a href="{{ route('news') }}">News</a></li>
+                            <li><a href="{{ route('managerShop') }}">Shop</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -76,6 +80,11 @@
                 </div>
             </nav>
     </div>
+    @if (Session::has('success'))
+            <div class="alert alert-success">
+                {{Session::get('success')}}
+            </div>
+        @endif
     @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

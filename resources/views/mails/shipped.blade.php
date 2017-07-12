@@ -69,7 +69,9 @@
                                             <td class="center">{{ $contents->qty }}</td>
                                             <td class="center">{{ $contents->name }}</td>
                                             <td class="text-center">{{ $contents->price }}</td>
-                                            <th class="text-center" >{{ $productBuy->product->orderProduct()}}</th>
+                                            @foreach ($order->orderProducts as $orderProducts)
+                                                {!! $orderProducts->shopProduct->id   !!}
+                                            @endforeach
                                         </tr>
                                     @endforeach
                                     <tr>

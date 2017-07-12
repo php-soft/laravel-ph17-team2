@@ -48,7 +48,7 @@
 									<td class="sop-cart">{!! $contents->name  !!}</td>
 									<td class="sop-cart">{!! $contents->qty  !!}</td>
 									<td class="sop-cart">{!! $contents->price  !!}</td>
-									<td class="sop-cart">{!! $contents->options->shop  !!}</td>
+									<td class="sop-cart">{!! $contents->options->shop !!}</td>
 									<td class="sop-cart">{!! $contents->price* $contents->qty  !!}</td>
 								</tr>
 

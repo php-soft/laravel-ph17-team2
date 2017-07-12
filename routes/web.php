@@ -11,14 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home/san-pham/{shopProductId}', 'ProductController@productDetail')->name('adminProductDetail');
+Route::get('/categories/{id}', 'CategoryController@show');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/home/mua-hang/{id}/{qty}', 'CartController@storeQty');
 route::get('/cart/show', 'CartController@show')->name('cart');
@@ -27,7 +24,10 @@ Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty')
 Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('activateOrder');
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
-Route::get('news');
+Route::get('/news', 'NewsController@index')->name('news.index');
+Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
+//Route::get('/news/{category}', 'NewsController@show')->name('news.showcategory');
+Route::get('/search', 'HomeController@search')->name('search');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -43,14 +43,43 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/user/{user}/delete', 'UserController@destroy');
     Route::get('/user/{user}/edit', 'UserController@edit');
     Route::get('/user/{user}', 'UserController@update');
+    
     Route::get('/products', 'ProductController@index')->name('adminProduct');
     Route::get('/products/create', 'ProductController@create')->name('adminProductCreate');
     Route::post('/products', 'ProductController@store')->name('adminProductStore');
+    Route::get('/products/{id}/edit', 'ProductController@edit')->name('adminProductEdit');
+    Route::put('/products/{id}', 'ProductController@update')->name('adminProductUpdate');
+    Route::get('/products/{id}/delete', 'ProductController@destroy')->name('adminProductDetele');
+    Route::get('/products/{id}', 'ProductController@show')->name('adminProductShow');
 
-    Route::get('/products/{shopProductId}/edit', 'ProductController@edit')->name('adminProductEdit');
-    Route::put('/products/{shopProductId}', 'ProductController@update')->name('adminProductUpdate');
-    Route::get('/products/{shopProductId}/delete', 'ProductController@destroy')->name('adminProductDetele');
-    Route::get('/products/{shopProductId}', 'ProductController@show')->name('adminProductShow');
+    Route::get('/categories', 'CategoriesController@index')->name('adminCategories');
+    Route::get('/categories/createSubCategory', 'CategoriesController@createSubCategory')
+        ->name('adminCategoriesCreateSubCategory');
+    Route::post('/categories', 'CategoriesController@storeSubCategory')
+        ->name('adminCategoriesStoreSubCategory');
+    Route::get('/categories/mainCategories/createCategory', 'CategoriesController@createCategory')
+        ->name('adminCategoriesCreateCategory');
+    Route::post('/categories/mainCategories', 'CategoriesController@storeCategory')
+        ->name('adminCategoriesStoreCategory');
+    Route::get('/categories/{id}/edit', 'CategoriesController@edit')->name('adminCategoriesEdit');
+    Route::put('/categories/{id}', 'CategoriesController@update')->name('adminCategoriesUpdate');
+    Route::get('/categories/{id}/delete', 'CategoriesController@destroy')->name('adminCategoriesDetele');
+    Route::get('/categories/{id}', 'CategoriesController@show')->name('adminCategoriesShow');
+
+    Route::get('/attributes', 'AttributeController@index')->name('adminAttribute');
+    Route::get('/attributes/create', 'AttributeController@create')->name('adminAttributeCreate');
+    Route::post('/attributes', 'AttributeController@store')->name('adminAttributeStore');
+    Route::get('/attributes/{attributeId}/edit', 'AttributeController@edit')->name('adminAttributeEdit');
+    Route::put('/attributes/{attributeId}', 'AttributeController@update')->name('adminAttributeUpdate');
+    Route::get('/attributes/{attributeId}/delete', 'AttributeController@destroy')->name('adminAttributeDetele');
+    Route::get('/attributes/{attributeId}', 'AttributeController@show')->name('adminAttributeShow');
+
+    Route::get('/productAttributes', 'ProductAttributeController@index')->name('adminProductAttribute');
+    Route::get('/productAttributes/{id}', 'ProductAttributeController@show')
+        ->name('adminProductAttributeShow');
+    Route::post('/productAttributes', 'ProductAttributeController@store')->name('adminProductAttributeStore');
+    Route::get('/productAttributes/{id}/delete', 'ProductAttributeController@destroy')
+        ->name('adminProductAttributeDetele');
  
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
@@ -65,6 +94,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
     Route::patch('/news/edit/{id}', 'NewsController@update')->name('news.update');
     Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
+
+    Route::get('/shop/index', 'ShopController@index')->name('managerShop');
+    Route::get('/shop/{id}/delete', 'ShopController@destroy');
+    Route::get('/shop/{id}/show', 'ShopController@show');
+    Route::get('/shop/user', 'ShopController@user');
+    Route::get('/shop/user/{id}/show', 'ShopController@showShopUser');
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -77,7 +112,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('user/shop/{id}/create', 'ShopController@create');
     Route::put('user/shop/{id}/index', 'ShopController@update');
 
-    Route::get('user/shop/{id}/show', 'ShopController@show');
+    Route::get('shop/{id}/show', 'ShopProductController@show');
+    Route::get('shop/{id}/create', 'ShopProductController@create');
+    Route::get('shop/post/{id_shop}/{id_product}/create', 'ShopProductController@post');
+    Route::put('shop/{id}/show', 'ShopProductController@postProduct');
 
     Route::get('user/shop/{id}/edit', 'ShopController@edit');
     Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
