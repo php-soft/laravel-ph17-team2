@@ -239,6 +239,7 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Nestable' => Nestable\Facades\NestableService::class,
 
+
     ],
 
 ];
