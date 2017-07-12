@@ -93,9 +93,8 @@ class OrderController extends Controller
         $voucher = \App\Voucher::all();
         $chuoi = Input::get('voucher_code');
         $x = explode(",", $chuoi);
-
-                foreach ($x as $item) {
-                foreach ($content as $contents) {
+        foreach ($x as $item) {
+            foreach ($content as $contents) {
                 $OrderProduct = new OrderProduct;
                 $OrderProduct->quantity = $contents->qty;
                 if ($item != null) {
@@ -106,7 +105,8 @@ class OrderController extends Controller
                             if ($vouchers->quantity == 0) {
                                 $OrderProduct->price = $contents->price*$contents->qty;
                             } else {
-                                $OrderProduct->price = $contents->price *$contents->qty* ((100 - $vouchers->discount) / 100);
+                                $OrderProduct->price = $contents->price *$contents->qty*
+                                    ((100 - $vouchers->discount) / 100);
                                 $vouchers->quantity = $vouchers->quantity - 1;
                                 $vouchers->save();
                             }
@@ -127,11 +127,9 @@ class OrderController extends Controller
                     $OrderProduct->order_id = $Order->id;
                     $OrderProduct->save();
                 }
-
-
-                }
+            }
         }
-        Cart::destroy();
+                Cart::destroy();
         return redirect('')
             ->withSuccess('Cảm ơn bạn đã đặt hàng.');
     }
