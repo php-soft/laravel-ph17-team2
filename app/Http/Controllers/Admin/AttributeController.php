@@ -67,8 +67,8 @@ class AttributeController extends Controller
     }
 
     public function destroy($id)
-    {   
-        if(request()->ajax()) {
+    {
+        if (request()->ajax()) {
             $categoryAttribute = CategoryAttributeValue::findOrFail($id);
             $categoryAttribute->delete();
             return response()->json($categoryAttribute);
