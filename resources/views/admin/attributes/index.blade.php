@@ -22,7 +22,7 @@
                         </thead>
                         <tbody>
                         @foreach($categoryAttributes as $categoryAttribute)
-                            <tr>
+                            <tr id="categoryAttribute{{$categoryAttribute->id}}">
                                 <td>{{ $categoryAttribute->id }}</td>
                                 <td>
                                     <a href="{{ route('adminAttributeShow', ['id' => $categoryAttribute->id]) }}">{{ $categoryAttribute->category->name }}</a>
@@ -31,7 +31,7 @@
                                 <td>{{ $categoryAttribute->name }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('adminAttributeEdit', ['id' => $categoryAttribute->id]) }}"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
-                                    <a href="{{ route('adminAttributeDetele', ['id' => $categoryAttribute->id]) }}" data-toggle="modal"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</button></a>
+                                    <button class="btn btn-sm btn-danger delete-task" value="{{$categoryAttribute->id}}"><span class="glyphicon glyphicon-trash"></span>Delete</button>
                                 </td>
                             </tr>
                         @endforeach
