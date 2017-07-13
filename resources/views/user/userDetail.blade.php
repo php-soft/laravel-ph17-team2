@@ -19,7 +19,7 @@
 				@if(empty($user->profile))
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="" width="200px" height="200px">
 				@else
-					<img src="http://localhost/laravel-ph17-team2/public/{{$user->profile->image}}" alt="" width="200px" height="200px">
+					<img src="http://localhost/laravel-ph17-team2/public/{{$user->profile->image}}" alt="" width="200px" height="200px" style="box-shadow: 5px 5px 25px red">
                 <form action="{{ url('user/profile/'.Auth::user()->id.'/index')}}" method="post" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="file" name="file" id="file" class="btn btn-link">

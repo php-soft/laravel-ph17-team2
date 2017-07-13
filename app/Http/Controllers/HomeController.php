@@ -15,7 +15,7 @@ class HomeController extends Controller
         $sp = \App\shopProduct::orderBy('buys', 'DESC')
             ->take(4)
             ->get();
-        return view('home')
+        return view('/home')
             ->with('shopProducts', $shopProducts)
             ->with('sp', $sp);
     }
