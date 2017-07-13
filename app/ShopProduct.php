@@ -55,4 +55,9 @@ class ShopProduct extends Model
     {
         return $this->hasMany('App\Abuse');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
