@@ -5,7 +5,7 @@
     <div class="row" style="margin: 5px 4%">
         <div class="well">
             <div class="pull-left">
-                <img src="{!! $shopProduct->shop->logo !!}" alt="{!! $shopProduct->shop->logo !!}" width="80" height="40">
+                <img src="upload/image_360.png" alt="{!! $shopProduct->shop->name !!}" width="80" height="40">
             </div>
             <div class="form-inline">
                 <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
