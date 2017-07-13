@@ -33,8 +33,8 @@
                         <thead>
                             <tr class="orders">
                                 <th class="text-center">ID</th>
+                                <th class="text-center">Image</th>
                                 <th class="text-center">Tên sản phẩm</th>
-                                <th class="text-center">Buys</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Discount</th>
                                 <th class="text-center" >Create_at</th>
@@ -48,14 +48,16 @@
                                 <?php $stt= $stt+1?>
                                 <tr class="odd gradeX">
                                     <td class="text-center">{{ $stt }}</td>
+                                    <td class="text-center">
+                                        <img src="source/image/product/{!! $shopProduct->product->image !!}" alt="image_product" width="40px" height="40px" style="border-radius: 5px">
+                                    </td>
                                     <td class="text-center">{{$shopProduct->product->name}}</td>
-                                    <td class="text-center">{{$shopProduct->buys}}</td>
-                                    <td class="center">{{$shopProduct->price}}</td>
-                                    <td class="center">{{$shopProduct->discount}}</td>
+                                    <td class="center">{{$shopProduct->price}} VNĐ</td>
+                                    <td class="center">{{$shopProduct->discount}} %</td>
                                     <td class="text-center" >{{$shopProduct->created_at}}</td>
                                     <td class="text-center" >{{$shopProduct->updated_at}}</td>
                                     <td class="text-center" >
-                                        <a href="">
+                                        <a href="{{ url('shop/'.$shop->id.'/'.$shopProduct->product->id.'/edit') }}">
                                             <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
                                         </a>
                                     </td>
