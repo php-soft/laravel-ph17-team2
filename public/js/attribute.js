@@ -1,11 +1,15 @@
 $(document).ready(function(){
-	$('.delete-task').click(function(e){
-        var categoryAttributeId = $(this).val();
+    $('.delete-task').click(function(){
+        var id = $(this).val();
         $.ajax({
             type: "DELETE",
-            url: 'admin/attributes/' + categoryAttributeId + '/delete',
+            url: 'attributes/' + id + '/delete',
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: "JSON",
             success: function (data) {
-                $("#categoryAttribute" + categoryAttributeId).remove();
+                $("#categoryAttribute" + id).remove();
             }
         });
     });
