@@ -50,4 +50,11 @@ class ShopProductController extends Controller
         $shopProduct = ShopProduct::create(Input::all());
         return redirect('shop/'.$shop->id.'/show');
     }
+
+    public function edit($id_shop, $id_product)
+    {
+        $shop = Shop::find($id_shop);
+        $product = Product::find($id_product);
+        return view('shop.editProduct')->with('shop', $shop)->with('product', $product);
+    }
 }
