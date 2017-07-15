@@ -37,7 +37,7 @@
             <input type="hidden" name="user_id" value="{{$shop->user_id}}">
             <input type="hidden" name="product_id" value="{{$product->id}}">
             <input type="hidden" name="shop_id" value="{{$shop->id}}">
-
+            <h6 style="text-align: center">Đăng sản phẩm cho shop</h6>
             <div class="well"><h4><span>{{$product->name}}</span></h4></div>
             <div class="form-group">
                 <label for="price">Giá bán của bạn : <span></span></label>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label for="discount">Phần trăm giảm giá: <span></span></label>
-                <input type="text" class="form-control" id="discount" placeholder="" name="discount" value="">
+                <input type="text" class="form-control" id="discount" placeholder="Nhập phần trăm giảm giá" name="discount" value="">
             </div>
             <button type="submit" class="btn btn-default btn-success pull-left">Đăng sản phẩm</button>
 
