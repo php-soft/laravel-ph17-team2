@@ -57,7 +57,7 @@
                                     <td class="text-center" >{{$shopProduct->created_at}}</td>
                                     <td class="text-center" >{{$shopProduct->updated_at}}</td>
                                     <td class="text-center" >
-                                        <a href="{{ url('shop/'.$shop->id.'/'.$shopProduct->product->id.'/edit') }}">
+                                        <a href="{{ url('shop/'.$shopProduct->id.'/edit') }}">
                                             <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
                                         </a>
                                     </td>
@@ -70,11 +70,6 @@
                 </div>
                 <!--End Advanced Tables -->
             </div>
-
-
-
-
-
         </div>
     </div>
 </div>
