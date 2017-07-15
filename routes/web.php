@@ -127,3 +127,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('user/{id}/{idShop}/voucher', 'voucherController@index');
 });
+
+Route::get('vinh/admin', function(){
+    return "administartor";
+})->middleware('admin');

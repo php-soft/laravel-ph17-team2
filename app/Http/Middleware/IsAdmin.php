@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class IsAdmin
 {
@@ -15,9 +16,10 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (condition) {
-            return $next($request);
+        if (Auth::user() &&  Auth::user()->id == 4) {
+            return "ok, ban la admin";
+            // return $next($request);
         }
-        return "ok, bạn là admin";
+        return "No, bạn khong là admin";
     }
 }
