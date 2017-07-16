@@ -59,14 +59,14 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}"><span class="glyphicon glyphicon-user"></span> Quản lý tài khoản
+                                        </a>
+                                        <a href="{{ url('user/shop/'.Auth::user()->id.'/index')}}"><span class="glyphicon glyphicon-gift"></span> Quản lý Shop
+                                        </a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             <span class="glyphicon glyphicon-log-out"></span> Logout
-                                        </a>
-                                        <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}"><span class="glyphicon glyphicon-user"></span> Quản lý tài khoản
-                                        </a>
-                                        <a href="{{ url('user/shop/'.Auth::user()->id.'/index')}}"><span class="glyphicon glyphicon-gift"></span> Quản lý Shop
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

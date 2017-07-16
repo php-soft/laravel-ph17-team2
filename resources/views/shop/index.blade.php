@@ -29,6 +29,7 @@
                         <table class="table table-striped table-bordered table-hover" id="example">
                             <thead>
                                 <tr class="orders">
+                                    <th class="text-center">ID</th>
                                     <th class="text-center">Name Shop</th>
                                     <th class="text-center">Description</th>
                                     <th class="text-center">Address</th>
@@ -36,8 +37,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $stt =0 ?>
                                 @foreach($user->shops as $shop)
+                                <?php $stt= $stt+1?>
                                 <tr class="odd gradeX">
+                                    <td class="text-center">{{ $stt }}</td>
                                     <td class="text-center">{{$shop->name}}</td>
                                     <td class="text-center">{{$shop->description}}</td>
                                     <td class="text-center">{{$shop->address}}</td>
