@@ -28,8 +28,8 @@ class CategoriesController extends Controller
             'parent_id' => 'required|numeric'
         ]);
         $data = $request->all();
-        Category::create($data);
-        return redirect()->route('adminCategories')->withSuccess('Category has been created.');
+        $category = Category::create($data);
+        return response()->json($category);
     }
 
     public function createSubCategory()

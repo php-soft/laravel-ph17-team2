@@ -22,12 +22,12 @@
                             <th class="text-center">Actions</th>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                            @foreach($products as $product)
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>
                                     <a href="{{ route('adminProductShow', ['id' => $product->id]) }}">{{ $product->name }}</a>
-                                    </td>
+                                </td>
                                 <td>{{ number_format($product->price) }}</td>
                                 <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->alias }}</td>
@@ -36,7 +36,7 @@
                                     <a href="{{ route('adminProductDetele', ['id' => $product->id]) }}" data-toggle="modal"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</button></a>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
