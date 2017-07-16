@@ -35,7 +35,7 @@
                 </span>
                 </div>
                 <div class="box-price">
-                    <p>{{ $shopProduct->product->price }} đ</p>
+                    <p>{{ $shopProduct->price }} đ</p>
                 </div>
                 <div>
                 <div class="form-group">
