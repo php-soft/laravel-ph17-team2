@@ -17,7 +17,7 @@ class IsAdmin
     public function handle($request, Closure $next)
     {
         if (Auth::user() &&  Auth::user()->id == 4) {
-            return "ok, ban la admin";
+            return view('');
             // return $next($request);
         }
         return "No, bạn khong là admin";
