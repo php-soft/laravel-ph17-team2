@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
 use App\Product;
+use App\Voucher;
 use App\ShopProduct;
 use Input;
 
@@ -15,6 +16,12 @@ class ShopProductController extends Controller
     {
         $shop = Shop::find($id);
         return view('shop.show')->with('shop', $shop);
+    }
+    public function showVoucher($id)
+    {
+        $shop = Shop::find($id);
+        $voucher=Voucher::Where('shop_id',$id)->get();
+        return view('shop.showVoucher')->with('shop', $shop)->with('voucher', $voucher);
     }
 
     public function create($id)
