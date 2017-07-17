@@ -32,9 +32,9 @@ class NewItem extends Model
         return $this->belongsTo('App\NewsCategory');
     }
 
-    public function Comment()
+    public function commentPost()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\CommentPost');
     }
 
     public function newImages()

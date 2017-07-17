@@ -14,5 +14,4 @@ class CommentPost extends Model
     {
         return $this->belongsTo('App\NewItem');
     }
-
 }

@@ -109,7 +109,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/shop/{id}/show', 'ShopController@show');
     Route::get('/shop/user', 'ShopController@user');
     Route::get('/shop/user/{id}/show', 'ShopController@showShopUser');
-
 });
 
 Route::group(['middleware' => ['auth']], function () {
