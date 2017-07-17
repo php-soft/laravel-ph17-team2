@@ -16,6 +16,7 @@ class NewItem extends Model
         'description',
         'content',
         'image',
+        'views',
         'user_id',
         'news_category_id',
         'alias'
@@ -29,6 +30,11 @@ class NewItem extends Model
     public function newsCategory()
     {
         return $this->belongsTo('App\NewsCategory');
+    }
+
+    public function commentPost()
+    {
+        return $this->hasMany('App\CommentPost');
     }
 
     public function newImages()

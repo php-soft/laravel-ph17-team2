@@ -25,8 +25,9 @@ Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('acti
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
 Route::get('/news', 'NewsController@index')->name('news.index');
+Route::get('/news/category/{alias}', 'NewsController@showCategory')->name('news.showCategory');
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
-//Route::get('/news/{category}', 'NewsController@show')->name('news.showcategory');
+Route::post('commentpost/{id}', 'CommentPostController@update');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
 Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
@@ -89,15 +90,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
     Route::post('/newscategory', 'NewsCategoryController@post')->name('newscategory.post');
     Route::get('/newscategory/edit/{id}', 'NewsCategoryController@edit')->name('newscategory.edit');
-    Route::patch('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
+    Route::post('/newscategory/edit/{id}', 'NewsCategoryController@update')->name('newscategory.update');
     Route::get('/newscategory/delete/{id}', 'NewsCategoryController@delete')->name('newscategory.delete');
    
     Route::get('/news', 'NewsController@index')->name('news');
     Route::get('/news/create', 'NewsController@create')->name('news.create');
     Route::post('/news', 'NewsController@post')->name('news.post');
     Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
-    Route::patch('/news/edit/{id}', 'NewsController@update')->name('news.update');
+    Route::post('/news/edit/{id}', 'NewsController@update')->name('news.update');
     Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
+
+    Route::get('/commentspost', 'CommentsPostController@index')->name('commentspost');
+    Route::get('/commentspost/delete/{id}', 'CommentsPostController@delete')->name('commentspost.delete');
+    Route::post('/commentspost/update/{id}', 'CommentsPostController@update')->name('commentspost.update');
 
     Route::get('/shop/index', 'ShopController@index')->name('managerShop');
     Route::get('/shop/{id}/delete', 'ShopController@destroy');

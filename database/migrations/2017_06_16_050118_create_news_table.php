@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->string('image');
+            $table->integer('views')->default(0);
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('news_category_id')->unsigned()->nullable();
