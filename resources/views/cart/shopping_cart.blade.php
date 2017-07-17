@@ -32,19 +32,22 @@
 				</tr>
 				<?php $STT=0;?>
 				@foreach($content as $contents)
+					<?php $STT=$STT+1;
+                   			 $countt=$contents->price*$contents->qty;
+					?>
 				{{Form::open(['route'=>['shoppingEditQty', $contents->id,$contents->qty], 'method'=>'put', 'class'=>'form-status'])}}
-						<tr>
-							<td class="id">{!! $STT=$STT+1 !!}</td>
+						<tr id="content{{$contents->rowId}}">
+							<td class="id">{!! $STT !!}</td>
 							<td class="image"><img title="product" alt="" src="{!! asset('/upload/'.$contents->options->shopImages) !!}" height="50" width="50"></td>
 							<td  class="name"><a href="#">{!! $contents->name !!}</a></td>
-							<td class="quantity" id="priceUpdate" ><input  class="qty" type="text" size="1" value='{!! $contents->qty !!}' name="quantity[40]" />
+							<td class="quantity" id="quantity" ><input  class="qty" type="number" size="1" value='{!! $contents->qty !!}' id="quantity" name="quantity[40]" />
 							</td>
 							<td class="total">
-								<a href="#"  class="updateCart" id="{!! $contents->rowId  !!}" ><img class="tooltip-test" data-original-title="Cập nhật" src="{!! asset('/user/img/update.png') !!}" alt=""></a>
-								<a href="{{ route('cartDelete',['rowId' => $contents->rowId]) }}"><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
+								<a href="#"  class="updateCart" id="{!! $contents->rowId  !!}" value="add" ><img class="tooltip-test" data-original-title="Cập nhật" src="{!! asset('/user/img/update.png') !!}" alt=""></a>
+								<a href="#"  class="deleteeCart" id="{!! $contents->rowId  !!}" ><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
 							</td>
-							<td class="total" >{!! number_format($contents->price,0,",",".") !!} Đ </td>
-							<td class="total"id="priceUpdate"  >{!! number_format($contents->price*$contents->qty,0,",",".") !!} Đ </td>
+							<td class="total" id="pricee" >{!! number_format($contents->price,0,",",".") !!}</td>
+                            <td class="total" id="totalprice" >{{$contents->subtotal(0)}} </td>
 							<td>{!! $contents->options->shop !!}</td>
 						</tr>
 				{{ Form::close() }}
@@ -57,7 +60,7 @@
 					<table class="table table-striped table-bordered ">
 						<tr>
 							<td><span class="extra bold totalamout">Tổng tiền thanh toán :</span></td>
-							<td><span class="bold totalamout">{!! ($subtotal) !!}</span></td>
+							<td><span class="bold" id="totalamout">{!! ($subtotal) !!}</span></td>
 						</tr>
 					</table>
 					<a href="{!! url('order') !!}">
