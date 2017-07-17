@@ -19,9 +19,15 @@ $(document).ready(function() {
         $.ajax({
             url:'cart/'+rowId+'/'+qty,
             type:"put",
+            dataType: "json",
             data:{"_token":token,"id":rowId,"qty":qty},
             success:function (data) {
-                $('#cart-count').html(data.count);
+                    $("#totalprice").html(data.price);
+                    $('#cart-count').html(data.count);
+                    $('#quantity').html(data.$qty);
+                    $('#totalamout').html(data.total);
+                    console.log(data);
+
             }
         });
     });
@@ -36,6 +42,7 @@ $(document).ready(function(){
                 type:'GET',
                 success:function(data) {
                     $('#cart-count').html(data.count);
+
                 }
             });
     });
@@ -51,8 +58,33 @@ $(document).ready(function() {
             type:"GET",
             data:{"_token":token,"id":id,"qty":qty},
             success:function (data) {
+                console.log(data);
                 $('#cart-count').html(data.count);
             }
         });
     });
 });
+$(document).ready(function() {
+    $(".deleteeCart").click(function (e) {
+        e.preventDefault();
+        var token=$("input[name='_token']").val();
+        var rowid = $(this).attr('id');
+        $.ajax({
+            url:'cart/'+rowid+'/delete',
+            type:"put",
+            data:{"_token":token,"rơwid":rowid},
+            success:function (data) {
+
+                $('#cart-count').html(data.count);
+                $("#content"+rowid).remove();
+
+
+            }
+
+        });
+
+    });
+});
+function writeMessage() {
+    document.forms[0].mySecondInput.value = document.forms[0].myInput.value;
+}

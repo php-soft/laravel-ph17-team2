@@ -23,4 +23,9 @@ class Shop extends Model
     {
         return $this->hasMany('App\ShopProduct');
     }
+
+    public function vouchers()
+    {
+        return $this->hasMany('App\Vouchers');
+    }
 }

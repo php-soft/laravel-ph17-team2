@@ -23,6 +23,7 @@
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
     <!-- CKEditor -->
     <script src="/laravel-ph17-team2/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="{{ asset('js/createproduct.js') }}"></script>
 </head>
 <body>
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -42,9 +43,14 @@
                             <li><a href="{{ route('adminProduct') }}">Products</a></li>
                             <li><a href="{{ route('adminCategories') }}">Categories</a></li>
                             <li><a href="{{ route('adminAttribute') }}">Attributes</a></li>
+                            <li><a href="{{ route('adminProductAttribute') }}">ProductAttribute</a></li>
                             <li><a href="{{ route('newscategory') }}">News Category</a></li>
                             <li><a href="{{ route('news') }}">News</a></li>
+<<<<<<< HEAD
                             <li><a href="{{ route('comments') }}">Comments</a></li>
+=======
+                            <li><a href="{{ route('managerShop') }}">Shop</a></li>
+>>>>>>> 1b495ee23b85b6a1fce1e9822314725a476ccb33
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -86,8 +92,12 @@
         @endif
     @yield('content')
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/myscript.js') }}"></script>
+    <script src="{{ asset('js/attribute.js') }}"></script>
+    <script src="{{ asset('js/createcategories.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
     <script>

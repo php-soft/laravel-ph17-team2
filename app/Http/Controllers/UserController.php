@@ -13,6 +13,20 @@ class UserController extends Controller
         $user = User::find($id);
         return view('user.userDetail')->with('user', $user);
     }
+
+    public function upload($id, request $request)
+    {
+        $user = User::find($id);
+        if ($request->hasFile('file')) {
+            $pathImage = $request->file->store('upload');
+            $user->profile->image = $pathImage;
+            $user->profile->save();
+            return redirect('user/profile/'.$user->id.'/index');
+        } else {
+            return redirect('user/profile/'.$user->id.'/index');
+        }
+    }
+
     public function edit($id)
     {
         $user = User::find($id);

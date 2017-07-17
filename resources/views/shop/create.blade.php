@@ -26,7 +26,7 @@
                 </ul>
             </div>
             @endif
-            <form action="{{ url('user/shop/'.$user->id.'/index') }}" method="POST">
+            <form action="{{ url('user/shop/'.$user->id.'/index') }}" method="post">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                 <input name="_method" type="hidden" value="PUT">
                 <input type="hidden" name="user_id" value="{{$user->id}}">

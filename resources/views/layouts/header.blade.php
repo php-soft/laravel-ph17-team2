@@ -47,20 +47,26 @@
                     @else
                     <ul style="list-style-type: none">
                     <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Chào
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+                                @if(empty(Auth::user()->profile))
+                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="" width="30px" height="30px" style="border-radius: 50%; vertical-align: middle;">
+                                @else
+                                    <img src="http://localhost/laravel-ph17-team2/public/{{Auth::user()->profile->image}}" alt="" width="30px" height="30px" style="border-radius: 50%; vertical-align: middle;">
+                                @endif
+                                 <b>Chào
+                                    {{ Auth::user()->name }} </b><span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}"><span class="glyphicon glyphicon-user"></span> Quản lý tài khoản
+                                        </a>
+                                        <a href="{{ url('user/shop/'.Auth::user()->id.'/index')}}"><span class="glyphicon glyphicon-gift"></span> Quản lý Shop
+                                        </a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <a href="{{ url('user/profile/'.Auth::user()->id.'/index')}}">Quản lý tài khoản
-                                        </a>
-                                        <a href="{{ url('user/shop/'.Auth::user()->id.'/index')}}">Quản lý Shop
+                                            <span class="glyphicon glyphicon-log-out"></span> Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -50,4 +50,29 @@ class ShopProductController extends Controller
         $shopProduct = ShopProduct::create(Input::all());
         return redirect('shop/'.$shop->id.'/show');
     }
+
+    public function edit($id)
+    {
+        $shopProduct = ShopProduct::find($id);
+        return view('shop.editProduct')->with('shopProduct', $shopProduct);
+    }
+
+    public function postEdit($id, Request $request)
+    {
+        $this->validate($request, [
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'discount' => 'required|numeric',
+        ], [
+            'price.required' => 'Bắt buộc phải điền giá thành',
+            'price.numeric' => 'Giá phải là dạng số',
+            'quantity.required' => 'Bắt buộc phải điền số lượng',
+            'quantity.numeric' => 'Số lượng phải là dạng số',
+            'discount.required' => 'Bắt buộc phải điền giảm giá',
+            'discount.numeric' => 'Giảm giá phải là dạng số',
+        ]);
+        $shopProduct = ShopProduct::find($id);
+        $shopProduct->update(Input::all());
+        return redirect('shop/'.$shopProduct->id.'/edit');
+    }
 }

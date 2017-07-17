@@ -5,6 +5,9 @@
     <div class="container">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
+				@if(!empty($error))
+					{!! $error !!}
+				@endif
 				@if(count($errors)>0)
 					<div class="alert alert-danger">
 						<ul>
@@ -14,11 +17,11 @@
 						</ul>
 					</div>
 				@endif()
-				@if(Session::has('success'))
-					<div class="alert alert-success">
-						{{Session::get('success')}}
-					</div>
-				@endif
+					@if(Session::has('success'))
+						<div class="alert alert-success">
+							{{Session::get('success')}}
+						</div>
+					@endif
 				<div class="s-cart-all">
 					<div class="checkoutsteptitle down">Bước 1: Xác nhận đơn hàng</div>
 					<div class="table-responsive">
@@ -29,6 +32,7 @@
 								<th>Tên sản phẩm </th>
 								<th>Số lượng</th>
 								<th>Đơn giá</th>
+								<th>Shop</th>
 								<th>Tổng tiền</th>
 							</tr>
 							<?php
@@ -44,12 +48,13 @@
 									<td class="sop-cart">{!! $contents->name  !!}</td>
 									<td class="sop-cart">{!! $contents->qty  !!}</td>
 									<td class="sop-cart">{!! $contents->price  !!}</td>
+									<td class="sop-cart">{!! $contents->options->shop !!}</td>
 									<td class="sop-cart">{!! $contents->price* $contents->qty  !!}</td>
 								</tr>
 
 							@endforeach
 							<tr>
-								<td colspan="5">Tổng tiền<br>
+								<td colspan="6" class="text-center">Tổng tiền<br>
 								<td>
 									<span>{!! $subtotal !!}</span><br>
 								</td>

@@ -5,7 +5,7 @@
     <div class="row" style="margin: 5px 4%">
         <div class="well">
             <div class="pull-left">
-                <img src="{!! $shopProduct->shop->logo !!}" alt="{!! $shopProduct->shop->logo !!}" width="80" height="40">
+                <img src="upload/image_360.png" alt="{!! $shopProduct->shop->name !!}" width="80" height="40">
             </div>
             <div class="form-inline">
                 <label for="shop" class="lb">Sản phẩm bán từ shop: </label>
@@ -14,7 +14,7 @@
         </div>
         <div class="block-img-attr">
             <div class="block-pro-img">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="{{ $shopProduct->product->image }}" width="350px" height="350px">
+                <img src="source/image/product/{!! $shopProduct->product->image !!}" alt="{{ $shopProduct->product->image }}" width="350px" height="350px">
                 <div class="small-img">
                     <ul>
                         @foreach($shopProduct->product->productImages as $productImage)
@@ -35,7 +35,7 @@
                 </span>
                 </div>
                 <div class="box-price">
-                    <p>{{ $shopProduct->product->price }} đ</p>
+                    <p>{{ $shopProduct->price }} đ</p>
                 </div>
                 <div>
                 <div class="form-group">
@@ -53,7 +53,9 @@
                                         </div>
                                         <div class="attr">
                                             @foreach($attribute->productAttributeValues as $key)
-                                                {{ Form::radio($attribute->name, $key->value) }} <span>{{ $key->value }}</span>
+                                                @if($key->product_id == $shopProduct->product_id)
+                                                    {{ Form::radio($attribute->name, $key->value) }} <span>{{ $key->value }}</span>
+                                                @endif
                                             @endforeach
                                         </div>
                                     </fieldset>
@@ -77,6 +79,7 @@
             </div>
          </div>
     </div>
+    @if(count($list) > 1)
     <div role="tabpanel">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
@@ -88,11 +91,11 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active row box-item" id="relative">
-                @foreach ($shopProduct->shop->shopProducts as $key)
+                @foreach ($list as $key)
                 <div class="col-md-2 item-preview">
-                    <a href="{{ url('home/san-pham/' . $key->product->id)}}">
-                        <img src="{!! $key->product->img !!}" alt="{!! $key->product->name !!}" width="149" height="149">
-                        <span class="price">{!! $key->product->price !!} đ</span>
+                    <a href="{{ url('home/san-pham/' . $key->product->id)}}" class="list-image">
+                        <img src="source/image/product/{!! $key->product->image !!}" width="149" height="149" style="border: 1px solid #eee;">
+                        <span class="price" style="color: red;">{!! number_format($key->product->price) !!} đ</span>
                         <p class="prod-name">{!! $key->product->name !!}</p>
                     </a>
                 </div>
@@ -100,6 +103,7 @@
             </div>
         </div>
     </div>
+    @endif
     <br>
     <div role="tabpanel">
         <!-- Nav tabs -->
@@ -118,9 +122,40 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active box-item" id="detail">...</div>
-            <div role="tabpanel" class="tab-pane box-item" id="feedback">...</div>
+            <div role="tabpanel" class="tab-pane box-item" id="feedback">
+                {{-- <fieldset>
+                    <form action="">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <label for="textarea">Bạn có câu hỏi với sản phẩm này? Đặt câu hỏi với shop.</label>
+                                        <input type="textarea" class="form-control" id="textarea" placeholder="Đặt câu hỏi..." name="content" style="height: 30px;">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit" class="btn btn-default">Gửi</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </fieldset>
+                <fieldset>
+                    <ul>
+                        <li>
+                            <img src="" alt="avatar" class="pull-left">
+                            <div>
+                                <p><span>Name</span><span>Ngày cmt</span></p>
+                                <p>Content <span class="pull-right">Trả lời</span></p>
+                            </div>
+                        </li>
+                    </ul>
+                </fieldset> --}}
+                ...
+            </div>
             <div role="tabpanel" class="tab-pane box-item" id="answer">...</div>
         </div>
     </div>
+    <br>
 </div>
 @endsection

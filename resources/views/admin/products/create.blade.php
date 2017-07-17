@@ -13,7 +13,7 @@
     {!! Form::open(['route' => 'adminProductStore']) !!}
         @include('admin.products.partials.forms.product')
         <div class="container">
-            {!! Form::submit('Tạo sản phẩm', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Tạo sản phẩm', ['class' => 'btn btn-primary', 'id' => 'create']) !!}
         </div>
     {!! Form::close() !!}
 @endsection

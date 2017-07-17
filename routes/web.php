@@ -19,7 +19,7 @@ Route::get('/categories/{id}', 'CategoryController@show');
 route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/home/mua-hang/{id}/{qty}', 'CartController@storeQty');
 route::get('/cart/show', 'CartController@show')->name('cart');
-route::get('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
+route::put('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
 Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
 Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('activateOrder');
 Route::get('order', 'OrderController@show')->name('orderShow');
@@ -29,6 +29,10 @@ Route::get('/news/category/{alias}', 'NewsController@showCategory')->name('news.
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
 Route::post('comment/{id}', 'CommentController@update');
 Route::get('/search', 'HomeController@search')->name('search');
+Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
+Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('seller_password/reset/{token}', 'SellerAuth\ResetPasswordController@showResetForm');
+Route::post('seller_password/reset', 'SellerAuth\ResetPasswordController@reset');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -72,8 +76,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('/attributes', 'AttributeController@store')->name('adminAttributeStore');
     Route::get('/attributes/{attributeId}/edit', 'AttributeController@edit')->name('adminAttributeEdit');
     Route::put('/attributes/{attributeId}', 'AttributeController@update')->name('adminAttributeUpdate');
-    Route::get('/attributes/{attributeId}/delete', 'AttributeController@destroy')->name('adminAttributeDetele');
+    Route::delete('/attributes/{attributeId}/delete', 'AttributeController@destroy')->name('adminAttributeDetele');
     Route::get('/attributes/{attributeId}', 'AttributeController@show')->name('adminAttributeShow');
+
+    Route::get('/productAttributes', 'ProductAttributeController@index')->name('adminProductAttribute');
+    Route::get('/productAttributes/{id}', 'ProductAttributeController@show')
+        ->name('adminProductAttributeShow');
+    Route::post('/productAttributes', 'ProductAttributeController@store')->name('adminProductAttributeStore');
+    Route::get('/productAttributes/{id}/delete', 'ProductAttributeController@destroy')
+        ->name('adminProductAttributeDetele');
  
     Route::get('/newscategory', 'NewsCategoryController@index')->name('newscategory');
     Route::get('/newscategory/create', 'NewsCategoryController@create')->name('newscategory.create');
@@ -92,10 +103,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/comments', 'CommentsController@index')->name('comments');
     Route::get('/comments/delete/{id}', 'CommentsController@delete')->name('comments.delete');
     Route::post('/comments/update/{id}', 'CommentsController@update')->name('comments.update');
+
+    Route::get('/shop/index', 'ShopController@index')->name('managerShop');
+    Route::get('/shop/{id}/delete', 'ShopController@destroy');
+    Route::get('/shop/{id}/show', 'ShopController@show');
+    Route::get('/shop/user', 'ShopController@user');
+    Route::get('/shop/user/{id}/show', 'ShopController@showShopUser');
+
 });
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('user/profile/{id}/index', 'UserController@index');
+    Route::post('user/profile/{id}/index', 'UserController@upload');
+    
     Route::get('user/profile/{id}/edit', 'UserController@edit');
     Route::put('user/profile/{id}/index', 'UserController@update');
 
@@ -109,8 +129,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('shop/post/{id_shop}/{id_product}/create', 'ShopProductController@post');
     Route::put('shop/{id}/show', 'ShopProductController@postProduct');
 
+    Route::get('shop/{id}/edit', 'ShopProductController@edit');
+    Route::put('shop/{id}/edit', 'ShopProductController@postEdit');
+
     Route::get('user/shop/{id}/edit', 'ShopController@edit');
     Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
 
     Route::get('user/shop/{id}/delete', 'ShopController@destroy');
+
+    Route::get('user/{id}/{idShop}/voucher', 'voucherController@index');
 });
