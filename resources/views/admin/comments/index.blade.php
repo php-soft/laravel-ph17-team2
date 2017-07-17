@@ -35,11 +35,11 @@
                                     <td class="text-center">{!! $comment->comments !!}</td>
                                     <td class="text-center">{!! $comment->news_id !!}</td>
                                     <td class="text-center">
-                                    	{!! Form::open(['route' => ['comments.update', $comment->id], 'method' => 'post']) !!}
+                                    	{!! Form::open(['route' => ['commentspost.update', $comment->id], 'method' => 'post']) !!}
                                     	
                                     	<input type="submit" name="status" value="{{ ($comment->status == 'Show')? 'Hidden' : 'Show'}}">
                                     		
-										<a href="{!! url('admin/comments/delete', [$comment->id]) !!}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+										<a href="{!! url('admin/commentspost/delete', [$comment->id]) !!}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                                     	{!! Form::close() !!}										
 									</td>                                 
                                 </tr>

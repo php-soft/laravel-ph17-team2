@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comment;
+use App\CommentPost;
 use App\NewItem;
 
-class CommentController extends Controller
+class CommentPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -74,7 +74,7 @@ class CommentController extends Controller
        
         $new = NewItem::find($id);  
          
-        $comment = New Comment;
+        $comment = New CommentPost;
         $comment->comments = $request->comments;
         $comment->name = $request->name;
         $comment->news_id = $news_id;

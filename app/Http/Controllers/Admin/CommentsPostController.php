@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CommentsController extends Controller
+class CommentsPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        $comments = \App\comment::All();
+        $comments = \App\commentPost::All();
         return view('admin/comments/index')->with('comments', $comments);
     }
 
@@ -71,11 +71,11 @@ class CommentsController extends Controller
      */
     public function update($id)
     {
-        $comments = \App\comment::find($id);
+        $comments = \App\commentPost::find($id);
         
         $comments->update(Input::All());
         
-        return redirect('/admin/comments')
+        return redirect('/admin/commentspost')
         ->withSuccess('Trạng thái được cập nhật thành công!');
     }
 
@@ -87,9 +87,9 @@ class CommentsController extends Controller
      */
     public function delete($id)
     {
-        $comments = \App\comment::find($id);
+        $comments = \App\commentPost::find($id);
         $comments->delete();
-        return redirect('/admin/comments')
+        return redirect('/admin/commentspost')
         ->withSuccess('Comment được xóa thành công!');
     }
 }

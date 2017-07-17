@@ -58,7 +58,7 @@
     
 
 
-                    <form action="comment/{{$new->id}}" method="post">
+                    <form action="commentpost/{{$new->id}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="news_id" value="{{$new->id}}">    
                         <input type="text" name="name" placeholder="Tên của bạn">                  

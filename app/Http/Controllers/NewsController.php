@@ -41,7 +41,7 @@ class NewsController extends Controller
         $new = \App\NewItem::where('alias', '=', $alias)->first();
         
         
-        $news_comment = \App\Comment::where([['news_id', $new->id], ['status', '=', 'Show']])->get();   
+        $news_comment = \App\CommentPost::where([['news_id', $new->id], ['status', '=', 'Show']])->get();   
         
         
         

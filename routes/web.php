@@ -27,7 +27,7 @@ Route::post('order', 'OrderController@store')->name('orderStore');
 Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/news/category/{alias}', 'NewsController@showCategory')->name('news.showCategory');
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
-Route::post('comment/{id}', 'CommentController@update');
+Route::post('commentpost/{id}', 'CommentPostController@update');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
 Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
@@ -100,9 +100,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('/news/edit/{id}', 'NewsController@update')->name('news.update');
     Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
 
-    Route::get('/comments', 'CommentsController@index')->name('comments');
-    Route::get('/comments/delete/{id}', 'CommentsController@delete')->name('comments.delete');
-    Route::post('/comments/update/{id}', 'CommentsController@update')->name('comments.update');
+    Route::get('/commentspost', 'CommentsPostController@index')->name('commentspost');
+    Route::get('/commentspost/delete/{id}', 'CommentsPostController@delete')->name('commentspost.delete');
+    Route::post('/commentspost/update/{id}', 'CommentsPostController@update')->name('commentspost.update');
 
     Route::get('/shop/index', 'ShopController@index')->name('managerShop');
     Route::get('/shop/{id}/delete', 'ShopController@destroy');

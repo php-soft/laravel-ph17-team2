@@ -46,11 +46,9 @@
                             <li><a href="{{ route('adminProductAttribute') }}">ProductAttribute</a></li>
                             <li><a href="{{ route('newscategory') }}">News Category</a></li>
                             <li><a href="{{ route('news') }}">News</a></li>
-<<<<<<< HEAD
-                            <li><a href="{{ route('comments') }}">Comments</a></li>
-=======
+                            <li><a href="{{ route('commentspost') }}">Comments Post</a></li>
                             <li><a href="{{ route('managerShop') }}">Shop</a></li>
->>>>>>> 1b495ee23b85b6a1fce1e9822314725a476ccb33
+
                         </ul>
 
                         <!-- Right Side Of Navbar -->
