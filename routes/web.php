@@ -29,10 +29,10 @@ Route::get('/news/category/{alias}', 'NewsController@showCategory')->name('news.
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
 Route::post('commentpost/{id}', 'CommentPostController@update');
 Route::get('/search', 'HomeController@search')->name('search');
-Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
-Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
-Route::get('seller_password/reset/{token}', 'SellerAuth\ResetPasswordController@showResetForm');
-Route::post('seller_password/reset', 'SellerAuth\ResetPasswordController@reset');
+//Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
+//Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
+//Route::get('seller_password/reset/{token}', 'SellerAuth\ResetPasswordController@showResetForm');
+//Route::post('seller_password/reset', 'SellerAuth\ResetPasswordController@reset');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -124,6 +124,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('user/shop/{id}/index', 'ShopController@update');
 
     Route::get('shop/{id}/show', 'ShopProductController@show');
+    Route::get('shop/{id}/voucher', 'ShopProductController@showVoucher');
     Route::get('shop/{id}/create', 'ShopProductController@create');
     Route::get('shop/post/{id_shop}/{id_product}/create', 'ShopProductController@post');
     Route::put('shop/{id}/show', 'ShopProductController@postProduct');
@@ -136,5 +137,5 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('user/shop/{id}/delete', 'ShopController@destroy');
 
-    Route::get('user/{id}/{idShop}/voucher', 'voucherController@index');
+//    Route::get('user/{id}/{idShop}/voucher', 'voucherController@index');
 });

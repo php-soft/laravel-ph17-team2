@@ -30,9 +30,4 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
-
-    protected function broker()
-    {
-        return Password::broker('name');
-    }
 }
