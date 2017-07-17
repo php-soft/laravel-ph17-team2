@@ -13,7 +13,7 @@ class CartController extends Controller
             $productBuy=\App\ShopProduct::where('id', $id)->first();
             Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => 1, 'price' =>
                 $productBuy->product->price, 'options' =>['shop'=> $productBuy->shop->name, 'shopImages'=>
-                $productBuy->product->image]]);
+                $productBuy->product->image,'subitol'=>1*$productBuy->product->price]]);
             return response()->json(['count'=>Cart::count()]);
         };
     }
@@ -25,7 +25,7 @@ class CartController extends Controller
             $productBuy=\App\ShopProduct::where('id', $id)->first();
             Cart::add(['id' =>$productBuy->product->id, 'name' =>$productBuy->product->name, 'qty' => $qty, 'price' =>
                 $productBuy->product->price, 'options' =>['shop'=> $productBuy->shop->name, 'shopImages'=>
-                $productBuy->product->image, 'shopIID'=> $productBuy->shop->id]]);
+                $productBuy->product->image, 'shopIID'=> $productBuy->shop->id,'subitol'=>$qty*$productBuy->product->price] ]);
             return response()->json(['count'=>Cart::count()]);
         };
     }
@@ -39,17 +39,21 @@ class CartController extends Controller
 
     public function delete($rowId)
     {
+        if (Request::ajax()) {
         Cart::remove($rowId);
-        return redirect('cart/show')->withSuccess('Cat has been updated.');
+            return response()->json([$rowId,'count'=>Cart::count()]);
+        };
+
     }
 
     public function update()
     {
-        if (Request::ajax()) {
+        if (Request::ajax()) {;
             $id=Request::get('id') ;
-            $qty=Request::get('qty') ;
+            $qty=Request::get('qty');
+            $productBuy=\App\ShopProduct::where('id', $id)->first();
             Cart::update($id, $qty);
-            return response()->json(['count'=>Cart::count()]);
+            return response()->json([$qty,'price'=>number_format($productBuy->product->price*$qty,0,",","."),'count'=>Cart::count(),'total'=>Cart::subtotal()]);
         }
     }
 }
