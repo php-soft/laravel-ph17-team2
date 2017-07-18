@@ -20,7 +20,7 @@ route::get('/home/mua-hang/{id}/', 'CartController@store');
 route::get('/home/mua-hang/{id}/{qty}', 'CartController@storeQty');
 route::get('/cart/show', 'CartController@show')->name('cart');
 route::put('/cart/{rowId}/delete', 'CartController@delete')->name('cartDelete');
-Route::put('/cart/{id}/{qty}', 'CartController@update')->name('shoppingEditQty');
+Route::put('/cart/{id}/{qty}/{rowId}', 'CartController@update')->name('shoppingEditQty');
 Route::get('order/activation/{id}', 'OrderController@activateOrder')->name('activateOrder');
 Route::get('order', 'OrderController@show')->name('orderShow');
 Route::post('order', 'OrderController@store')->name('orderStore');
@@ -29,10 +29,6 @@ Route::get('/news/category/{alias}', 'NewsController@showCategory')->name('news.
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
 Route::post('commentpost/{id}', 'CommentPostController@update');
 Route::get('/search', 'HomeController@search')->name('search');
-Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
-Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
-Route::get('seller_password/reset/{token}', 'SellerAuth\ResetPasswordController@showResetForm');
-Route::post('seller_password/reset', 'SellerAuth\ResetPasswordController@reset');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -135,6 +131,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
 
     Route::get('user/shop/{id}/delete', 'ShopController@destroy');
-
-    Route::get('user/{id}/{idShop}/voucher', 'voucherController@index');
 });

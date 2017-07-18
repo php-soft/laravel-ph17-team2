@@ -15,18 +15,18 @@ $(document).ready(function() {
         e.preventDefault();
         var rowId=$(this).attr('id');
         var qty=$(this).parent().parent().find(".qty").val();
+        var id=$(this).parent().find(".id").val();
         var token=$("input[name='_token']").val();
         $.ajax({
-            url:'cart/'+rowId+'/'+qty,
+            url:'cart/'+rowId+'/'+qty+'/'+id,
             type:"put",
             dataType: "json",
-            data:{"_token":token,"id":rowId,"qty":qty},
+            data:{"_token":token,"id":rowId,"qty":qty,"rowId":id},
             success:function (data) {
-                    $("#totalprice").html(data.price);
                     $('#cart-count').html(data.count);
                     $('#quantity').html(data.$qty);
                     $('#totalamout').html(data.total);
-                    console.log(data);
+                    $("#totalprice" + rowId).html(data.priceTotal);
 
             }
         });

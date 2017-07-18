@@ -35,7 +35,7 @@
 					<?php $STT=$STT+1;
                    			 $countt=$contents->price*$contents->qty;
 					?>
-				{{Form::open(['route'=>['shoppingEditQty', $contents->id,$contents->qty], 'method'=>'put', 'class'=>'form-status'])}}
+				{{Form::open(['route'=>['shoppingEditQty', $contents->id,$contents->qty,$contents->rowId], 'method'=>'put', 'class'=>'form-status'])}}
 						<tr id="content{{$contents->rowId}}">
 							<td class="id">{!! $STT !!}</td>
 							<td class="image"><img title="product" alt="" src="{!! asset('/upload/'.$contents->options->shopImages) !!}" height="50" width="50"></td>
@@ -43,11 +43,12 @@
 							<td class="quantity" id="quantity" ><input  class="qty" type="number" size="1" value='{!! $contents->qty !!}' id="quantity" name="quantity[40]" />
 							</td>
 							<td class="total">
+								<input  class="id" type="hidden" size="1" value='{!! $contents->id !!}' id="quantity" name="quantity[40]" />
 								<a href="#"  class="updateCart" id="{!! $contents->rowId  !!}" value="add" ><img class="tooltip-test" data-original-title="Cập nhật" src="{!! asset('/user/img/update.png') !!}" alt=""></a>
 								<a href="#"  class="deleteeCart" id="{!! $contents->rowId  !!}" ><img class="tooltip-test" data-original-title="Xóa"  src="{!! asset('/user/img/remove.png') !!}" alt=""></a>
 							</td>
 							<td class="total" id="pricee" >{!! number_format($contents->price,0,",",".") !!}</td>
-                            <td class="total" id="totalprice" >{{$contents->subtotal(0)}} </td>
+                            <td class="total" id="totalprice{{ $contents->rowId }}" >{{$contents->subtotal(0)}} </td>
 							<td>{!! $contents->options->shop !!}</td>
 						</tr>
 				{{ Form::close() }}
