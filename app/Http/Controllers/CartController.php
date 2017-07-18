@@ -48,13 +48,14 @@ class CartController extends Controller
     public function update()
     {
         if (Request::ajax()) {
-            $rowID = Request::get('rowId');
-            $productBuy = \App\ShopProduct::where('id', $rowID)->get();
-            foreach ($productBuy as $productBuys){
+
+            $rowID=Request::get('rowId');
+            $productBuy=\App\ShopProduct::where('id', $rowID)->get() ;
+            foreach ($productBuy as $productBuys) {
                 $id = Request::get('id');
                 $qty = Request::get('qty');
                 Cart::update($id, $qty);
-            return response()->json([$qty, 'priceTotal' => number_format($productBuys->product->price * $qty, 0, ",", ","),
+                return response()->json([$qty, 'priceTotal' => number_format($productBuys->product->price * $qty, 0, ",", ","),
                 'count' => Cart::count(), 'total' => Cart::subtotal()]);
             }
         }
