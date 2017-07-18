@@ -17,10 +17,17 @@ class ShopController extends Controller
         return view('shop.index')->with('user', $user);
     }
 
-    public function create($id)
+    public function create($id, request $request)
     {
-        $user = User::find($id);
-        return view('shop.create')->with('user', $user);
+        $shop = Shop::find($id);
+        $shop = new Shop;
+        $shop->name = $request->text;
+        $shop->logo = $request->text;
+        $shop->address = $request->text;
+        $shop->description = $request->text;
+        $shop->user_id = $request->text;
+        $shop->save();
+        return "Thanh cong";
     }
 
     public function update($id, Request $request)

@@ -118,7 +118,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('user/profile/{id}/edit', 'UserController@edit');
     Route::put('user/profile/{id}/index', 'UserController@update');
 
-    Route::get('user/shop/{id}/index', 'ShopController@index');
+    Route::get('user/shop/{id}/index', 'ShopController@index');//dang edit
+    Route::post('user/shop/{id}/index', 'ShopController@create');
 
     Route::get('user/shop/{id}/create', 'ShopController@create');
     Route::put('user/shop/{id}/index', 'ShopController@update');
