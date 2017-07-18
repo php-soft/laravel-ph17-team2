@@ -4,6 +4,7 @@ $(document).ready(function() {
         $('#frmTasks').trigger("reset");
         $('#myModal').modal('show');
     });
+
     $("#btn-save").click(function (e) {
         $.ajaxSetup({
             headers: {
@@ -44,8 +45,8 @@ $(document).ready(function() {
                 console.log(data);
 
                 var category = '<tr id="category' + data.id + '"><td>' + data.id + '</td><td><a>' + data.name + '</a></td><td>' + data.parent_id + '</td><td>' + data.slug + '</td>';
-                category += '<td class="text-center"><a href="http://localhost/laravel-ph17-team2/public/admin/categories/' + data.id + '/edit"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>';
-                category += '<a href="http://localhost/laravel-ph17-team2/public/admin/categories/' + data.id + '/delete"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</button></a></tr>';
+                category += '<td class="text-center"><a href="http://localhost/laravel-ph17-team2/public/admin/categories/' + data.id + '/edit"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>&nbsp;';
+                category += '<button class="btn btn-sm btn-danger delete-c" value="' + data.id + '"><span class="glyphicon glyphicon-trash"></span>Delete</button></tr>';
 
                 if (state == "add"){ //if user added a new record
                     $('#categories-list').append(category);
@@ -61,6 +62,21 @@ $(document).ready(function() {
             },
             error: function (data) {
                 console.log('Error:', data);
+            }
+        });
+    });
+
+    $('.delete-c').click(function(){
+        var id = $(this).val();
+        $.ajax({
+            type: "DELETE",
+            url: 'categories/' + id + '/delete',
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: "JSON",
+            success: function (data) {
+                $("#category" + id).remove();
             }
         });
     });
