@@ -87,7 +87,6 @@ class CategoriesController extends Controller
             $category->delete();
             return response()->json($category);
         }
-        
     }
 
     public function show($id)
