@@ -127,4 +127,3 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('user/shop/{id}/delete', 'ShopController@destroy');
 });
-
