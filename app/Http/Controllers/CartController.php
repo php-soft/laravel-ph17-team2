@@ -54,8 +54,11 @@ class CartController extends Controller
                 $id = Request::get('id');
                 $qty = Request::get('qty');
                 Cart::update($id, $qty);
-                return response()->json([$qty, 'priceTotal' => number_format($productBuys->product->price * $qty,
-                    0, ",", ","), 'count' => Cart::count(), 'total' => Cart::subtotal()]);
+                return response()->json([
+                $qty,
+                'priceTotal' => number_format($productBuys->product->price * $qty, 0, ",", ","),
+                'count' => Cart::count(),
+                'total' => Cart::subtotal()]);
             }
         }
     }
