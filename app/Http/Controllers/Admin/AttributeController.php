@@ -44,7 +44,6 @@ class AttributeController extends Controller
         $data = $request->all();
         $categoryAttribute = CategoryAttributeValue::create($data);
         $a = $categoryAttribute->category->name;
-        $b = $categoryAttribute->category->id;
         $categoryAttribute['categoryName'] = $a;
         return response()->json($categoryAttribute);
         // return redirect()->route('adminAttribute')->withSuccess('CategoryAttributeValue has been created.');
