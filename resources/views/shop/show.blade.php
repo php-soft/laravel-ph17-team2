@@ -21,6 +21,7 @@
 
             <h6>Quản lý chi tiết shop</h6>
             <a href="{{ url('shop/'.$shop->id.'/create') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Đăng sản phẩm cho shop: <span>{{$shop->name}}</span></a>
+            <a href="{{ url('shop/'.$shop->id.'/Voucher') }}" class="btn btn-warning btn-sm pull-left"><span class="glyphicon glyphicon-plus"></span> Danh sách voucher: <span>{{$shop->name}}</span></a>
             <br>
 
             <hr>

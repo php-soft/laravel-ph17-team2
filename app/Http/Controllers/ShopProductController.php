@@ -7,6 +7,7 @@ use App\Shop;
 use App\User;
 use App\Product;
 use App\ShopProduct;
+use App\Voucher;
 use Input;
 
 class ShopProductController extends Controller
@@ -17,12 +18,55 @@ class ShopProductController extends Controller
         return view('shop.show')->with('shop', $shop);
     }
 
+    public function showVoucher($id)
+    {
+        $shop = Shop::find($id);
+        $Voucher = Voucher::where('shop_id',$id)->get();
+        return view('shop.showVoucher')->with('shop', $shop)->with('Voucher', $Voucher);
+    }
+    public function createVoucher($id)
+    {
+        $shop = Shop::find($id);
+        return view('shop.createVoucher')->with('shop', $shop);
+    }
+    public function storeVoucher($id, Request $request)
+    {
+        $this->validate($request, [
+            'discount' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'code' => 'required|numeric',
+            'start_date' => 'required',
+            'shop_id' => 'required',
+        ], [
+            'discount.required' => 'Bắt buộc phải điền phần trăm giảm giá',
+            'discount.numeric' => ' phải là dạng số',
+            'quantity.required' => 'Bắt buộc phải điền số lượng',
+            'quantity.numeric' => 'Số lượng phải là dạng số',
+            'code.required' => 'Bắt buộc phải điền mã code',
+            'code.numeric' => 'Giảm giá phải là dạng số',
+            'start_date.required' => 'Bắt buộc phải điền thời gian bắt đầu',
+            'end_date.required' => 'Bắt buộc phải điền thời gian kết thúc',
+        ]);
+        $shop = Shop::find($id);
+        $Voucher = Voucher::find($id);
+        $Voucher = new $Voucher;
+        $Voucher->discount = Input::get('discount');
+        $Voucher->quantity = Input::get('quantity');
+        $Voucher->code = Input::get('code');
+        $Voucher->start_date = Input::get('start_date');
+        $Voucher->end_date = Input::get('end_date');
+        $Voucher->shop_id=$shop->id;
+        $Voucher->save();
+        return redirect('shop/'.$shop->id.'/Voucher/');
+    }
+
     public function create($id)
     {
         $shop = Shop::find($id);
         $products = Product::All();
         return view('shop.post')->with('shop', $shop)->with('products', $products);
     }
+
 
     public function post($id_shop, $id_product)
     {

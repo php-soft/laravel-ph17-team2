@@ -126,4 +126,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('user/shop/{id}/edit', 'ShopController@editUpdate');
 
     Route::get('user/shop/{id}/delete', 'ShopController@destroy');
+
+    Route::get('shop/{id}/Voucher', 'ShopProductController@showVoucher');
+    Route::get('shop/{id}/Voucher/create', 'ShopProductController@createVoucher')->name('createVoucher');
+    Route::post('shop/{id}/Voucher/create', 'ShopProductController@storeVoucher')->name('StoreVoucher');
 });
