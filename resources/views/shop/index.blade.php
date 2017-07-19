@@ -59,7 +59,7 @@
                 <!--End Advanced Tables -->
             </div>
             
-            <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal show" tabindex="-1" role="dialog" id="myModal">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -108,11 +108,11 @@
                 });
 
                 $('#addButton').click(function(event) {
-                    var text = $('#name').val();
-                    var text = $('#address').val();
-                    var text = $('#description').val();
-                    var text = $('#logo').val();
-                    var text = $('#user_id').val();
+                    var text1 = $('#name').val();
+                    var text2 = $('#address').val();
+                    var text3 = $('#description').val();
+                    var text4 = $('#logo').val();
+                    var text5 = $('#user_id').val();
                     $.post('user/shop/5/index', {'text': text, '_token': $('input[name=_token]').val()}, function(data) {
                         console.log(data);
                         $('#shops').load(location.href + ' #shops')

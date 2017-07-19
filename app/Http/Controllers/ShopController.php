@@ -21,11 +21,11 @@ class ShopController extends Controller
     {
         $shop = Shop::find($id);
         $shop = new Shop;
-        $shop->name = $request->text;
-        $shop->logo = $request->text;
-        $shop->address = $request->text;
-        $shop->description = $request->text;
-        $shop->user_id = $request->text;
+        $shop->name = $request->text1;
+        $shop->logo = $request->text2;
+        $shop->address = $request->text3;
+        $shop->description = $request->text4;
+        $shop->user_id = $request->text5;
         $shop->save();
         return "Thanh cong";
     }
