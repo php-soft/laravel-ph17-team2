@@ -34,7 +34,7 @@ Route::get('admin/login', 'Admin\AdminController@getLogin');//dang edit
 Route::post('admin/login', 'Admin\AdminController@postLogin');//dang edit
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['admin']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
     Route::get('/orders/withtrashed', 'OrdersController@withtrashed')->name('adminOrderWithtrashed');
     Route::get('/orders/{id}/withtrashed', 'OrdersController@showWithtrashed')->name('adminOrdershowWithtrashed');
