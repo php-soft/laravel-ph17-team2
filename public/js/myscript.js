@@ -85,6 +85,3 @@ $(document).ready(function() {
 
     });
 });
-function writeMessage() {
-    document.forms[0].mySecondInput.value = document.forms[0].myInput.value;
-}
