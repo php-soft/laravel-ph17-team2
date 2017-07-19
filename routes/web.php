@@ -30,6 +30,9 @@ Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
 Route::post('commentpost/{id}', 'CommentPostController@update');
 Route::get('/search', 'HomeController@search')->name('search');
 
+Route::get('admin/login', 'Admin\AdminController@getLogin');//dang edit
+Route::post('admin/login', 'Admin\AdminController@postLogin');//dang edit
+
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/orders', 'OrdersController@index')->name('ordersAdmin');
