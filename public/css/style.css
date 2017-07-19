@@ -180,7 +180,7 @@ body {
 	white-space: normal;
 	text-overflow: ellipsis;
 }
-input[type="text"], input[type="email"],input[type="url"],textarea {
+input[type="text"],input[type="date"], input[type="email"],input[type="url"],textarea {
 	width:70%;
 	border:1px solid #e1e1e1;
 	height:37px;

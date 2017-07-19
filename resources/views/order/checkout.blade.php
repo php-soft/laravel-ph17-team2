@@ -130,19 +130,23 @@
 		<div  class="col-xs-6">
 			<div class="span4">
 				<div class="control-group">
-					<label for="text">Họ tên người mua : <span></span></label>
-					<input type="text" class="form-control" id="name" placeholder="Update tên" name="name" value="{{Auth::user()->name}}">
+					{!! Form::label('name', 'Họ tên người mua :') !!}
+					<div class="controls">
+						{!! Form::text('name', Auth::user()->name, ['class' => 'form-control']) !!}
+					</div>
 				</div>
 				<div class="control-group">
-					<label for="email">Email : <span></span></label>
-					<input type="email" class="form-control" id="email" placeholder="Update Email" name="email" value="{{Auth::user()->email}}">
+					{!! Form::label('email', 'Đia chỉ email người mua :') !!}
+					<div class="controls">
+						{!! Form::text('email',Auth::user()->email, ['class' => 'form-control']) !!}
+					</div>
 				</div>
 				<div class="control-group">
 					<label for="phone">Số điện thoại người mua : <span></span></label>
 					<input type="text" class="form-control" id="phone" placeholder="Update điện thoại" name="phone" value="{{Auth::user()->profile['phone']}}">
 				</div>
 				<div class="control-group">
-					<label for="address">Đia chỉ email người mua : <span></span></label>
+					<label for="address">Đia chỉ người mua hàng    : <span></span></label>
 					<input type="text" class="form-control" id="address" placeholder="Update địa chỉ" name="address" value="{{Auth::user()->profile['address']}}">
 				</div>
 			</div>

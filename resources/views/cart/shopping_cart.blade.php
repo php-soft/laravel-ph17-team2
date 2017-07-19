@@ -1,7 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php if ($content->isEmpty()) { ?>
+<div class="inner-header" style="background-color: #f5f5f5;">
+	<div class="container">
+		<div class="pull-left">
+			<h6 class="inner-title"> Giỏ hàng </h6>
+		</div>
+		<div class="pull-right">
+			<div class="beta-breadcrumb font-large">
+				<a href="{!! url('') !!}">Trang chủ</a> / <span> Giỏ hàng</span>
+			</div>
+		</div>
+		<div align="center">  <img src="{{asset('images/empty-cart.png')}}"/></div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<?php } else { ?>
 <div class="inner-header" style="background-color: #f5f5f5;">
 	<div class="container">
 		<div class="pull-left">
@@ -15,7 +30,6 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
-
 <div class="container">
 	<div id="content">
 		<div class="cart-info">
@@ -77,4 +91,5 @@
 	</div>
 	<div class="clearfix"></div>
 </div> <!-- #content --> <!-- .container -->
+<?php } ?>
 @endsection
