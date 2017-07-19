@@ -21,7 +21,7 @@ class ShopProductController extends Controller
     public function showVoucher($id)
     {
         $shop = Shop::find($id);
-        $Voucher = Voucher::where('shop_id',$id)->get();
+        $Voucher = Voucher::where('shop_id', $id)->get();
         return view('shop.showVoucher')->with('shop', $shop)->with('Voucher', $Voucher);
     }
     public function createVoucher($id)
