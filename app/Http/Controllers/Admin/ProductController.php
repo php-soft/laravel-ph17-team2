@@ -42,7 +42,6 @@ class ProductController extends Controller
             'alias' => 'required|max:255'
         ]);
         $data = $request->all();
-        $file = $request->file('image');
         $pathImage = $request->file('image')->store('upload');
         $data['image'] = $pathImage;
         Product::create($data);
