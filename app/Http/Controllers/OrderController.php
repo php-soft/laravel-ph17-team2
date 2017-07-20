@@ -70,11 +70,13 @@ class OrderController extends Controller
             $Order->phone = Input::get('phone');
             $Order->address = Input::get('address');
             $Order->email = Input::get('email');
+            $Order->user_check=Auth::user()->id;
         } else {
             $Order->name = Input::get('name');
             $Order->phone = Input::get('phone');
             $Order->address = Input::get('address');
             $Order->email = Input::get('email');
+            $Order->user_check=0;
         }
 
         $Order->shipping_address = Input::get('shipping_address');
@@ -84,6 +86,7 @@ class OrderController extends Controller
 
         $Order->status = 0;
         $Order->total_price = $subtotal;
+
         $Order->save();
         $content =Cart::content();
 
@@ -138,6 +141,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $order->status = 1;
+        $order->user_check = -1;
         $order->save();
         return redirect('')
             ->withSuccess('Cảm ơn bạn đã xác nhận đặt hàng.');

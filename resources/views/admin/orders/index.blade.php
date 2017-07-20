@@ -44,7 +44,15 @@
                                         </a>
                                     </td>
                                     <td class="text-center" ><a href="{{ url('admin/orders/'.$order->id.'/delete') }}" title=""><span class="glyphicon glyphicon-trash"></span></a></td>
-                                    <td class="text-center" ></td>
+                                    @if ($order->user_check == 0)
+                                        <th class="text-center">Trống</th>
+                                    @else @if($order->user_check == -1)
+                                        <th class="text-center">Khách hàng</th>
+                                        @else
+                                        <?php $check_user = DB::table('users')->where('id' ,$order->user_check)->first(); ?>
+                                        <th class="text-center">{{$check_user->name}}</th>
+                                          @endif
+                                    @endif
                                 </tr>
                             @endforeach
                             <?php echo $orders->links(); ?>
