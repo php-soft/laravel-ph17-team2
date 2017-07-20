@@ -39,7 +39,8 @@ class ShopController extends Controller
         ]);
         $user = User::find($id);
         $user->shops = Shop::create(Input::all());
-        return redirect('user/shop/'.$user->id.'/index');
+        
+    
     }
 
     public function edit($id)
