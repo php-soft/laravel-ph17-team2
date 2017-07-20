@@ -72,9 +72,12 @@ class AttributeController extends Controller
         $data = $request->all();
         $categoryAttribute = CategoryAttributeValue::findOrFail($id);
         $categoryAttribute->update($data);
-        return redirect()
-            ->route('adminAttributeShow', ['id' => $categoryAttribute->id])
-            ->withSuccess('CategoryAttributeValue has been updated.');
+        $a = $categoryAttribute->category->name;
+        $categoryAttribute['categoryName'] = $a;
+        return response()->json($categoryAttribute);
+        // return redirect()
+        //     ->route('adminAttributeShow', ['id' => $categoryAttribute->id])
+        //     ->withSuccess('CategoryAttributeValue has been updated.');
     }
 
     public function destroy($id)
@@ -89,7 +92,8 @@ class AttributeController extends Controller
     public function show($id)
     {
         $categoryAttributeValue = CategoryAttributeValue::findOrFail($id);
-        return view('admin.attributes.attribute')
-            ->with('categoryAttributeValue', $categoryAttributeValue);
+        return response()->json($categoryAttributeValue);
+        // return view('admin.attributes.attribute')
+        //     ->with('categoryAttributeValue', $categoryAttributeValue);
     }
 }

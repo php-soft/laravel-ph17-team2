@@ -23,7 +23,7 @@ class ProductController extends Controller
         $categories = Category::renderAsDropdown();
         $categories = str_replace(
             '<select  >',
-            '<select id="category_id" name="category_id" class="form-control"',
+            '<select id="category_id" name="category_id" class="form-control">',
             $categories
         );
         return view('admin.products.create')
@@ -37,18 +37,14 @@ class ProductController extends Controller
             'description' => 'nullable',
             'price' => 'required|numeric',
             'category_id' => 'required|numeric|exists:categories,id',
-            // 'image' => 'image|mimes:jpeg,jpg,png | max:1000',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required',
             'alias' => 'required|max:255'
         ]);
         $data = $request->all();
-        // $file = $request->file('photo');
-        // if (!empty($file)) {
-        //     $data['image'] = str_slug(Carbon::now().'_'.$data['name'].'.'.$file->getClientOriginalExtension());
-        //     $file->move('upload', $data['image']);
-        // } else {
-        //     $data['image'] = 'default.jpg';
-        // }
+        $file = $request->file('image');
+        $pathImage = $request->file('image')->store('upload');
+        $data['image'] = $pathImage;
         Product::create($data);
         return redirect()->route('adminProduct')->withSuccess('Product has been created');
     }
@@ -59,7 +55,7 @@ class ProductController extends Controller
         $categories = Category::renderAsDropdown();
         $categories = str_replace(
             '<select  >',
-            '<select id="category_id" name="category_id" class="form-control"',
+            '<select id="category_id" name="category_id" class="form-control">',
             $categories
         );
         return view('admin.products.edit')

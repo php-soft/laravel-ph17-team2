@@ -35,7 +35,7 @@
                 </span>
                 </div>
                 <div class="box-price">
-                    <p>{{ $shopProduct->price }} đ</p>
+                    <p>{{ number_format($shopProduct->price) }} đ</p>
                 </div>
                 <div>
                 <div class="form-group">
@@ -121,7 +121,7 @@
     
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active box-item" id="detail">...</div>
+            <div role="tabpanel" class="tab-pane active box-item" id="detail">{{ $shopProduct->product->description }}</div>
             <div role="tabpanel" class="tab-pane box-item" id="feedback">
                 {{-- <fieldset>
                     <form action="">

@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(['route' => 'adminProductStore']) !!}
+    {!! Form::open(['route' => 'adminProductStore', 'enctype' => 'multipart/form-data']) !!}
         @include('admin.products.partials.forms.product')
         <div class="container">
             {!! Form::submit('Tạo sản phẩm', ['class' => 'btn btn-primary', 'id' => 'create']) !!}
