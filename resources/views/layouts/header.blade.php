@@ -20,7 +20,7 @@
 					<div class="beta-comp" >
 						<form role="search" method="get" id="searchform" action="{!! url('/search') !!}">
 					        <div>
-					        	<input type="text" style="width:100%;" class="form-control" size="50" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
+					        	<input type="text" style="width:100%;" class="form-control" size="50" value="" name="key" id="key" placeholder="Nhập từ khóa..." autocomplete="off"/>
 					        </div>
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>

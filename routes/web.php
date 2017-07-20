@@ -28,7 +28,8 @@ Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/news/category/{alias}', 'NewsController@showCategory')->name('news.showCategory');
 Route::get('/news/{alias}', 'NewsController@show')->name('news.show');
 Route::post('commentpost/{id}', 'CommentPostController@update');
-Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/search', 'AutoCompleteController@autoComplete');
+Route::get('/searchdata', array('as'=>'searchdata','uses'=>'AutoCompleteController@autoComplete'));
 
 Route::get('admin/login', 'Admin\AdminController@getLogin');//dang edit
 Route::post('admin/login', 'Admin\AdminController@postLogin');//dang edit

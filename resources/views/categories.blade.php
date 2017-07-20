@@ -50,7 +50,11 @@
 								@endforeach
 							</div>
 						</div> <!-- .beta-products-list -->
-					 {!! $cate->links() !!}
+						<div class="space40">&nbsp;</div>
+
+						<div style="text-align: center;">
+							 {!! $categories->links() !!}
+						</div>
 						
 					</div>
 				</div> <!-- end section with sidebar and main content -->
