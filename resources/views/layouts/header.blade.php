@@ -66,7 +66,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            <span class="glyphicon glyphicon-log-out"></span> Logout
+                                            <span class="glyphicon glyphicon-log-out"></span> Đăng xuất
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -117,10 +117,10 @@
 					
 						
 						<li><a href="{{ url('/')}}">Trang chủ</a></li>
-						<li><a href="voucher.html">Khuyến mãi</a></li>
-						<li><a href="about.html">Giới thiệu</a></li>
+						<li><a href="#">Khuyến mãi</a></li>
+						<li><a href="#">Giới thiệu</a></li>
 						<li><a href="{{ url('/news') }}">Tin tức</a></li>
-						<li><a href="contacts.html">Liên hệ</a></li>
+						<li><a href="#">Liên hệ</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</nav>
