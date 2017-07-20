@@ -12,21 +12,21 @@
                              <div class="space30">&nbsp;</div>
 
                             <div class="row">
-                                @foreach($products as $product)
+                                @foreach($sp as $sp)
                                     <div class="col-sm-3">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('/home/san-pham/' . $product->id) }}"><img src="source/image/product/{!! $product->image !!}" alt=""></a>
+                                                <a href="{{ url('/home/san-pham/' . $sp->id) }}"><img src="upload/product/{!! $sp->image !!}" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title" style="text-transform: capitalize;">{!! $product->name !!}</p>
+                                                <p class="single-item-title" style="text-transform: capitalize;">{!! $sp->name !!}</p>
                                                 <p class="single-item-price">
-                                                    <span>{!!number_format ($product->price) !!} VNĐ</span>
+                                                    <span>{!!number_format ($sp->price) !!} VNĐ</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href="javascript:void(0)"><i class="fa fa-shopping-cart" id={!! $product->id !!}></i></a>
-                                                <a class="beta-btn primary" href="{{ url('/home/san-pham/' . $product->id) }}">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                                                <a class="add-to-cart pull-left" href="javascript:void(0)"><i class="fa fa-shopping-cart" id={!! $sp->id !!}></i></a>
+                                                <a class="beta-btn primary" href="{{ url('/home/san-pham/' . $sp->id) }}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
                                             
