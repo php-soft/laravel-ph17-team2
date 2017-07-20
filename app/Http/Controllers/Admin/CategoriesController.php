@@ -37,7 +37,7 @@ class CategoriesController extends Controller
         $categories = Category::renderAsDropdown();
         $categories = str_replace(
             '<select  >',
-            '<select id="parent_id" name="parent_id" class="form-control"',
+            '<select id="parent_id" name="parent_id" class="form-control">',
             $categories
         );
         return view('admin.categories.createsubcategory')
@@ -82,8 +82,11 @@ class CategoriesController extends Controller
 
     public function destroy($id)
     {
-        Category::destroy($id);
-        return redirect('admin/categories')->withSuccess('Category has been deleted');
+        if (request()->ajax()) {
+            $category = Category::findOrFail($id);
+            $category->delete();
+            return response()->json($category);
+        }
     }
 
     public function show($id)

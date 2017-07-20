@@ -12,7 +12,15 @@ class AttributeController extends Controller
     public function index()
     {
         $categoryAttributes = CategoryAttributeValue::all();
-        return view('admin.attributes.index')->with('categoryAttributes', $categoryAttributes);
+        $categories = Category::renderAsDropdown();
+        $categories = str_replace(
+            '<select  >',
+            '<select id="category_id" name="category_id" class="form-control">',
+            $categories
+        );
+        return view('admin.attributes.index')
+            ->with('categoryAttributes', $categoryAttributes)
+            ->with('categories', $categories);
     }
 
     public function create()
@@ -34,8 +42,11 @@ class AttributeController extends Controller
             'category_id' => 'required|numeric|exists:categories,id',
         ]);
         $data = $request->all();
-        CategoryAttributeValue::create($data);
-        return redirect()->route('adminAttribute')->withSuccess('CategoryAttributeValue has been created.');
+        $categoryAttribute = CategoryAttributeValue::create($data);
+        $a = $categoryAttribute->category->name;
+        $categoryAttribute['categoryName'] = $a;
+        return response()->json($categoryAttribute);
+        // return redirect()->route('adminAttribute')->withSuccess('CategoryAttributeValue has been created.');
     }
 
     public function edit($id)
@@ -44,7 +55,7 @@ class AttributeController extends Controller
         $categories = Category::renderAsDropdown();
         $categories = str_replace(
             '<select  >',
-            '<select id="category_id" name="category_id" class="form-control"',
+            '<select id="category_id" name="category_id" class="form-control">',
             $categories
         );
         return view('admin.attributes.edit')

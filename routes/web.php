@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
         ->name('adminCategoriesStoreCategory');
     Route::get('/categories/{id}/edit', 'CategoriesController@edit')->name('adminCategoriesEdit');
     Route::put('/categories/{id}', 'CategoriesController@update')->name('adminCategoriesUpdate');
-    Route::get('/categories/{id}/delete', 'CategoriesController@destroy')->name('adminCategoriesDetele');
+    Route::delete('/categories/{id}/delete', 'CategoriesController@destroy')->name('adminCategoriesDetele');
     Route::get('/categories/{id}', 'CategoriesController@show')->name('adminCategoriesShow');
 
     Route::get('/attributes', 'AttributeController@index')->name('adminAttribute');
