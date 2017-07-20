@@ -21,14 +21,14 @@
                  
                  <div class="carousel-inner">
                         <div class="item active">
-                            <img src="upload/slide/slider-1.jpg " alt="Chicago" alt="Los Angeles" style="width:1400px; height:500px;">
+                            <img src="upload/slider-1.jpg " alt="Chicago" alt="Los Angeles" style="width:1400px; height:500px;">
                         <div class="carousel-caption">
                             <h3 style="color:#ca2a04;">Fs Là Nơi Tốt Nhất Để Mua Sắm!</h3>
                             <p style="color:#57a7c6">Luôn vui vẻ!</p>
                         </div>
                     </div>
                         <div class="item">
-                            <img src="upload/slide/slider-2.jpg" alt="Chicago" style="width:1400px; height:500px;">
+                            <img src="upload/slider-2.jpg" alt="Chicago" style="width:1400px; height:500px;">
                              <div class="carousel-caption">
                                 <h3 style="color:#ca2a04;">Fs Style</h3>
                                 <p style="color:#57a7c6"> Fs style, Cảm ơn!</p>
@@ -68,7 +68,7 @@
                                     <div class="col-sm-3">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="{{ url('/home/san-pham/' . $shopProduct->id) }}"><img src="upload/product/{!! $shopProduct->product->image !!}" alt=""></a>
+                                                <a href="{{ url('/home/san-pham/' . $shopProduct->id) }}"><img src="upload/{!! $shopProduct->product->image !!}" alt=""></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title" style="text-transform: capitalize;">{!! $shopProduct->product->name !!}</p>
@@ -99,7 +99,7 @@
                                 <div class="col-sm-3">
                                     <div class="single-item">
                                         <div class="single-item-header">
-                                            <a href="{{ url('/home/san-pham/' . $sp->id) }}"><img src="upload/product/{!! $sp->product->image !!}" alt=""></a>
+                                            <a href="{{ url('/home/san-pham/' . $sp->id) }}"><img src="upload/{!! $sp->product->image !!}" alt=""></a>
                                         </div>
                                         <div class="single-item-body">
                                             <p class="single-item-title" style="text-transform: capitalize;">{!! $sp->product->name !!}</p>
