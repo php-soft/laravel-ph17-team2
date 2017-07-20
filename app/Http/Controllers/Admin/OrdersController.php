@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -34,6 +35,7 @@ class OrdersController extends Controller
         if (Request::ajax()) {
             $orders = \App\Order::find($id);
             $orders->status = $status;
+            $orders->user_check = Auth::user()->id;
             $orders->save();
             return response()->json(['status' => $orders->status]);
         }

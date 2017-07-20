@@ -31,7 +31,9 @@
                                     {!! Form::label('name', $attribute->name, ['class' => 'form-lb-lb', 'style' => 'font-weight: bold; font-size: 18px;']) !!}
                                     <div class="attr">
                                         @foreach($attribute->productAttributeValues as $key)
+                                        @if($key->product_id == $product->id)
                                         <span class="label label-info" style="font-size: 15px;">{{ $key->value }} <a href="{{ route('adminProductAttributeDetele', ['id' => $key->id]) }}">X</a></span>
+                                        @endif
                                         @endforeach
                                     </div>
                                     <div>

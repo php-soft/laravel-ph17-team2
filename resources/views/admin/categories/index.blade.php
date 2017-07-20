@@ -32,7 +32,7 @@
                                 <td>{{ $category->slug }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('adminCategoriesEdit', ['id' => $category->id]) }}"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
-                                    <a href="{{ route('adminCategoriesDetele', ['id' => $category->id]) }}" data-toggle="modal"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</button></a>
+                                    <button class="btn btn-sm btn-danger delete-c" value="{{$category->id}}"><span class="glyphicon glyphicon-trash"></span>Delete</button>
                                 </td>
                             </tr>
                         @endforeach
