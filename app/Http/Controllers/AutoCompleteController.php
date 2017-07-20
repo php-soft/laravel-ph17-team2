@@ -8,7 +8,7 @@ use App\Product;
 
 class AutoCompleteController extends Controller
 {
-    public function index(Request $request) 
+    public function index(Request $request)
     {
         $sp = Product::where('name', 'LIKE', '%'. $request->key . '%')
             ->get();
