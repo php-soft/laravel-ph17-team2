@@ -6,7 +6,7 @@
         <div class="block-img-attr">
             <div class="block-pro-img">
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-90/test.png" alt="{{ $product->image }}" width="350px" height="350px">
-                @if (!empty($product->productImages))
+                {{-- @if (!empty($product->productImages))
                 <div class="small-img">
 
                     <ul>
@@ -15,7 +15,7 @@
                         @endforeach
                     </ul>
                 </div>
-                @endif
+                @endif --}}
             </div>
             <div class="block-pro-attr">
                 <div class="box-name">
@@ -51,25 +51,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div role="tabpanel">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-                <a href="#detail" aria-controls="home" role="tab" data-toggle="tab">CHI TIẾT SẢN PHẨM</a>
-            </li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active box-item" id="detail">
-                @if (!empty($product->description))
-                {{ $product->description }}
-                @else
-                <p>Chưa có chi tiết sản phẩm</p>
-                @endif
             </div>
         </div>
     </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }} </title>
     <base href="{{ asset('') }}">
 
@@ -40,6 +41,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
     <script src="{{ asset('js/myscript.js') }}"></script>
+    <script src="{{ asset('js/myshop.js') }}"></script>
     <!-- <script src="source/assets/dest/js/jquery.js"></script> -->
     <script src="source/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="source/assets/dest/vendors/bxslider/jquery.bxslider.min.js"></script>

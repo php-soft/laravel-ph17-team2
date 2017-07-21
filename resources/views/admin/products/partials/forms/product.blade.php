@@ -1,4 +1,5 @@
     <div class="container">
+        {{ csrf_field() }}
         <div class="form-group">
             {!! Form::label('name', 'Tên sản phẩm') !!}
             <div class="form-conrols">
@@ -17,10 +18,16 @@
                 {!! Form::text('price', null, ['class' => 'form-control']) !!} <span class="er">This field is required</span>
             </div>
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             {!! Form::label('image', 'Ảnh') !!}
             <div class="form-conrols">
                 {!! Form::text('image', null, ['class' => 'form-control']) !!} <span class="er">This field is required</span>
+            </div>
+        </div> --}}
+        <div class="form-group">
+            {!! Form::label('image', 'Ảnh') !!}
+            <div class="form-conrols">
+                {!! Form::file('image', null, ['class' => 'form-control']) !!}
             </div>
         </div>
         <div class="form-group">

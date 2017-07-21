@@ -204,3 +204,7 @@ input[type="text"],input[type="date"], input[type="email"],input[type="url"],tex
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	transition-delay: 1;
 }
+
+#detail {
+	padding: 10px;
+}
