@@ -75,7 +75,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['adm
     Route::get('/attributes/create', 'AttributeController@create')->name('adminAttributeCreate');
     Route::post('/attributes', 'AttributeController@store')->name('adminAttributeStore');
     Route::get('/attributes/{attributeId}/edit', 'AttributeController@edit')->name('adminAttributeEdit');
-    Route::put('/attributes/{attributeId}', 'AttributeController@update')->name('adminAttributeUpdate');
+    Route::post('/attributes/{attributeId}', 'AttributeController@update')->name('adminAttributeUpdate');
     Route::delete('/attributes/{attributeId}/delete', 'AttributeController@destroy')->name('adminAttributeDetele');
     Route::get('/attributes/{attributeId}', 'AttributeController@show')->name('adminAttributeShow');
 

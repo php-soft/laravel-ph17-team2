@@ -30,7 +30,7 @@
                                 <td>{{ $categoryAttribute->category->id }}</td>
                                 <td>{{ $categoryAttribute->name }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('adminAttributeEdit', ['id' => $categoryAttribute->id]) }}"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
+                                    <button class="btn btn-sm btn-primary edit-a" value="{{$categoryAttribute->id}}"><span class="glyphicon glyphicon-pencil"></span>Edit</button>
                                     <button class="btn btn-sm btn-danger delete-a" value="{{$categoryAttribute->id}}"><span class="glyphicon glyphicon-trash"></span>Delete</button>
                                 </td>
                             </tr>
@@ -69,6 +69,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btn-save-a" value="add">Save changes</button>
+                <input type="hidden" id="task_id" name="task_id" value="0">
             </div>
         </div>
     </div>
