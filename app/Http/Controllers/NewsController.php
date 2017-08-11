@@ -10,7 +10,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = \App\NewItem::with('user', 'newsCategory')->paginate(2);
+        $news = \App\NewItem::with('user', 'newsCategory')->orderBy('created_at', 'desc')->paginate(4);
         $categories = \App\newsCategory::All();
         $categories_badges = \App\NewItem::with('newsCategory')
             ->select(DB::raw('news_category_id, count(*) as categories_badge_count'))
@@ -24,7 +24,7 @@ class NewsController extends Controller
 
     public function showCategory($id)
     {
-        $news = \App\NewItem::with('user', 'newsCategory')->where('news_category_id', '=', $id)->paginate(2);
+        $news = \App\NewItem::with('user', 'newsCategory')->where('news_category_id', '=', $id)->orderBy('created_at', 'desc')->paginate(2);
         $categories = \App\newsCategory::All();
         $categories_badges = \App\NewItem::with('newsCategory')
             ->select(DB::raw('news_category_id, count(*) as categories_badge_count'))
